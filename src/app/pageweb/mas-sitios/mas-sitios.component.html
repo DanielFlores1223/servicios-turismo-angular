@@ -1,0 +1,56 @@
+<head>
+    <title>Catedral Guadalajara</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <link rel="styleheet" href="/node_modules/bootstrap/js/src/carousel.js" />
+    <link rel="styleheet" href="/node_modules/bootstrap/css/bootstrap.min.css" />
+</head>
+
+<body id="body" class="no-sidebar is-preload">
+    <br>
+    <div id="page-wrapper">
+
+
+
+
+        <!-- Main -->
+        <div id="main" class="wrapper style2 ">
+            <div class="title "></div>
+            <div class="container  ">
+
+                <!-- Content -->
+                <div class="container bg-light " id="content" *ngFor= "let siti of sitios |  paginate: { itemsPerPage: 1, currentPage: pageActual }">
+                    <h3> {{siti.nombresitio}}</h3>
+                    <h5>{{siti.subtitulo}}<br class="mobile-hide" />
+                    </h5>
+                    <article class="box post " id="texto">
+                        <header class="style1">
+                        </header>
+                        
+                        <a  class="image featured">
+                            <img class="container" [src]="'http://localhost:4000/' + siti.imagePath" alt="" height="450" />
+                        </a>
+                        <p class="text-justify">
+                            {{siti.descripcioncorta}}
+                        </p>
+                        <p class="text-justify">
+                            {{siti.contenido1}}
+                        </p>
+                        <p class="text-justify">
+                            {{siti.contenido2}}
+                        </p>
+                        
+                        
+                    </article>
+                    <br>
+                </div>
+                <pagination-controls (click)="scroll()" (pageChange)="pageActual = $event"></pagination-controls>
+                <br>
+
+
+                <!-- Highlights -->
+                <app-lugares></app-lugares>
+
+            </div>
+        </div>

@@ -1,0 +1,73 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="container-fluid">
+  <div class="row">
+    <!-- Main Sidebar -->
+    <!-- End Main Sidebar -->
+    <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+      <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters py-4">
+          <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Restaurantes</span>
+            <h3 class="page-title">Nuevo Restaurante</h3>
+          </div>
+        </div>
+        <!-- End Page Header -->
+          <div class="row">
+          <div class="col-lg-9 mb-4">
+           <div class="card card-small mb-4">
+             <div class="card-body">
+              <form (submit)="uploadRestaurante(nombreRes, descripcion, direccion, link)">
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <input class="form-control" type="text" maxlength="40" placeholder="Nombre del restaurante" #nombreRes required autofocus>
+                  </div>
+                  <div class="form-group col-md-4">
+                      <input class="form-control" type="text" placeholder="Direccion del restaurante" #direccion required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input class="form-control" type="url" placeholder="Tienes pagina web?" #link required>
+                  </div>
+                 </div>
+                 <div class="form-row">
+                   <div class="form-group col-md-12">
+                     <textarea class="form-control" rows="2" cols="100" placeholder="Descripción breve" #descripcion required>
+                     </textarea>
+                   </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4"></div>
+                     <div class="form-group col-md-4">
+                      <input class="form-control" type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+                      <!--si existe una foto seleccionada utiliza si no usa la que tenemos en assets-->
+                      <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid" alt="No image"
+                          (click)="photoInput.click()">
+                     </div>
+                   <div class="form-group col-md-4"></div>
+                  </div>
+                <button class="btn btn-sm btn-outline-accent">
+                  <i class="material-icons">save</i>Guardar restaurante
+                </button>
+              </form>
+              </div>
+             </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card card-small card-post card-post--1">
+                <div class="card-header"><h6 class="m-0">¿Como agregar un restaurante?</h6></div>
+                <img src="/assets/img/restaurante.png">
+                <div class="card-body">
+                  <h5 class="card-title"><a>Instrucciones</a></h5>
+                  <p class="card-text d-inline-block mb-1">*Llena todos los campos correctamente.</p>
+                  <p class="card-text d-inline-block mb-1">*Sube una imagen formato png/jpg.</p>
+                  <p class="card-text d-inline-block mb-1">*Tamaño de la imagen: 800px x 533px.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+

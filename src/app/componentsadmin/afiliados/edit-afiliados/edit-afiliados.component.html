@@ -1,0 +1,60 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="container-fluid">
+  <div class="row">
+    <!-- Main Sidebar -->
+    <!-- End Main Sidebar -->
+    <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3" >
+      <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters py-4">
+          <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Usuarios Afiliados</span>
+            <h3 class="page-title">Editar Usuario Afiliado</h3>
+          </div>
+        </div>
+        <!-- End Page Header -->
+          <div class="row">
+          <div class="col-lg-9 mb-4">
+           <div class="card card-small mb-4">
+             <div class="card-body">
+              <form>
+               <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input  [(ngModel)]="comerciante.nombre" [ngModelOptions]="{standalone: true}"  type="text" class="form-control " maxlength="40" placeholder="Nombre completo" required>
+                </div>
+               </div>
+               <div class="form-row">
+                <div class="form-group col-md-4">
+                  <input [(ngModel)]="comerciante.email" [ngModelOptions]="{standalone: true}"  type="text" class="form-control " placeholder="Giro de la empresa" required>
+                </div>
+                <div class="form-group col-md-4">
+                  <input disabled [(ngModel)]="comerciante.numerosocio" [ngModelOptions]="{standalone: true}"  type="number" class="form-control " min="1" placeholder="Numero de socio" required>
+                </div>
+                <div class="form-group col-md-4">
+                  <input [(ngModel)]="comerciante.password" [ngModelOptions]="{standalone: true}" type="password" class="form-control " maxlength="10" placeholder="Ingresa contraseña" required>
+                </div>
+              </div>
+                <button class="btn btn-sm btn-outline-accent" (click)="add()">
+                  <i class="material-icons">edit</i>Editar
+                </button>
+              </form>
+              </div>
+             </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card card-small card-post card-post--1">
+                <div class="card-header"><h6 class="m-0">¿Como editar un usuario?</h6></div>
+                <img src="/assets/img/useredit.png">
+                <div class="card-body">
+                  <h5 class="card-title"><a>Instrucciones</a></h5>
+                  <p class="card-text d-inline-block mb-1">*Llena todos los campos correctamente.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+

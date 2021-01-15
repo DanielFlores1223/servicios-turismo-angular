@@ -1,0 +1,43 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="container-fluid">
+  <div class="row">
+    <!-- Main Sidebar -->
+    <!-- End Main Sidebar -->
+    <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+      <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        
+        <div class="page-header row no-gutters py-4">
+          <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Eventos</span>
+            <h3 class="page-title">Lista de eventos</h3>
+            <button class="btn btn-sm btn-success btn-pill" (click)="navegacion()"><i class="material-icons">add</i>Agregar nuevo evento
+            </button>
+          </div>
+        </div>
+        <!-- End Page Header -->
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-4" *ngFor= "let evento of eventos">
+            <div class="card card-small card-post card-post--1">
+              <div class="card-post__image">
+                <img [src]="'http://localhost:4000/' + evento.imagePath" class="img-card-top w-100">
+              </div>
+                <div  class="card-body">
+                  <h5 class="card-title">
+                    <a class="text-fiord-blue">{{evento.nombreEvento}}</a>
+                  </h5>
+                  <p class="card-text text-justify d-inline-block mb-3">{{evento.descripcion}}</p>
+                  <p class="card-text text-center mb-3">{{evento.fecha_inicio}}</p>
+                  <div class="my-auto ml-auto text-center">
+                    <button class="btn btn-sm btn-primary btn-pill" (click)="selectedButton(evento._id)" ><i class="material-icons">edit</i>Editar
+                    </button>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div>

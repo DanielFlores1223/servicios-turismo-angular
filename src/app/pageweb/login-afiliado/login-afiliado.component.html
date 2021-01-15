@@ -1,0 +1,60 @@
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<!--link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"-->
+	<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
+</head>
+
+<body class="bg-light ">
+	<div class="container-fluid">
+		<div class="row">
+			<!-- IMAGE CONTAINER BEGIN -->
+			<div class="col-lg-6 col-md-6 d-none d-md-block infinity-image-container"></div>
+			<!-- IMAGE CONTAINER END -->
+
+			<!-- FORM CONTAINER BEGIN -->
+			<div class="col-lg-6 col-md-6 infinity-form-container">
+				<div class="col-lg-9 col-md-12 col-sm-8 col-xs-12 infinity-form">
+					<!-- Company Logo -->
+					<div class="text-center mb-3 mt-5">
+						<img src="/assets/Centro_catedral_colores.jpg" width="50%">
+						<!--width="150px"-->
+					</div>
+					<div class="text-center mb-4">
+						<h4>Iniciar sesión</h4>
+					</div>
+					<!-- Form -->
+					<form class="px-3">
+						<!-- Input Box -->
+						<div class="form-input">
+							<span><i class="fa fa-envelope"></i></span>
+							<input [(ngModel)]="comerciante.email" [ngModelOptions]="{standalone: true}" type="email"
+								name="" placeholder="Correo electrónico" tabindex="10" required>
+						</div>
+						<div class="form-input">
+							<span><i class="fa fa-lock"></i></span>
+							<input [(ngModel)]="comerciante.password" [ngModelOptions]="{standalone: true}" type="password"
+								name="" placeholder="Contraseña" required>
+						</div>
+
+						<!-- Login Button -->
+						<div class="mb-3 text-center">
+							<button type="submit" class="btn btn-primary" (click)="loginc()">Iniciar Sesión</button>
+						</div>
+						<div class="text-center">
+							<a (click)="loginAdmin()" class="forget-link">¿Eres trabajador?</a>
+						</div>
+						<div class="text-center mb-5" style="color: #777;">para tener una cuenta contacta con el administrador							
+						</div>
+					</form>
+				</div>
+				<!-- FORM END -->
+			</div>
+			<!-- FORM CONTAINER END -->
+		</div>
+	</div>
+
+</body>

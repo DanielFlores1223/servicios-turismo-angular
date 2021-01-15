@@ -1,0 +1,76 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="container-fluid">
+  <div class="row">
+    <!-- Main Sidebar -->
+    <!-- End Main Sidebar -->
+    <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3" >
+      <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters py-4">
+          <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Eventos</span>
+            <h3 class="page-title">Editar Evento</h3>
+          </div>
+        </div>
+        <!-- End Page Header -->
+          <div class="row">
+          <div class="col-lg-9 mb-4">
+           <div class="card card-small mb-4">
+             <div class="card-body">
+            <form (submit)="updateEvento(nombreEvento, direccion, fecha_inicio, fecha_fin, descripcion)">
+                <div class="form-row">
+                 <div class="form-group col-md-6">
+                   <input  type="text" class="form-control" placeholder="Nombre del evento" [value]="evento.nombreEvento" #nombreEvento>
+                 </div>
+                 <div class="form-group col-md-6">
+                   <input type="text" class="form-control" placeholder="Dirección del evento" [value]="evento.direccion" #direccion>
+                 </div>
+                </div>
+                <div class="form-row">
+                 <div class="form-group col-md-6">
+                   <input type="date" min="2020-11-22" class="form-control" [value]="evento.fecha_inicio" #fecha_inicio>
+                 </div>
+                 <div class="form-group col-md-6">
+                   <input  type="date" min="2020-11-22" class="form-control" [value]="evento.fecha_fin" #fecha_fin>
+                 </div>
+               </div>
+                 <div class="form-group">
+                   <textarea class="form-control" rows="3" cols="50" placeholder="Descripción breve del evento" [value]="evento.descripcion" #descripcion>
+                   </textarea>
+                 </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                  </div>
+                 <div class="form-group col-md-4">
+                    <img class="form-control" [src]="'http://localhost:4000/' + evento.imagePath" class="img-fluid">
+                 </div>
+                 <div class="form-group col-md-4">
+                </div>
+                </div>
+                <div class="text-center">
+                 <button class="btn btn-sm btn-outline-accent">
+                   <i class="material-icons">save</i>Editar evento
+                 </button>
+                </div>
+               </form>
+               <button class="btn btn-sm btn-outline-danger" (click)="deleteEvento(evento._id)"><i class="material-icons">delete</i>Eliminar</button>
+              </div>
+             </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+              <div class="card card-small card-post card-post--1">
+                <div class="card-header"><h6 class="m-0">¿Como editar un evento?</h6></div>
+                <div class="card-post__image" style="background-image: url('/assets/img/event.png');">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a>Instrucciones</a></h5>
+                    <p class="card-text d-inline-block mb-1">*Edita solo los campos que quieras cambiar.</p>
+                    <p class="card-text d-inline-block mb-1">*Tamaño de la imagen: 800px x 533px.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </main>
+  </div>
+</div>

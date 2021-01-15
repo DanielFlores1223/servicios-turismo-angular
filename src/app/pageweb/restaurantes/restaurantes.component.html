@@ -1,0 +1,29 @@
+<!-- Highlights  -->
+
+<body>
+  <br><br>
+  <section id="highlights" class="wrapper style3 container">
+    <div class="title"></div>
+    <div class="container">
+      <h3>Restaurantes</h3>
+      <div class="row aln-center">
+        <section id="highlights" class="wrapper style3">
+          <div class="row">
+            <div class="col-lg-4" *ngFor= "let restaurant of restaurantes ">
+              <img [src]="'http://localhost:4000/' + restaurant.imagePath" class="bd-placeholder-img rounded-circle" width="140px"
+                height="140px">
+              <h2>{{restaurant.nombreRes}}</h2>
+              <p>{{restaurant.descripcion}}</p>
+              <p><a class="btn btn-outline-info"
+                  href="{{restaurant.link}}"role="button">Ver más &raquo;</a></p>
+            </div>
+            <div >
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+          <hr class="featurette-divider">
+        </section>
+      </div>
+    </div>
+    <hr class="featurette-divider">
+  </section>
+</body>
