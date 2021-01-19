@@ -49,7 +49,7 @@ const routes: Routes = [//definimos la rutas para el enrutador
   {path:'registro', component:RegistroComponent},
   {path:'loginAfiliado', component:LoginAfiliadoComponent},
   {path: 'even', component:EventosComponent},
-  
+
   
 
   {path:'',redirectTo:'paginaprincipal', pathMatch:'full' },

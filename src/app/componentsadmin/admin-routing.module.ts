@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { from } from 'rxjs';
 import { GuarloginGuard } from '../guards/guarlogin.guard';
 
 
@@ -21,7 +22,8 @@ import { EditSitiosComponent } from './sitios/edit-sitios/edit-sitios.component'
 import { FormSitiosComponent } from './sitios/form-sitios/form-sitios.component';
 import { ListSitiosComponent } from './sitios/list-sitios/list-sitios.component';
 import { ListEmpresasComponent } from './solicitudes/list-empresas/list-empresas.component';
-
+import {ListPhotosCarruselComponent} from './configuracion-pagina/list-photos-carrusel/list-photos-carrusel.component';
+import {FormPhotosCarruselComponent} from './configuracion-pagina/form-photos-carrusel/form-photos-carrusel.component';
 
 const routes: Routes = [
 
@@ -33,7 +35,6 @@ const routes: Routes = [
   {path: 'afiliados', component: ListAfiliadosComponent,canActivate :[GuarloginGuard]}, 
   {path: 'afiliados/new',component: FormAfiliadosComponent,canActivate :[GuarloginGuard]},
   {path: 'afiliados/:numerosocio',component: EditAfiliadosComponent,canActivate :[GuarloginGuard]},
-
 
   {path: 'eventos', component: ListEventsComponent,canActivate :[GuarloginGuard]}, 
   {path: 'eventos/new',component: FormEventsComponent,canActivate :[GuarloginGuard]},
@@ -53,8 +54,9 @@ const routes: Routes = [
 
   {path: 'empresas', component: ListEmpresasComponent,canActivate :[GuarloginGuard]}, 
 
+  {path: 'carrusel', component: ListPhotosCarruselComponent, canActivate: [GuarloginGuard]},
+  {path: 'carrusel/new-photo', component: FormPhotosCarruselComponent, canActivate: [GuarloginGuard]},
 
-  
   {path:'',redirectTo:'panel', pathMatch:'full' },
 
 

@@ -1,0 +1,28 @@
+<main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+    <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters py-4">
+            <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Configuración</span>
+                <h3 class="page-title">Carrusel</h3>
+                <a routerLink="/carrusel/new-photo" class="btn btn-sm btn-success btn-pill mt-2"><i class="material-icons">add</i>Agregar nueva imagen
+                </a>
+            </div>
+        </div>
+
+        <!-- List images -->
+        <div class="col-sm-12 col-md-4" *ngFor="let photo of photos">
+            <div class="card card-small card-post card-post--1 my-2">
+                <div class="card-post__image">
+                    <img [src]="'http://localhost:4000/' + photo.imagePath" class="img-card-top w-100">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a class="text-fiord-blue">{{photo.title}}</a>
+                    </h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>

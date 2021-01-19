@@ -1,0 +1,33 @@
+<main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+    <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters py-4">
+            <div class="col-12 col-sm-12 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Configuración</span>
+                <h3 class="page-title">Nueva imagen para el Carrusel</h3>
+            </div>
+        </div>
+
+        <!-- Form upload image -->
+        <div class="row">
+            <div class="col-6">
+                <div class="card-body text-center">
+                    <form (submit)="uploadPhoto(title)" class="">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Ingresa el nombre de la imagen" #title required>
+                        </div>
+
+                        <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput accept="image/*">
+                        <!--si existe una foto seleccionada utiliza si no usa la que tenemos en assets-->
+                        <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid" style="height: 200px;" alt="No image" (click)="photoInput.click()">
+
+                        <button class="btn-block btn btn-sm btn-outline-accent">
+                            <i class="material-icons">save</i>Guardar imagen
+                </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

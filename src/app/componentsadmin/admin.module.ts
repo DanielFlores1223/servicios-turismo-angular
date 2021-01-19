@@ -23,6 +23,9 @@ import { ListSitiosComponent } from './sitios/list-sitios/list-sitios.component'
 import { NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { ListEmpresasComponent } from './solicitudes/list-empresas/list-empresas.component';
+import { ListPhotosCarruselComponent } from './configuracion-pagina/list-photos-carrusel/list-photos-carrusel.component';
+import { FormPhotosCarruselComponent } from './configuracion-pagina/form-photos-carrusel/form-photos-carrusel.component';
+
 
 
 
@@ -47,7 +50,7 @@ import { ListEmpresasComponent } from './solicitudes/list-empresas/list-empresas
     ListRestaurantComponent, 
     EditSitiosComponent, 
     FormSitiosComponent, 
-    ListSitiosComponent, ListEmpresasComponent, 
+    ListSitiosComponent, ListEmpresasComponent, ListPhotosCarruselComponent, FormPhotosCarruselComponent,
     
   ],
   imports: [

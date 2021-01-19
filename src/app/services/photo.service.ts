@@ -14,10 +14,9 @@ export class PhotoService {
 //instanciamos httpcliente en el construc
   constructor(private http: HttpClient) { }
 
-  createPhoto(title: string, description: string, photo: File) {
+  createPhoto(title: string, photo: File) {
     const fd = new FormData();
     fd.append('title', title);//se crea un campo a este formulario title y se pasa el valor del input
-    fd.append('description', description);
     fd.append('image', photo);
     return this.http.post(this.URI, fd);//retornamos una peticion post a la ruta
   }
