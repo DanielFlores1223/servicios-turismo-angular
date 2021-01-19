@@ -10,7 +10,7 @@
 
         <!-- Form upload image -->
         <div class="row">
-            <div class="col-6">
+            <div class="card card-small card-post card-post--1 col-9 mb-2">
                 <div class="card-body text-center">
                     <form (submit)="uploadPhoto(title)" class="">
                         <div class="form-group">
@@ -19,12 +19,29 @@
 
                         <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput accept="image/*">
                         <!--si existe una foto seleccionada utiliza si no usa la que tenemos en assets-->
-                        <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid" style="height: 200px;" alt="No image" (click)="photoInput.click()">
+                        <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid" style="height: 350px;" alt="No image" (click)="photoInput.click()">
 
                         <button class="btn-block btn btn-sm btn-outline-accent">
                             <i class="material-icons">save</i>Guardar imagen
                 </button>
                     </form>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                <div class="card card-small card-post card-post--1">
+                    <div class="card-header">
+                        <h6 class="m-0">¿Como añadir otra imagen al carrusel?</h6>
+                    </div>
+                    <div class="text-center">
+                        <img src=" ./assets/img/addImage.png " class="w-100">
+                    </div>
+                    <div class="card-body ">
+                        <h5 class="card-title "><a>Instrucciones</a></h5>
+                        <p class="card-text d-inline-block mb-1 ">*Llena todos los campos correctamente.</p>
+                        <p class="card-text d-inline-block mb-1 ">*Sube una imagen formato png/jpg.</p>
+                        <p class="card-text d-inline-block mb-1 ">*Recomendación: Tamaño de la imagen: 1200 x 628px.</p>
+                    </div>
                 </div>
             </div>
         </div>
