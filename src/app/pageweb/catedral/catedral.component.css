@@ -1,0 +1,70 @@
+p{
+    text-align: justify;
+    
+}
+input #search {
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+}
+#logo {
+    width: 300px;
+    height: 300px;
+}
+#img1{
+    height: 380px;
+    width: auto;
+    padding: 10px; 
+    margin: 10px; 
+    box-shadow: 2px 2px 5px #999;
+    box-shadow: 2px 2px 5px rgb(187, 187, 187);
+  -moz-box-shadow: 2px 2px 5px rgb(197, 197, 197);
+    float: left;  
+}
+#img2{
+    height: 340px;
+    width: auto;
+    padding: 10px; 
+    margin: 10px; 
+    box-shadow: 2px 2px 5px rgb(187, 187, 187);
+  -moz-box-shadow: 2px 2px 5px rgb(197, 197, 197); 
+    float: right;   
+}
+#img3{
+    filter: alpha(opacity=50);
+}
+h3{
+    text-align: center;
+    font-size: 40px;
+    padding: 10px;
+    margin-top: 10px; 
+}
+h2{
+    text-align: center;
+    font-size: 40px;
+    padding: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+#texto{
+    font-size: 16px;
+    margin: 2px;
+}
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  /*Móviles en horizontal o tablets en vertical
+   -------------------------------------------------------------------------*/
+@media (min-width: 768px) {
+    
+ }
+ 
+/*Tablets en horizonal y escritorios normales
+   -------------------------------------------------------------------------*/
+@media (min-width: 1024px) { }
+ 
+/*Escritorios muy anchos
+   -------------------------------------------------------------------------*/
+@media (min-width: 1200px) { }

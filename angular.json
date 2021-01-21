@@ -27,15 +27,12 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
               "node_modules/shards-ui/dist/css/shards-dashboards.1.1.0.min.css"
-
             ],
             "scripts": [
-
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/shards-ui/dist/js/shards-dashboards.1.1.0.min.js"
-
             ]
           },
           "configurations": {
@@ -129,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-photo-gallery"
+    }
+  },
+  "defaultProject": "angular-photo-gallery",
+  "cli": {
+    "analytics": false
+  }
 }
