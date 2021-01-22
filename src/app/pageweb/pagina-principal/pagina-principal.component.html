@@ -7,6 +7,7 @@
 </head>
 
 <main role="main">
+
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <!--  Aqui se muestran los li en el carrusel desde la base de datos -->
@@ -15,19 +16,8 @@
         <div class="carousel-inner">
             <!--  Aqui se muestran las fotos en el carrusel desde la base de datos -->
             <div *ngFor="let photo of photos; let i = index" class="carousel-item {{i == 0 ? 'active':''}}">
-                <img [src]="'http://localhost:4000/' + photo.imagePath" class="bd-placeholder-img" width="100%" height="100%">
+                <img [src]="'http://localhost:4000/' + photo.imagePath" class="bd-placeholder-img" width="100%">
             </div>
-            <!-- <div class="carousel-item">
-          <img src="/assets/images/carrucel/Carrusel1.jpg" class="bd-placeholder-img" width="100%" height="100%">
-          <div class="container">
-          </div>
-        </div>
-        <div class="carousel-item">
-  
-          <img src="/assets/images/carrucel/Carrusel5.jpg" class="bd-placeholder-img" width="100%" height="100%">
-          <div class="container">
-          </div>
-        </div> -->
         </div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -54,41 +44,37 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-              <h2 class="featurette-heading">Hoteles mas cercanos al centro de Guadalajara. <a routerLink="../hotels"><span
+                <h2 class="featurette-heading">Hoteles mas cercanos al centro de Guadalajara. <a routerLink="../hotels"><span
                   class="text-muted">Conocelos</span></a></h2>
-              <p class="lead">Encuentra los mejores Hoteles cerca de ti. ¿Buscas una experiencia fuera de casa? Aquí podrás
-                encontrar diversas opciónes para ti y tu familia hospedandote en los hoteles que Guadalajara tiene para ti.
-              </p>
+                <p class="lead">Encuentra los mejores Hoteles cerca de ti. ¿Buscas una experiencia fuera de casa? Aquí podrás encontrar diversas opciónes para ti y tu familia hospedandote en los hoteles que Guadalajara tiene para ti.
+                </p>
             </div>
             <div class="col-md-5">
-              <img
-                src="https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/22/18/2218036_v7.jpeg"
-                class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
-      
+                <img src="https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/22/18/2218036_v7.jpeg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+
             </div>
-          </div>
-      
-          <hr class="featurette-divider">
-      
-          <div class="row featurette">
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
             <div class="col-md-7 order-md-2">
-              <h2 class="featurette-heading">Rutas cerca a tu destino. <a routerLink="../rutascamion"><span
+                <h2 class="featurette-heading">Rutas cerca a tu destino. <a routerLink="../rutascamion"><span
                 class="text-muted">Transporte público</span></a><span class="text-muted"></span></h2>
-              <p class="lead">¿Tienes curiosidad por saber cómo el transporte público puede ayudarte en Guadalajara?
-                En cada uno de los destinos que encontrarás con nocotros, podrás visualizar las mejores rutas de autobuses para llegar 
-                rápido a tu destino. Viajar por Guadalajara nunca ha sido tan fácil.
-              </p>
+                <p class="lead">¿Tienes curiosidad por saber cómo el transporte público puede ayudarte en Guadalajara? En cada uno de los destinos que encontrarás con nocotros, podrás visualizar las mejores rutas de autobuses para llegar rápido a tu destino. Viajar por
+                    Guadalajara nunca ha sido tan fácil.
+                </p>
             </div>
             <div class="col-md-5 order-md-1">
-              <img src="https://i0.wp.com/www.autotransporte.mx/wp-content/uploads/2017/08/DSC0008.jpg?fit=1024%2C680&ssl=1"
-                class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+                <img src="https://i0.wp.com/www.autotransporte.mx/wp-content/uploads/2017/08/DSC0008.jpg?fit=1024%2C680&ssl=1" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
             </div>
-          </div>
-      
-          <hr class="featurette-divider">
-      
-          <div class="row featurette">
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
             <div class="col-md-7">
+
               <h2 class="featurette-heading">¿Quieres anunciarte con nosotros?<a routerLink="../registro"><span 
                 class="text-muted">Contáctanos.</span></a><span class="text-muted"></span></h2>
               <p class="lead">El perfil de nuestros lectores es tan diverso como las riquezas de nuestro patrimonio cultural.
@@ -96,16 +82,16 @@
               </p>
             </div>
             <div class="col-md-5"><br><br><br><br>
-              <img src="https://agenciaclover.com/wp-content/uploads/2017/01/Social-Media.png"
-                class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
+                <img src="https://agenciaclover.com/wp-content/uploads/2017/01/Social-Media.png" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
             </div>
-          </div>
-      
-          <hr class="featurette-divider">
-      
-          <!-- /END THE FEATURETTES -->
-      
-        </div><!-- /.container -->
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+    </div>
+    <!-- /.container -->
 
     <!-- FOOTER -->
 </main>
