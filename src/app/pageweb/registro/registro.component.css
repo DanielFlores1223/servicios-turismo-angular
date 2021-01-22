@@ -1,7 +1,7 @@
 .infinity-image-container{
 	background: url('/assets/Catedral_centro_rotonda.jpg') center no-repeat;
 	background-size: cover;
-	height: 100vh;
+    height: 100vh;
 }
 
 .infinity-form-container{

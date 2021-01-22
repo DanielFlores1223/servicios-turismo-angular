@@ -21,15 +21,15 @@
 
                 <!-- Content -->
                 <div class="container bg-light " id="content" *ngFor= "let siti of sitios |  paginate: { itemsPerPage: 1, currentPage: pageActual }">
-                    <h3> {{siti.nombresitio}}</h3>
-                    <h5>{{siti.subtitulo}}<br class="mobile-hide" />
-                    </h5>
+                    <h2> {{siti.nombresitio}}</h2>
+                    <h3>{{siti.subtitulo}}<br class="mobile-hide" />
+                    </h3>
                     <article class="box post " id="texto">
                         <header class="style1">
                         </header>
                         
                         <a  class="image featured">
-                            <img class="container" [src]="'http://localhost:4000/' + siti.imagePath" alt="" height="450" />
+                            <img class="container" id="img1" [src]="'http://localhost:4000/' + siti.imagePath" alt="" height="450" />
                         </a>
                         <p class="text-justify">
                             {{siti.descripcioncorta}}

@@ -7,6 +7,7 @@
 </head>
 
 <main role="main">
+
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <!--  Aqui se muestran los li en el carrusel desde la base de datos -->
@@ -15,19 +16,8 @@
         <div class="carousel-inner">
             <!--  Aqui se muestran las fotos en el carrusel desde la base de datos -->
             <div *ngFor="let photo of photos; let i = index" class="carousel-item {{i == 0 ? 'active':''}}">
-                <img [src]="'http://localhost:4000/' + photo.imagePath" class="bd-placeholder-img" width="100%" height="100%">
+                <img [src]="'http://localhost:4000/' + photo.imagePath" class="bd-placeholder-img" width="100%">
             </div>
-            <!-- <div class="carousel-item">
-          <img src="/assets/images/carrucel/Carrusel1.jpg" class="bd-placeholder-img" width="100%" height="100%">
-          <div class="container">
-          </div>
-        </div>
-        <div class="carousel-item">
-  
-          <img src="/assets/images/carrucel/Carrusel5.jpg" class="bd-placeholder-img" width="100%" height="100%">
-          <div class="container">
-          </div>
-        </div> -->
         </div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -52,12 +42,11 @@
 
         <!-- Three columns of text below the carousel -->
 
-        <!-- START THE FEATURETTES -->
-
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Hoteles mas sercanos al centro de Guadalajara <span class="text-muted">Conocelos</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+                <h2 class="featurette-heading">Hoteles mas cercanos al centro de Guadalajara. <a routerLink="../hotels"><span
+                  class="text-muted">Conocelos</span></a></h2>
+                <p class="lead">Encuentra los mejores Hoteles cerca de ti. ¿Buscas una experiencia fuera de casa? Aquí podrás encontrar diversas opciónes para ti y tu familia hospedandote en los hoteles que Guadalajara tiene para ti.
                 </p>
             </div>
             <div class="col-md-5">
@@ -70,8 +59,10 @@
 
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Rutas cerca a tu destino <span class="text-muted"></span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+                <h2 class="featurette-heading">Rutas cerca a tu destino. <a routerLink="../rutascamion"><span
+                class="text-muted">Transporte público</span></a><span class="text-muted"></span></h2>
+                <p class="lead">¿Tienes curiosidad por saber cómo el transporte público puede ayudarte en Guadalajara? En cada uno de los destinos que encontrarás con nocotros, podrás visualizar las mejores rutas de autobuses para llegar rápido a tu destino. Viajar por
+                    Guadalajara nunca ha sido tan fácil.
                 </p>
             </div>
             <div class="col-md-5 order-md-1">
@@ -83,10 +74,12 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">¿Quieres anunciarte con nosotros? <span class="text-muted">Contactanos.</span>
-                </h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-                </p>
+
+              <h2 class="featurette-heading">¿Quieres anunciarte con nosotros?<a routerLink="../registro"><span 
+                class="text-muted">Contáctanos.</span></a><span class="text-muted"></span></h2>
+              <p class="lead">El perfil de nuestros lectores es tan diverso como las riquezas de nuestro patrimonio cultural.
+                Anunciarte con nosotros traerá grandes veneficios para tu comercio, dando a conocer tu negocio dentro de Guadalajara.
+              </p>
             </div>
             <div class="col-md-5"><br><br><br><br>
                 <img src="https://agenciaclover.com/wp-content/uploads/2017/01/Social-Media.png" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">
