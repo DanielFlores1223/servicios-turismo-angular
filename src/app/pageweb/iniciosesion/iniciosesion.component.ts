@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
-import { CrudService } from '../../services/crud.service';
+import { AdminCrudService } from '../../services/admin-crud.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -22,7 +22,7 @@ export class IniciosesionComponent implements OnInit {
     password:"",
     tipo:""
   }
-  constructor(private router:Router,private serviciologin:CrudService) { }
+  constructor(private router:Router,private serviciologin:AdminCrudService) { }
 
   async ngOnInit(): Promise<void> {
     await this.router.events.subscribe((evt) => { 

@@ -4,17 +4,14 @@
         <!-- Page Header -->
         <div class="page-header row no-gutters py-4">
           <div class="col-12 col-sm-5 text-center text-sm-left mb-0">
-            <span class="text-uppercase page-subtitle">Usuarios Afiliados</span>&nbsp;
+            <span class="text-uppercase page-subtitle">Administradores autorizados</span>&nbsp;
 
             <tbody>
               <tr>
                 <td>
                   <button class="btn btn-sm btn-success btn-pill"  (click)="navegacion()" >
-                    <i class="material-icons">add</i>Agregar nuevo usuario
-                  </button>&nbsp;
-                  <button class="btn btn-sm btn-success btn-pill"  (click)="navegacion()" >
                     <i class="material-icons">add</i>Agregar nuevo administrador
-                  </button>
+                  </button>&nbsp;
                 </td>
               </tr>
             </tbody>
@@ -25,26 +22,28 @@
             <div class="col">
               <div class="card card-small mb-4">
                 <div class="card-header border-bottom">
-                  <h6 class="m-0">Usuarios Afiliados</h6>
+                  <h6 class="m-0">Administradores</h6>
                 </div>
                 <div class="card-body p-0 pb-3 text-center">
                   <table class="table">
                     <thead class="bg-light">
                       <tr>
                         <th scope="col" class="border-0">Nombre</th>
-                        <th scope="col" class="border-0">email</th>
-                        <th scope="col" class="border-0">No. Socio</th>
+                        <th scope="col" class="border-0">Email</th>
+                        <th scope="col" class="border-0">Dirección</th>
+                        <th scope="col" class="border-0">Teléfono</th>
                         <th scope="col" class="border-0">Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor= "let comerciant of comerciantes |  paginate: { itemsPerPage: 4, currentPage: pageActual }">
-                        <td>{{comerciant.nombre}}</td>
-                        <td>{{comerciant.email}}</td>
-                        <td>{{comerciant.numerosocio}}</td><!--routerLink="['/edit-afiliados',comerciant.numerosocio]"-->
+                      <tr *ngFor= "let admin of admin |  paginate: { itemsPerPage: 4, currentPage: pageActual }">
+                        <td>{{admin.nombre}}</td>
+                        <td>{{admin.email}}</td>
+                        <td>{{admin.direccion}}</td>
+                        <td>{{admin.telefono}}</td><!--routerLink="['/edit-afiliados',comerciant.numerosocio]"-->
                         <td>
-                            <button  class="btn btn-sm btn-primary btn-pill" (click)="modificar(comerciant.numerosocio)" ><i class="material-icons" style="font-size:14px;">edit</i></button>
-                            <button  class="btn btn-sm btn-danger btn-pill" (click)="eliminar(comerciant.numerosocio)"><i class="material-icons" style="font-size:14px;">delete</i></button>
+                            <a routerLink="/administradores/{{admin._id}}" class="btn btn-sm btn-primary btn-pill" ><i class="material-icons" style="font-size:14px;">edit</i></a>
+                            <button  class="btn btn-sm btn-danger btn-pill" (click)="eliminaradministrador(admin._id)"><i class="material-icons" style="font-size:14px;">delete</i></button>
                         </td>
                       </tr>
                       
@@ -59,4 +58,5 @@
       </div>
     </main>
    
+
 

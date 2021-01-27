@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { from } from 'rxjs';
-import { AdminCrudService } from '../../services/admin-crud.service';
+import { AdminCrudService } from '../../../services/admin-crud.service';
 import Swal from 'sweetalert2';
-
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  selector: 'app-form-admin',
+  templateUrl: './form-admin.component.html',
+  styleUrls: ['./form-admin.component.css']
 })
-export class RegistroComponent implements OnInit {
-
+export class FormAdminComponent implements OnInit {
   usuario={
     nombre:"",
     email:"",
@@ -19,7 +17,6 @@ export class RegistroComponent implements OnInit {
     password:"",
     tipo:"admin"
   }
-
   constructor(private router:Router, private registroservicio:AdminCrudService) { }
 
   async ngOnInit(): Promise<void> {
