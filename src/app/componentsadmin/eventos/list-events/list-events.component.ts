@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class ListEventsComponent implements OnInit {
 
   eventos: Evento[] = [];//creamos list vacia
-
+  pageActual = 1;
 
   constructor(private eventoService: EventoService, private router: Router) { }
 

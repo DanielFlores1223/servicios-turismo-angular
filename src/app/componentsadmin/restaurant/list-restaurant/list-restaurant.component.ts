@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class ListRestaurantComponent implements OnInit {
 
   restaurantes: Restaurante[] = [];//creamos list vacia
-
+  pageActual = 1;
 
   constructor(private restauranteService: RestauranteService, private router: Router) { }
 

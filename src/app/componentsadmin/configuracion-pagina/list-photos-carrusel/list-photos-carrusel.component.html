@@ -1,14 +1,23 @@
 <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
     <div class="main-content-container container-fluid px-4">
         <!-- Page Header -->
-        <div class="page-header row no-gutters py-4">
+        <div class="page-header row no-gutters pt-4 mb-1">
             <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <span class="text-uppercase page-subtitle">Configuración</span>
                 <h3 class="page-title">Carrusel</h3>
-                <a routerLink="/carrusel/new-photo" class="btn btn-sm btn-success btn-pill mt-2"><i class="material-icons">add</i>Agregar nueva imagen
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 centrar-responsive">
+                <a routerLink="/carrusel/new-photo" class="btn btn-sm btn-success btn-pill btn-responsive"><i class="material-icons">add</i>Agregar nueva imagen
                 </a>
-                <a class="btn btn-sm btn-success btn-pill mt-2 ml-2" data-toggle="modal" data-target="#modalPreview"><i class="material-icons"></i>Preview del carrusel
+                <a class="btn btn-sm btn-success btn-pill btn-responsive separar-btn" data-toggle="modal" data-target="#modalPreview"><i class="material-icons"></i>Preview del carrusel
                 </a>
+            </div>
+            <div class="col-md-6 col-sm-12 d-md-flex justify-content-md-end">
+                <!-- Pagination md and lg -->
+                <pagination-controls class="pagination-style pagination-md" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+                </pagination-controls>
             </div>
         </div>
 
@@ -31,7 +40,9 @@
 
             </div>
         </div>
-        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+        <!-- pagination-sm -->
+        <pagination-controls class="pagination-style pagination-sm" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+        </pagination-controls>
     </div>
 
     <!-- Modal Preview-->
