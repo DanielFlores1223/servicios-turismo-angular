@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/*Estilos para componentes de administrador*/
+
+.pagination-style {
+    font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+    .pagination-sm {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .centrar-responsive {
+        text-align: center;
+    }
+    .btn-responsive {
+        width: 90%;
+        padding: 0.8rem 0 !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 1rem;
+    }
+    .btn-responsive-form {
+        width: 100%;
+        padding: 0.8rem 0 !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 1rem;
+    }
+    .pagination-style {
+        text-align: center;
+        font-size: 1.08rem;
+        justify-content: center;
+    }
+    .pagination-md {
+        display: none;
+    }
+}

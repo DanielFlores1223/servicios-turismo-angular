@@ -1,0 +1,9 @@
+.separar-btn {
+    margin-left: 1rem;
+}
+
+@media (max-width: 576px) {
+    .separar-btn {
+        margin-left: 0rem;
+    }
+}

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class ListHotelComponent implements OnInit {
 
   hoteles: Hotel[] = [];//creamos list vacia
-
+  pageActual = 1;
 
   constructor(private hotelService: HotelService, private router: Router) { }
 

@@ -1,77 +1,78 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="container-fluid">
-  <div class="row">
-    <!-- Main Sidebar -->
-    <!-- End Main Sidebar -->
-    <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3" >
-      <div class="main-content-container container-fluid px-4">
-        <!-- Page Header -->
-        <div class="page-header row no-gutters py-4">
-          <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-            <span class="text-uppercase page-subtitle">Eventos</span>
-            <h3 class="page-title">Nuevo Evento</h3>
-          </div>
-        </div>
-        <!-- End Page Header -->
-          <div class="row">
-          <div class="col-lg-9 mb-4">
-           <div class="card card-small mb-4">
-             <div class="card-body">
-            <form (submit)="uploadEvento(nombreEvento, direccion, fecha_inicio, fecha_fin, descripcion)">
-                <div class="form-row">
-                 <div class="form-group col-md-6">
-                   <input  type="text" class="form-control" placeholder="Nombre del evento" #nombreEvento required autofocus>
-                 </div>
-                 <div class="form-group col-md-6">
-                   <input type="text" class="form-control" placeholder="Dirección del evento" #direccion required>
-                 </div>
+    <div class="row">
+        <!-- Main Sidebar -->
+        <!-- End Main Sidebar -->
+        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+            <div class="main-content-container container-fluid px-4">
+                <!-- Page Header -->
+                <div class="page-header row no-gutters py-4">
+                    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                        <span class="text-uppercase page-subtitle">Eventos</span>
+                        <h3 class="page-title">Nuevo Evento</h3>
+                    </div>
                 </div>
-                <div class="form-row">
-                 <div class="form-group col-md-6">
-                   <input type="date" min="2020-11-22" class="form-control" #fecha_inicio required>
-                 </div>
-                 <div class="form-group col-md-6">
-                   <input  type="date" min="2020-11-22" class="form-control" #fecha_fin required>
-                 </div>
-               </div>
-                 <div class="form-group">
-                   <textarea class="form-control" rows="3" cols="50" placeholder="Descripción breve del evento" #descripcion required>
+                <!-- End Page Header -->
+                <div class="row">
+                    <div class="col-lg-9 mb-4">
+                        <div class="card card-small mb-4">
+                            <div class="card-body">
+                                <form (submit)="uploadEvento(nombreEvento, direccion, fecha_inicio, fecha_fin, descripcion)">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <input type="text" class="form-control" placeholder="Nombre del evento" #nombreEvento required autofocus>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="text" class="form-control" placeholder="Dirección del evento" #direccion required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <input type="date" min="2020-11-22" class="form-control" #fecha_inicio required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="date" min="2020-11-22" class="form-control" #fecha_fin required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="3" cols="50" placeholder="Descripción breve del evento" #descripcion required>
                    </textarea>
-                 </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                  </div>
-                 <div class="form-group col-md-4">
-                    <input class="form-control" type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
-                    <!--si existe una foto seleccionada utiliza si no usa la que tenemos en assets-->
-                    <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid" alt="No image"
-                        (click)="photoInput.click()">
-                 </div>
-                 <div class="form-group col-md-4">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <input class="form-control" type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+                                            <!--si existe una foto seleccionada utiliza si no usa la que tenemos en assets-->
+                                            <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid" alt="No image" (click)="photoInput.click()">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-accent btn-responsive-form">
+                                    <i class="material-icons">save</i>Guardar evento
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                        <div class="card card-small card-post card-post--1">
+                            <div class="card-header">
+                                <h6 class="m-0">¿Como crear un evento?</h6>
+                            </div>
+                            <div class="card-post__image" style="background-image: url('/assets/img/event.png');">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><a>Instrucciones</a></h5>
+                                <p class="card-text d-inline-block mb-1">*Llena todos los campos correctamente.</p>
+                                <p class="card-text d-inline-block mb-1">*Sube una imagen formato png/jpg.</p>
+                                <p class="card-text d-inline-block mb-1">*Tamaño de la imagen: 800px x 533px.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                 <button class="btn btn-sm btn-outline-accent">
-                   <i class="material-icons">save</i>Guardar evento
-                 </button>
-               </form>
-              </div>
-             </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-              <div class="card card-small card-post card-post--1">
-                <div class="card-header"><h6 class="m-0">¿Como crear un evento?</h6></div>
-                <div class="card-post__image" style="background-image: url('/assets/img/event.png');">
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title"><a>Instrucciones</a></h5>
-                  <p class="card-text d-inline-block mb-1">*Llena todos los campos correctamente.</p>
-                  <p class="card-text d-inline-block mb-1">*Sube una imagen formato png/jpg.</p>
-                  <p class="card-text d-inline-block mb-1">*Tamaño de la imagen: 800px x 533px.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-    </main>
-  </div>
+        </main>
+    </div>
 </div>
