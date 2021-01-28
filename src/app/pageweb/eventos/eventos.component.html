@@ -25,7 +25,7 @@
   
           <div class="row">
             <!-------------------------------pruebassss------------->
-            <div class="col-md-4" *ngFor= "let event of eventos ">
+            <div class="col-md-4" *ngFor= "let event of eventos |paginate: { itemsPerPage: 6, currentPage: pageActual }">
               <div class="card mb-4 shadow-sm">
                 <img [src]="'http://localhost:4000/' + event.imagePath" class="bd-placeholder-img card-img-top" width="50%"
                   height="225" preserveAspectRatio="xMidYMid slice">
@@ -41,6 +41,11 @@
                 </div>
               </div>
             </div>
+            <div class="col-sm-12 col-md-12 posicionar-pagination">
+              <!-- Pagination md and lg-->
+              <pagination-controls class="pagination-style pagination-table-responsive pagination-md" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+              </pagination-controls>
+          </div>
           </div>
         </div>
       </div>

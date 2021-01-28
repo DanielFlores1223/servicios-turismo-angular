@@ -23,3 +23,17 @@ h3{
     margin-top: 0px;
     font-weight: bold;
 }
+.posicionar-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+    .posicionar-pagination {
+      justify-content: center;
+      margin-bottom: 0;
+    }
+  }

@@ -7,27 +7,18 @@
     <link rel="styleheet" href="/node_modules/bootstrap/css/bootstrap.min.css" />
 </head>
 
-<body id="body" class="no-sidebar is-preload">
-    <br>
+<body id="body" class="no-sidebar is-preload"><br>
     <div id="page-wrapper">
-
-
-
-
         <!-- Main -->
         <div id="main" class="wrapper style2 ">
             <div class="title "></div>
-            <div class="container  ">
-
+                <div class="container  ">
                 <!-- Content -->
                 <div class="container bg-light " id="content" *ngFor= "let siti of sitios |  paginate: { itemsPerPage: 1, currentPage: pageActual }">
                     <h2> {{siti.nombresitio}}</h2>
-                    <h3>{{siti.subtitulo}}<br class="mobile-hide" />
-                    </h3>
+                    <h3>{{siti.subtitulo}}<br class="mobile-hide" /></h3>
                     <article class="box post " id="texto">
-                        <header class="style1">
-                        </header>
-                        
+                        <header class="style1"></header> 
                         <a  class="image featured">
                             <img class="container" id="img1" [src]="'http://localhost:4000/' + siti.imagePath" alt="" height="450" />
                         </a>
@@ -39,16 +30,16 @@
                         </p>
                         <p class="text-justify">
                             {{siti.contenido2}}
-                        </p>
-                        
-                        
+                        </p> 
                     </article>
                     <br>
                 </div>
-                <pagination-controls (click)="scroll()" (pageChange)="pageActual = $event"></pagination-controls>
                 <br>
-
-
+                <div class="col-sm-12 col-md-8 posicionar-pagination">
+                    <!-- Pagination md and lg-->
+                    <pagination-controls class="pagination-style pagination-table-responsive pagination-md" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+                    </pagination-controls>
+                </div>
                 <!-- Highlights -->
                 <app-lugares></app-lugares>
 

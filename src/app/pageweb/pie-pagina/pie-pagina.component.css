@@ -23,7 +23,8 @@ footer{
 }
 
 .colum1 h1{
-    font-size: 17px;
+    font-size: 20px;
+    color:rgb(63, 118, 155);
 }
 
 .colum1 p{
@@ -38,7 +39,8 @@ footer{
 }
 
 .colum2 h1{
-    font-size: 17px;
+    font-size: 20px;
+    color:rgb(63, 118, 155);
 }
 
 .row{
@@ -62,7 +64,8 @@ footer{
 }
 
 .colum3 h1{
-    font-size: 17px;
+    font-size: 20px;
+    color:rgb(63, 118, 155);
 }
 
 .row2{
@@ -108,7 +111,14 @@ footer{
     text-decoration: none;
     color: white;
 }
-
+a{
+    cursor: pointer;
+    color: rgb(235, 235, 235);
+    font-size: 16px;
+}
+p{
+    text-align: justify;
+}
 
 @media screen and (max-width: 1100px){
     
@@ -119,12 +129,24 @@ footer{
     .colum1{
         max-width: 100%;
     }
+    .colum1, .colum2, .colum3 h1{
+        font-size: 20px;
+        color:rgb(63, 118, 155);
+    }
     
     .colum2,
     .colum3{
         margin-top: 40px;
     }
-}
-p{
-    text-align: justify;
+    a{
+        cursor: pointer;
+        color: rgb(235, 235, 235);
+        font-size: 16px;
+    }
+    p{
+        text-align: justify;
+    }
+    label{
+        font-size: 16px;
+    }
 }
