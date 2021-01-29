@@ -8,7 +8,8 @@ import { RestauranteService } from 'src/app/services/restaurante.service';
   styleUrls: ['./restaurantes.component.css']
 })
 export class RestaurantesComponent implements OnInit {
-
+  pageActual: number = 1;//paginador
+  
   constructor(private restauranteService: RestauranteService,) { }
   restaurantes: Restaurante[] = [];//creamos list vacia
   ngOnInit(): void {

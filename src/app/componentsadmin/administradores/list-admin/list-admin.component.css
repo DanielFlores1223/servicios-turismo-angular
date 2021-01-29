@@ -1,0 +1,42 @@
+/*Imágenes responsive
+   -------------------------------------------------------------------------*/
+
+   @media (max-width: 480px) {
+    button {
+        width: 100%;
+    }
+}
+
+.btn-reponsive-crud {
+    margin-left: 0.5rem;
+}
+
+.posicionar-pagination {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 576px) {
+    .btn-reponsive-crud {
+        width: 100%;
+        height: 2rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+        margin-left: 0;
+    }
+    .centrar-btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    .pagination-table-responsive {
+        font-size: 1rem;
+    }
+    .centrar-texto-responsive {
+        text-align: center;
+    }
+    .posicionar-pagination {
+        justify-content: center;
+        margin-bottom: 0;
+    }
+}

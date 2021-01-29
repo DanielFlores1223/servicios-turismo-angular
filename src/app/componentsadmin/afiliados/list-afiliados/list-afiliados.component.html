@@ -1,52 +1,70 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <main  class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
-      <div class="main-content-container container-fluid px-4">
+<main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+    <div class="main-content-container container-fluid px-4">
         <!-- Page Header -->
-        <div class="page-header row no-gutters py-4">
-          <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-            <span class="text-uppercase page-subtitle">Usuarios Afiliados</span>
-            <button class="btn btn-sm btn-success btn-pill"  (click)="navegacion()" >
-              <i class="material-icons">add</i>Agregar nuevo usuario
-            </button>
-          </div>
+        <div class="page-header row no-gutters pt-4 pb-0">
+            <div class="col-12 col-sm-5 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Usuarios Afiliados</span>&nbsp;
+            </div>
         </div>
+        <div class="row mb-4">
+            <div class="col-12 centrar-btn">
+                <button class="btn btn-sm btn-success btn-pill btn-responsive" (click)="navegacion()">
+                    <i class="material-icons">add</i>Agregar nuevo usuario
+                </button>
+            </div>
+        </div>
+
         <!-- table -->
         <div class="row">
-            <div class="col">
-              <div class="card card-small mb-4">
-                <div class="card-header border-bottom">
-                  <h6 class="m-0">Usuarios Afiliados</h6>
-                </div>
-                <div class="card-body p-0 pb-3 text-center">
-                  <table class="table">
-                    <thead class="bg-light">
-                      <tr>
-                        <th scope="col" class="border-0">Nombre</th>
-                        <th scope="col" class="border-0">email</th>
-                        <th scope="col" class="border-0">No. Socio</th>
-                        <th scope="col" class="border-0">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor= "let comerciant of comerciantes |  paginate: { itemsPerPage: 4, currentPage: pageActual }">
-                        <td>{{comerciant.nombre}}</td>
-                        <td>{{comerciant.email}}</td>
-                        <td>{{comerciant.numerosocio}}</td><!--routerLink="['/edit-afiliados',comerciant.numerosocio]"-->
-                        <td>
-                            <button  class="btn btn-sm btn-primary btn-pill" (click)="modificar(comerciant.numerosocio)" ><i class="material-icons" style="font-size:14px;">edit</i></button>
-                            <button  class="btn btn-sm btn-danger btn-pill" (click)="eliminar(comerciant.numerosocio)"><i class="material-icons" style="font-size:14px;">delete</i></button>
-                        </td>
-                      </tr>
-                      
-                    </tbody>
-                  </table>
-                  <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
-                </div>
-              </div>
-            </div>
-          </div>
-        <!--end table-->
-      </div>
-    </main>
-   
+            <div class="col-12">
+                <div class="card card-small mb-4">
+                    <div class="card-header border-bottom">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 mb-3">
+                                <h6 class="m-0 centrar-texto-responsive">Usuarios Afiliados</h6>
+                            </div>
+                            <div class="col-sm-12 col-md-6 posicionar-pagination">
+                                <!-- Pagination md and lg-->
+                                <pagination-controls class="pagination-style pagination-table-responsive pagination-md" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+                                </pagination-controls>
+                            </div>
+                        </div>
 
+                    </div>
+                    <div class="card-body p-0 pb-3 text-center">
+                        <table class="table table-responsive-sm">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th scope="col" class="border-0">Nombre</th>
+                                    <th scope="col" class="border-0">email</th>
+                                    <th scope="col" class="border-0">No. Socio</th>
+                                    <th scope="col" class="border-0">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let comerciant of comerciantes |  paginate: { itemsPerPage: 4, currentPage: pageActual }">
+                                    <td>{{comerciant.nombre}}</td>
+                                    <td>{{comerciant.email}}</td>
+                                    <td>{{comerciant.numerosocio}}</td>
+                                    <!--routerLink="['/edit-afiliados',comerciant.numerosocio]"-->
+                                    <td>
+                                        <button class="btn btn-sm btn-primary btn-pill btn-reponsive-crud" (click)="modificar(comerciant.numerosocio)"><i class="material-icons" style="font-size:14px;">edit</i></button>
+                                        <button class="btn btn-sm btn-danger btn-pill btn-reponsive-crud" (click)="eliminar(comerciant.numerosocio)"><i class="material-icons" style="font-size:14px;">delete</i></button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <!-- pagination-sm -->
+                        <pagination-controls class="pagination-style pagination-table-responsive pagination-sm" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+                        </pagination-controls>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!--end table-->
+    </div>
+</main>

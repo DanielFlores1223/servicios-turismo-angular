@@ -39,6 +39,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { EventosComponent } from './pageweb/eventos/eventos.component';
 import { EmpreaModule } from './componetsafil/emprea.module';
 import { EmpreaRoutingModule } from './componetsafil/emprea-routing.module';
+import { FormAdminComponent } from '../../src/app/componentsadmin/administradores/form-admin/form-admin.component';
+import { EditAdminComponent } from '../../src/app/componentsadmin/administradores/edit-admin/edit-admin.component';
+import { ListAdminComponent } from '../../src/app/componentsadmin/administradores/list-admin/list-admin.component';
 //import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 
 
@@ -68,6 +71,9 @@ import { EmpreaRoutingModule } from './componetsafil/emprea-routing.module';
     LoginAfiliadoComponent,
     RegistroComponent,
     EventosComponent,
+    FormAdminComponent,
+    EditAdminComponent,
+    ListAdminComponent,
     
     
   ],

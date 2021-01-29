@@ -7,6 +7,9 @@ import { GuarloginGuard } from '../guards/guarlogin.guard';
 import { EditAfiliadosComponent } from './afiliados/edit-afiliados/edit-afiliados.component';
 import { FormAfiliadosComponent } from './afiliados/form-afiliados/form-afiliados.component';
 import { ListAfiliadosComponent } from './afiliados/list-afiliados/list-afiliados.component';
+import { FormAdminComponent } from './administradores/form-admin/form-admin.component';
+import { EditAdminComponent } from './administradores/edit-admin/edit-admin.component';
+import { ListAdminComponent } from './administradores/list-admin/list-admin.component';
 import { ContDashboardComponent } from './cont-dashboard/cont-dashboard.component';
 import { EditEventsComponent } from './eventos/edit-events/edit-events.component';
 import { FormEventsComponent } from './eventos/form-events/form-events.component';
@@ -35,6 +38,11 @@ const routes: Routes = [
   {path: 'afiliados', component: ListAfiliadosComponent,canActivate :[GuarloginGuard]}, 
   {path: 'afiliados/new',component: FormAfiliadosComponent,canActivate :[GuarloginGuard]},
   {path: 'afiliados/:numerosocio',component: EditAfiliadosComponent,canActivate :[GuarloginGuard]},
+
+  
+  {path: 'administradoresLista', component:ListAdminComponent, canActivate:[GuarloginGuard]},
+  {path: 'administradores/new', component:FormAdminComponent, canActivate:[GuarloginGuard]},
+  {path: 'administradores/:id', component:EditAdminComponent, canActivate:[GuarloginGuard]},
 
   {path: 'eventos', component: ListEventsComponent,canActivate :[GuarloginGuard]}, 
   {path: 'eventos/new',component: FormEventsComponent,canActivate :[GuarloginGuard]},

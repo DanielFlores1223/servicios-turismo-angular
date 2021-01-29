@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class ListSitiosComponent implements OnInit {
 
   sitios: Sitio[] = [];//creamos list vacia
-
+  pageActual = 1;
 
   constructor(private sitioService: SitioService, private router: Router) { }
 

@@ -10,52 +10,42 @@ import Swal from 'sweetalert2';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-
-  usuario={
+  comerciantes;
+  comerciante={
     nombre:"",
     email:"",
     direccion:"",
     telefono:"",
     password:"",
-    tipo:"admin"
+    tipo:"afiliado"
   }
 
-  constructor(private router:Router, private registroservicio:CrudService) { }
+  submitted = false;
+  constructor(private router:Router,private crudService:CrudService) { }
 
-  async ngOnInit(): Promise<void> {
-    await this.router.events.subscribe((evt) => { 
-      if (!(evt instanceof NavigationEnd)) { 
-       return; 
-      } 
-      window.scrollTo(0, 0) 
-     }); 
+  async ngOnInit() { 
   }
   navegacion(){
-    this.router.navigate(["/iniciosesion"]);
+    this.router.navigate(["/empresa/new"]);
   }
   registro(){
-   this.registroservicio.registrouser(this.usuario)
+    this.crudService.registrarafili(this.comerciante)
     .subscribe(async res=>{
       await Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'Registro Con exito',
         showConfirmButton: false,
-        timer: 2000
+        timer: 2000,
+        timerProgressBar:true  
       })       
       console.log(res)
-      this.router.navigate(['/iniciosesion'])
-    },
-    err=> Swal.fire({
-      position: 'center',
-      icon: 'error',
-      title: 'Registro no completo, revisa tus datos',
-      showConfirmButton: false,
-      timer: 2000
 
-    })       
-    )
-    
+      this.router.navigate(['/empresa/new'])
+     
+      
+    },   
+    )   
   }
 
 }

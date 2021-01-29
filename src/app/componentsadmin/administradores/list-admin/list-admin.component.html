@@ -1,0 +1,72 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+    <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters pt-4 pb-0">
+            <div class="col-12 col-sm-5 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Administradores autorizados</span>&nbsp;
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-12 centrar-btn">
+                <button class="btn btn-sm btn-success btn-pill btn-responsive" (click)="navegacion()">
+                    <i class="material-icons">add</i>Agregar nuevo administrador
+                </button>
+            </div>
+        </div>
+
+        <!-- table -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-small mb-4">
+                    <div class="card-header border-bottom">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 mb-3">
+                                <h6 class="m-0 centrar-texto-responsive">Administradores</h6>
+                            </div>
+                            <div class="col-sm-12 col-md-6 posicionar-pagination">
+                                <!-- Pagination md and lg-->
+                                <pagination-controls class="pagination-style pagination-table-responsive pagination-md" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+                                </pagination-controls>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-body p-0 pb-3 text-center">
+                        <table class="table table-responsive-sm">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th scope="col" class="border-0">Nombre</th>
+                                    <th scope="col" class="border-0">Email</th>
+                                    <th scope="col" class="border-0">Dirección</th>
+                                    <th scope="col" class="border-0">Teléfono</th>
+                                    <th scope="col" class="border-0">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let admin of admin |  paginate: { itemsPerPage: 4, currentPage: pageActual }">
+                                    <td>{{admin.nombre}}</td>
+                                    <td>{{admin.email}}</td>
+                                    <td>{{admin.direccion}}</td>
+                                    <td>{{admin.telefono}}</td>
+                                    <!--routerLink="['/edit-afiliados',comerciant.numerosocio]"-->
+                                    <td>
+                                      <a routerLink="/administradores/{{admin._id}}" class="btn btn-sm btn-primary btn-pill" ><i class="material-icons" style="font-size:14px;">edit</i></a>
+                                      <button  class="btn btn-sm btn-danger btn-pill" (click)="eliminaradministrador(admin._id)"><i class="material-icons" style="font-size:14px;">delete</i></button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <!-- pagination-sm -->
+                        <pagination-controls class="pagination-style pagination-table-responsive pagination-sm" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+                        </pagination-controls>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!--end table-->
+    </div>
+</main>

@@ -10,7 +10,7 @@
 
         <!-- Form upload image -->
         <div class="row">
-            <div class="card card-small card-post card-post--1 col-9 mb-2">
+            <div class="card card-small card-post card-post--1 col-md-9 col-sm-12 mb-2">
                 <div class="card-body text-center">
                     <form (submit)="uploadPhoto(title)" class="">
                         <div class="form-group">
@@ -21,9 +21,9 @@
                         <!--si existe una foto seleccionada utiliza si no usa la que tenemos en assets-->
                         <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid" style="height: 350px;" alt="No image" (click)="photoInput.click()">
 
-                        <button class="btn-block btn btn-sm btn-outline-accent">
+                        <button class="btn-block btn btn-sm btn-outline-accent btn-responsive-form">
                             <i class="material-icons">save</i>Guardar imagen
-                </button>
+                        </button>
                     </form>
                 </div>
             </div>
