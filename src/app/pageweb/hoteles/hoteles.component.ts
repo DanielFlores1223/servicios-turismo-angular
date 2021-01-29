@@ -8,6 +8,7 @@ import { HotelService } from 'src/app/services/hotel.service';
   styleUrls: ['./hoteles.component.css']
 })
 export class HotelesComponent implements OnInit {
+pageActual: number = 1;//paginador
 
   constructor(private hotelService: HotelService,) { }
   hoteles: Hotel[] = [];//creamos list vacia

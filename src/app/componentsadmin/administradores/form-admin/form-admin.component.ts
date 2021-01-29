@@ -28,7 +28,7 @@ export class FormAdminComponent implements OnInit {
      }); 
   }
   navegacion(){
-    this.router.navigate(["/iniciosesion"]);
+    this.router.navigate(["/administradoresLista"]);
   }
   registro(){
    this.registroservicio.registrouser(this.usuario)
@@ -41,7 +41,7 @@ export class FormAdminComponent implements OnInit {
         timer: 2000
       })       
       console.log(res)
-      this.router.navigate(['/iniciosesion'])
+      this.router.navigate(['/administradoresLista'])
     },
     err=> Swal.fire({
       position: 'center',

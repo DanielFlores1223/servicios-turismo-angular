@@ -8,7 +8,9 @@ import { EventoService } from 'src/app/services/evento.service';
   styleUrls: ['./eventos.component.css']
 })
 export class EventosComponent implements OnInit {
+  pageActual: number = 1;//paginador
   eventos: Evento[] = [];//creamos list vacia
+  
   constructor(private eventoService: EventoService) { }
 
   ngOnInit(): void {

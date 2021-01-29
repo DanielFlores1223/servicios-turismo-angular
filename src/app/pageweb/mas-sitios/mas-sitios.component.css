@@ -1,14 +1,11 @@
 p{
     text-align: justify;
-    
 }
 input #search {
     background-color: transparent;
     color: white;
     border-color: transparent;
-
 }
-
 #logo {
     width: 300px;
     height: 300px;
@@ -22,7 +19,6 @@ input #search {
     box-shadow: 2px 2px 5px rgb(187, 187, 187);
   -moz-box-shadow: 2px 2px 5px rgb(197, 197, 197);
     float: left; 
-    
 }
 #img2{
     height: 340px;
@@ -40,8 +36,7 @@ h3{
     text-align: center;
     font-size: 40px;
     padding: 10px;
-    margin-top: 10px;
-    
+    margin-top: 10px; 
 }
 h2{
     text-align: center;
@@ -54,6 +49,11 @@ h2{
     font-size: 16px;
     margin: 2px;
 }
+.posicionar-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
@@ -63,8 +63,7 @@ h2{
    -------------------------------------------------------------------------*/
    @media (max-width: 480px) {
     .container{
-        width: 100%;
-        
+        width: 100%;    
     }
     #img1{
         width: 100%;
