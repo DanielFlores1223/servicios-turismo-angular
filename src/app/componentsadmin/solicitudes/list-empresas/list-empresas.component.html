@@ -6,18 +6,36 @@
         <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
             <div class="main-content-container container-fluid px-4">
                 <!-- Page Header -->
-                <div class="page-header row no-gutters py-4">
+                <div class="page-header row no-gutters pt-4 pb-0">
                     <div class="col-md-6 col-sm-12 text-center text-sm-left mb-2">
                         <span class="text-uppercase page-subtitle">Empresas</span>
                         <h3 class="page-title">Lista de solicitudes de empresas</h3>
                     </div>
+                </div>
+                <div class="row mt-1 mb-2">
+                    <div class="col-md-6 col-sm-12 filtrar">
+                        <label for="">Filtrar Resultados</label>
+                        <select name="" id="" class="select-filtros" [(ngModel)]="opcionSeleccionado" (change)="getEstatusEmpresas()">
+                            <option value="Todos" selected>Todos</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Validado">Validados</option>
+                            <option value="Cancelado">Cancelados</option>
+                        </select>
+                    </div>
                     <!-- Pagination md and lg-->
-                    <div class="col-md-6 col-sm-12 d-md-flex justify-content-md-end">
-                        <pagination-controls class="pagination-style pagination-md" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+                    <div class="col-md-6 col-sm-12 d-md-flex justify-content-md-end ">
+                        <pagination-controls class="pagination-style pagination-md {{ empresas.length > 0 ? '':'d-none' }}" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
                         </pagination-controls>
                     </div>
                 </div>
                 <!-- End Page Header -->
+
+                <!-- no results found -->
+                <div class="row mt-5 {{ empresas.length > 0 ? 'd-none':'' }}">
+                    <div class="col-12">
+                        <h3 class="text-center font-weight-bold">No se encontraron resultados.</h3>
+                    </div>
+                </div>
 
                 <!-- empresas list -->
                 <div class="row">
@@ -30,12 +48,20 @@
                                 <h5 class="card-title">
                                     <a class="text-fiord-blue text-center">{{empresa.nombreEmpresa}}</a>
                                 </h5>
-                                <p class="card-text mb-3">{{empresa.giro}}</p>
-                                <p class="card-text mb-3">{{empresa.redsocial}}</p>
-                                <p class="card-text mb-3">{{empresa.telefono}}</p>
-                                <div class="my-auto ml-auto text-center">
-                                    <button class="btn btn-sm btn-success btn-pill disabled"><i class="material-icons">check_circle</i>Validar
-                  </button>
+                                <p class="card-text mb-3">Giro: {{empresa.giro}}</p>
+                                <p class="card-text mb-3 ">Estatus: {{empresa.estatus}}</p>
+                                <!-- <p class="card-text mb-3">{{empresa.redsocial}}</p>
+                                <p class="card-text mb-3">{{empresa.telefono}}</p> -->
+                                <div class="d-flex flex-column align-items-center">
+                                    <!-- ACTIONS BUTTONS -->
+                                    <button class="btn btn-sm btn-outline-success btn-pill btn-block {{empresa.estatus === 'Validado' ? 'd-none':''}}" (click)="updateEstatus('Validado', empresa._id)"><i class="material-icons">check_circle</i>Validar
+                                    </button>
+                                    <button class="mt-1 btn btn-sm btn-outline-danger btn-pill btn-block {{empresa.estatus === 'Cancelado' ? 'd-none':''}}" (click)="updateEstatus('Cancelado', empresa._id)"><i class="material-icons">cancel</i>Cancelar
+                                    </button>
+                                    <button class="mt-1 btn btn-sm btn-outline-primary btn-pill btn-block" data-toggle="modal" data-target="#masInfo" (click)="getEmpresa(empresa._id)"><i class="material-icons">preview</i>Ver más info
+                                    </button>
+                                    <button class="mt-1 btn btn-sm btn-outline-danger btn-pill btn-block {{empresa.estatus === 'Cancelado' ? '':'d-none'}}" (click)="showConfirmacion(empresa._id)"><i class="material-icons">delete</i>Eliminar Solicitud
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -43,9 +69,48 @@
                 </div>
                 <!-- <router-outlet></router-outlet> -->
                 <!-- pagination-sm -->
-                <pagination-controls class="pagination-style pagination-sm" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+                <pagination-controls class="pagination-style pagination-sm {{ empresas.length > 0 ? '':'d-none' }}" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
                 </pagination-controls>
             </div>
+
+
         </main>
+
+    </div>
+</div>
+
+<!-- Modal masInfo-->
+<div class="modal fade" id="masInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="page-header row pt-4 pb-0">
+                    <div class="col-md-12 col-sm-12 text-center text-sm-left mb-2">
+                        <span class="text-uppercase page-subtitle">Más Información</span>
+                        <h3 class="page-title">Solicitud de Empresa</h3>
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <div class="modal-body" *ngIf="empresaInfo != undefined">
+                <div class="row">
+                    <div class="col-md-5 col-sm-12">
+                        <img [src]="'http://localhost:4000/' + empresaInfo.imagePath" class="img-card-top w-100">
+                    </div>
+                    <div class="col-md-7 col-sm-12">
+                        <h4>Información</h4>
+                        <div>
+                            <p class="mb-2"><b>Nombre de la Empresa: </b>{{empresaInfo.nombreEmpresa}}</p>
+                            <p class="mb-2"><b>Giro: </b>{{empresaInfo.giro}}</p>
+                            <p class="mb-2"><b>Red Social: </b>{{empresaInfo.redsocial}}</p>
+                            <p class="mb-2"><b>Teléfono: </b>{{empresaInfo.telefono}}</p>
+                            <p class="mb-2"><b>Estatus: </b>{{empresaInfo.estatus}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

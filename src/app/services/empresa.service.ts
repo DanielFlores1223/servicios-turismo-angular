@@ -9,7 +9,6 @@ export class EmpresaService {
 
   URI = 'http://localhost:4000/api/empresas';
 
-
   constructor(private http: HttpClient) { }
 
   createEmpresa(nombreEmpresa: string, giro: string, redsocial: string, telefono: string, photo: File) {
@@ -24,6 +23,22 @@ export class EmpresaService {
 
   getEmpresas() {
     return this.http.get<Empresa[]>(this.URI);//<Empresa>retorna un arreglo de fotos e importamos la interfaz lin 3
+  }
+
+  getEstatusEmpresa(estatus: string){
+    return this.http.get<Empresa[]>(`${this.URI}-estatus/${estatus}`);
+  }
+
+  getEmpresa(id){
+    return this.http.get<Empresa>(`${this.URI}/${id}`);
+  }
+
+  updateEstatus(estatus: string, id: string){
+    return this.http.put<Empresa[]>(`${this.URI}/${id}`, { estatus })
+  }
+
+  deleteEmpresaSolicitud(id:string){
+    return this.http.delete(`${this.URI}/${id}`);
   }
 
 }

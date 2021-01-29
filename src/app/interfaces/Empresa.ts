@@ -5,4 +5,5 @@ export interface Empresa  {
     redsocial: string;
     telefono: string;
     imagePath: string;
+    estatus: string;
 }
