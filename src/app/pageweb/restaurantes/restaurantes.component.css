@@ -7,7 +7,7 @@ img{
     float: unset;
     align-items: center;
     margin: 1em;
-    margin-left: 90px;
+    margin-left: 75px;
 
 }
 h2{
@@ -28,12 +28,15 @@ h3{
     justify-content: flex-end;
     align-items: center;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 386px) {
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
     }
     .posicionar-pagination {
       justify-content: center;
       margin-bottom: 0;
+    }
+    p{
+      padding: 10px;
     }
   }

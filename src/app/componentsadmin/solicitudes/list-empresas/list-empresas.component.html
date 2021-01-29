@@ -49,10 +49,10 @@
                                     <a class="text-fiord-blue text-center">{{empresa.nombreEmpresa}}</a>
                                 </h5>
                                 <p class="card-text mb-3">Giro: {{empresa.giro}}</p>
-                                <p class="card-text mb-3 ">Estatus: {{empresa.estatus}}</p>
+                                <p class="card-text mb-3 ">Estatus: {{empresa.estatus}}</p><br>
                                 <!-- <p class="card-text mb-3">{{empresa.redsocial}}</p>
                                 <p class="card-text mb-3">{{empresa.telefono}}</p> -->
-                                <div class="d-flex flex-column align-items-center">
+                                <div class="d-flex flex-column align-items-center" id="btn">
                                     <!-- ACTIONS BUTTONS -->
                                     <button class="btn btn-sm btn-outline-success btn-pill btn-block {{empresa.estatus === 'Validado' ? 'd-none':''}}" (click)="updateEstatus('Validado', empresa._id)"><i class="material-icons">check_circle</i>Validar
                                     </button>
