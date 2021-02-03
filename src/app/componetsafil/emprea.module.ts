@@ -6,10 +6,12 @@ import { DashAfiliadoComponent } from './dash-afiliado/dash-afiliado.component';
 import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 
 
+
 @NgModule({
   declarations: [
     DashAfiliadoComponent,
-     FormEmpresaComponent],
+     FormEmpresaComponent,
+  ],
   imports: [
     CommonModule,
     EmpreaRoutingModule

@@ -24,10 +24,6 @@ import { LoginAfiliadoComponent } from './pageweb/login-afiliado/login-afiliado.
 import { EventosComponent } from './pageweb/eventos/eventos.component';
 
 
-
-
-
-
 const routes: Routes = [//definimos la rutas para el enrutador
 
   {path:'hotels',component:HotelesComponent},
@@ -50,9 +46,6 @@ const routes: Routes = [//definimos la rutas para el enrutador
   {path:'registro', component:RegistroComponent},
   {path:'loginAfiliado', component:LoginAfiliadoComponent},
   {path: 'even', component:EventosComponent},
- 
-
-  
 
   {path:'',redirectTo:'paginaprincipal', pathMatch:'full' },
   {path:'**',redirectTo:'pagNoFound', pathMatch:'full'}

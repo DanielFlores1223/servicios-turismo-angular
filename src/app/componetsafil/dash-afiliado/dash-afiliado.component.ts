@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Comerciante } from 'src/app/interfaces/comerciante';
 import { CrudService } from 'src/app/services/crud.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-dash-afiliado',
@@ -19,6 +20,12 @@ export class DashAfiliadoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+
+    
     this.serviciologin.change.subscribe(isOpen =>{
       this.entrar=isOpen;
       

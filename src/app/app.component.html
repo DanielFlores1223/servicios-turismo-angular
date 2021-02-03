@@ -1,11 +1,10 @@
-
-<div *ngIf="!entrar" >
+<div *ngIf="!entrar">
     <app-menu></app-menu>
     <router-outlet></router-outlet>
 </div>
 
-<div *ngIf="nivelusu=='admin' " >
-    <ngx-spinner *ngIf="nivelusu=='afiliado' " >
+<div *ngIf="nivelusu=='admin' ">
+    <ngx-spinner *ngIf="nivelusu=='afiliado' ">
         <div style="color: #87c4a3" class="la-ball-pulse-sync la-2x">
             <p style="font-size: 20px; color: white">Cargando...</p>
             <div></div>
@@ -13,10 +12,10 @@
             <div></div>
         </div>
     </ngx-spinner>
-<app-cont-dashboard></app-cont-dashboard>
+    <app-cont-dashboard></app-cont-dashboard>
 </div>
-<div *ngIf="nivelusu=='afiliado' " >
-    <ngx-spinner *ngIf="nivelusu=='afiliado' " >
+<div *ngIf="nivelusu=='afiliado' ">
+    <ngx-spinner *ngIf="nivelusu=='afiliado' ">
         <div style="color: #87c4a3" class="la-ball-pulse-sync la-2x">
             <p style="font-size: 20px; color: white">Cargando...</p>
             <div></div>
@@ -25,11 +24,10 @@
         </div>
     </ngx-spinner>
     <app-dash-afiliado></app-dash-afiliado>
-    </div>
-
-
-<div *ngIf="!entrar" >
-   <app-pie-pagina></app-pie-pagina>
+    <!-- <app-side-bar></app-side-bar> -->
 </div>
 
 
+<div *ngIf="!entrar">
+    <app-pie-pagina></app-pie-pagina>
+</div>
