@@ -94,3 +94,15 @@ span {
 .title-sidebar span {
     font-size: 0.938rem;
 }
+
+@media (max-width: 768px) {
+    .ocultar-md {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .ocultar-lg {
+        display: none;
+    }
+}

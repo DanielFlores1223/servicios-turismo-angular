@@ -40,11 +40,22 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <button class="btn btn-primary" id="menu-toggle"><i class="material-icons">menu</i></button>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <a class="nav-link dropdown-toggle text-nowrap px-3 navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <img class="user-avatar rounded-circle mr-2 imagen-afiliado" src="/assets/login_icon.png">
+                    <span class="d-none d-md-inline-block">Afiliado</span>
+                </a>
+
+                <div class="collapse navbar-collapse ocultar-lg" id="navbarSupportedContent">
+                    <a class="dropdown-item ocultar-lg">
+                        <i class="material-icons">&#xE7FD;</i><span>{{nivelusu}}</span>
+                    </a>
+                    <a class="btn btn text-danger ocultar-lg" (click)="cerrarsession()">
+                        <i class="material-icons text-danger">&#xE879;</i>Cerrar Sesion
+                    </a>
+                </div>
+
+                <div class="ocultar-md">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item dropdown li-opciones">
                             <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
