@@ -29,12 +29,15 @@
     align-items: center;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 386px) {
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
     }
     .posicionar-pagination {
       justify-content: center;
       margin-bottom: 0;
+    }
+    h4{
+      font-size: 25px;
     }
   }
