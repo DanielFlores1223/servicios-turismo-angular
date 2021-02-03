@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Photo} from '../interfaces/Photo';
-
-
+import {Dominio} from '../interfaces/Dominio';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PhotoService {
 
-  URI = 'http://localhost:4000/api/photos';
+  URI = `${Dominio.URL}/api/photos`;
 
-//instanciamos httpcliente en el construc
   constructor(private http: HttpClient) { }
 
   createPhoto(title: string, photo: File) {

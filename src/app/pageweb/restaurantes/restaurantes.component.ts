@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Restaurante } from 'src/app/interfaces/Restaurante';
 import { RestauranteService } from 'src/app/services/restaurante.service';
+import {Dominio} from '../../interfaces/Dominio';
 
 @Component({
   selector: 'app-restaurantes',
@@ -9,7 +10,8 @@ import { RestauranteService } from 'src/app/services/restaurante.service';
 })
 export class RestaurantesComponent implements OnInit {
   pageActual: number = 1;//paginador
-  
+  url = Dominio.URL;
+
   constructor(private restauranteService: RestauranteService,) { }
   restaurantes: Restaurante[] = [];//creamos list vacia
   ngOnInit(): void {

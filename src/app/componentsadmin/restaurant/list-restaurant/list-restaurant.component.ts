@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestauranteService } from '../../../services/restaurante.service';
 import { Restaurante } from '../../../interfaces/Restaurante';
 import { Router } from '@angular/router';
+import {Dominio} from '../../../interfaces/Dominio';
 
 @Component({
   selector: 'app-list-restaurant',
@@ -12,6 +13,7 @@ export class ListRestaurantComponent implements OnInit {
 
   restaurantes: Restaurante[] = [];//creamos list vacia
   pageActual = 1;
+  url = Dominio.URL;
 
   constructor(private restauranteService: RestauranteService, private router: Router) { }
 

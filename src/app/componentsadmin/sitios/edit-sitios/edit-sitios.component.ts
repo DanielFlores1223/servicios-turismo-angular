@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SitioService } from '../../../services/sitio.service';
 import {Sitio} from '../../../interfaces/Sitio';
 import Swal from 'sweetalert2';
+import {Dominio} from '../../../interfaces/Dominio';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class EditSitiosComponent implements OnInit {
 
   id: string;
   sitio: Sitio;
+  url = Dominio.URL;
 
   constructor(private activatedRoute: ActivatedRoute,private sitioService: SitioService,private router: Router) { }
 

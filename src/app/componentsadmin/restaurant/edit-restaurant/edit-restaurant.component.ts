@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RestauranteService } from '../../../services/restaurante.service';
 import {Restaurante} from '../../../interfaces/Restaurante';
 import Swal from 'sweetalert2';
+import {Dominio} from '../../../interfaces/Dominio';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class EditRestaurantComponent implements OnInit {
 
   id: string;
   restaurante: Restaurante;
+  url = Dominio.URL;
 
   constructor(private activatedRoute: ActivatedRoute,private restauranteService: RestauranteService,private router: Router) { }
 

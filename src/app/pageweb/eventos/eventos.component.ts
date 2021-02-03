@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Evento } from 'src/app/interfaces/Evento';
 import { EventoService } from 'src/app/services/evento.service';
+import {Dominio} from '../../interfaces/Dominio';
 
 @Component({
   selector: 'app-eventos',
@@ -10,6 +11,7 @@ import { EventoService } from 'src/app/services/evento.service';
 export class EventosComponent implements OnInit {
   pageActual: number = 1;//paginador
   eventos: Evento[] = [];//creamos list vacia
+  url = Dominio.URL;
   
   constructor(private eventoService: EventoService) { }
 

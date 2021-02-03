@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Restaurante} from '../interfaces/Restaurante';
+import {Dominio} from '../interfaces/Dominio';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestauranteService {
 
-  URI = 'http://localhost:4000/api/restaurantes';
+  URI = `${Dominio.URL}/api/restaurantes`;
 
 
   constructor(private http: HttpClient) { }

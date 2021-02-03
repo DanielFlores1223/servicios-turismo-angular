@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import{Comerciante}from '../interfaces/comerciante';
+import {Dominio} from '../interfaces/Dominio';
 import { from, Observable } from 'rxjs';
 
 @Injectable({
@@ -8,12 +9,12 @@ import { from, Observable } from 'rxjs';
 })
 export class CrudService {
   //comerciante
-  private modificarafil="http://localhost:4000/comerciante/modificar/"
-  private loginafil="http://localhost:4000/comerciante/login"
-  private eliminarafil="http://localhost:4000/comerciante/eliminar"
-  private registrarafil="http://localhost:4000/comerciante/"
-  private verafil="http://localhost:4000/comerciante/"
-  private verfiltrado="http://localhost:4000/comerciante/ver/"
+  private modificarafil=`${Dominio.URL}/comerciante/modificar/`
+  private loginafil=`${Dominio.URL}/comerciante/login`
+  private eliminarafil=`${Dominio.URL}/comerciante/eliminar`
+  private registrarafil=`${Dominio.URL}/comerciante/`
+  private verafil=`${Dominio.URL}/comerciante/`
+  private verfiltrado=`${Dominio.URL}/comerciante/ver/`
    
   @Output() change: EventEmitter<boolean> = new EventEmitter();
   @Output() change1: EventEmitter<boolean> = new EventEmitter();

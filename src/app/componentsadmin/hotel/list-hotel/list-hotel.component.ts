@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HotelService } from '../../../services/hotel.service';
 import { Hotel } from '../../../interfaces/Hotel';
 import { Router } from '@angular/router';
+import {Dominio} from '../../../interfaces/Dominio';
 
 @Component({
   selector: 'app-list-hotel',
@@ -12,6 +13,7 @@ export class ListHotelComponent implements OnInit {
 
   hoteles: Hotel[] = [];//creamos list vacia
   pageActual = 1;
+  url = Dominio.URL;
 
   constructor(private hotelService: HotelService, private router: Router) { }
 

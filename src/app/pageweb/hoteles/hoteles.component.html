@@ -1,55 +1,52 @@
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Hoteles</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hoteles</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
-  <!-- Bootstrap core CSS -->
-  <link href="/node_modules/bootstrap/css/bootstrap.min.css" rel="styleheet">
+    <!-- Bootstrap core CSS -->
+    <link href="/node_modules/bootstrap/css/bootstrap.min.css" rel="styleheet">
 
-  <!-- Custom styles for this template -->
-  <link href="/node_modules/bootstrap/dist/css/album.css" rel="styleheet">
+    <!-- Custom styles for this template -->
+    <link href="/node_modules/bootstrap/dist/css/album.css" rel="styleheet">
 </head>
 
 <body id="fondo">
-  <main role="main">
-    <div class="album py-5 bg-light container">
-      <div class="container">
-        <div class="row">
-          <!-------------------------------pruebassss------------->
-          <div class="col-md-4" *ngFor= "let hottel of hoteles |paginate: { itemsPerPage: 6, currentPage: pageActual } ">
-            <div class="card mb-4 shadow-sm">
-              <img [src]="'http://localhost:4000/' + hottel.imagePath" class="bd-placeholder-img card-img-top" width="50%"
-                height="225" preserveAspectRatio="xMidYMid slice">
-              <div class="card-body">
-                <h4>{{hottel.nombre}}</h4>
-                <p class="card-text">{{hottel.descripcion}}</p><br><br>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <p><a class="btn btn-outline-success"
-                        href="{{hottel.link}}"
-                        role="button">Ver más&raquo;</a></p>
-                  </div>
-                  <small class="text-muted"></small>
+    <main role="main">
+        <div class="album py-5 bg-light container">
+            <div class="container">
+                <div class="row">
+                    <!-------------------------------pruebassss------------->
+                    <div class="col-md-4" *ngFor="let hottel of hoteles |paginate: { itemsPerPage: 6, currentPage: pageActual } ">
+                        <div class="card mb-4 shadow-sm">
+                            <img [src]=" url + '/' + hottel.imagePath" class="bd-placeholder-img card-img-top" width="50%" height="225" preserveAspectRatio="xMidYMid slice">
+                            <div class="card-body">
+                                <h4>{{hottel.nombre}}</h4>
+                                <p class="card-text">{{hottel.descripcion}}</p><br><br>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <p><a class="btn btn-outline-success" href="{{hottel.link}}" role="button">Ver más&raquo;</a></p>
+                                    </div>
+                                    <small class="text-muted"></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+            <div class="col-sm-12 col-md-12 posicionar-pagination">
+                <!-- Pagination md and lg-->
+                <pagination-controls class="pagination-style pagination-table-responsive pagination-md" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+                </pagination-controls>
+            </div>
         </div>
-      </div>
-      <div class="col-sm-12 col-md-12 posicionar-pagination">
-        <!-- Pagination md and lg-->
-        <pagination-controls class="pagination-style pagination-table-responsive pagination-md" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
-        </pagination-controls>
-    </div>
-    </div>
-    <br>
-  </main>
-  
+        <br>
+    </main>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
-  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>
+        window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
+    </script>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

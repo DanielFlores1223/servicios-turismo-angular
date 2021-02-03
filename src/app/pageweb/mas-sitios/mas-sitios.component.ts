@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Sitio } from 'src/app/interfaces/Sitio';
 import { SitioService } from 'src/app/services/sitio.service';
+import {Dominio} from '../../interfaces/Dominio';
 
 @Component({
   selector: 'app-mas-sitios',
@@ -10,6 +11,8 @@ import { SitioService } from 'src/app/services/sitio.service';
 export class MasSitiosComponent implements OnInit {
   pageActual: number = 1;
   sitios: Sitio[] = [];//creamos list vacia
+  url = Dominio.URL;
+
   constructor(private sitioService: SitioService) { }
 
   ngOnInit(): void {

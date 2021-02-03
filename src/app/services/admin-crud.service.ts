@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import{Comerciante}from '../interfaces/comerciante';
+import {Dominio} from '../interfaces/Dominio';
 import { from, Observable } from 'rxjs';
 
 @Injectable({
@@ -8,11 +9,11 @@ import { from, Observable } from 'rxjs';
 })
 export class AdminCrudService {
 //administrador
-private registroadmin="http://localhost:4000/usuario/"
-private loginadmin="http://localhost:4000/usuario/login"
-private veradmin="http://localhost:4000/usuario/"
-private eliminaradmin="http://localhost:4000/usuario/eliminar"
-private modificaradmin="http://localhost:4000/usuario/modificar"
+private registroadmin=`${Dominio.URL}/usuario/`
+private loginadmin=`${Dominio.URL}/usuario/login`
+private veradmin=`${Dominio.URL}/usuario/`
+private eliminaradmin=`${Dominio.URL}/usuario/eliminar`
+private modificaradmin=`${Dominio.URL}/usuario/modificar`
 
 @Output() change: EventEmitter<boolean> = new EventEmitter();
 @Output() change1: EventEmitter<boolean> = new EventEmitter();

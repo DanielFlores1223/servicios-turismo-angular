@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/interfaces/Hotel';
 import { HotelService } from 'src/app/services/hotel.service';
+import {Dominio} from '../../interfaces/Dominio';
 
 @Component({
   selector: 'app-hoteles',
@@ -9,6 +10,7 @@ import { HotelService } from 'src/app/services/hotel.service';
 })
 export class HotelesComponent implements OnInit {
 pageActual: number = 1;//paginador
+url = Dominio.URL;
 
   constructor(private hotelService: HotelService,) { }
   hoteles: Hotel[] = [];//creamos list vacia

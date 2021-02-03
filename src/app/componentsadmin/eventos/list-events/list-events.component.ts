@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventoService } from '../../../services/evento.service';
 import { Evento } from '../../../interfaces/Evento';
 import { Router } from '@angular/router';
+import {Dominio} from '../../../interfaces/Dominio';
 
 @Component({
   selector: 'app-list-events',
@@ -12,6 +13,7 @@ export class ListEventsComponent implements OnInit {
 
   eventos: Evento[] = [];//creamos list vacia
   pageActual = 1;
+  url = Dominio.URL;
 
   constructor(private eventoService: EventoService, private router: Router) { }
 

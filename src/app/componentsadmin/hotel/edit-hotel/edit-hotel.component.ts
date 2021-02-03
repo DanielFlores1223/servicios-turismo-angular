@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HotelService } from '../../../services/hotel.service';
 import {Hotel} from '../../../interfaces/Hotel';
 import Swal from 'sweetalert2';
+import {Dominio} from '../../../interfaces/Dominio';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class EditHotelComponent implements OnInit {
 
   id: string;
   hotel: Hotel;
+  url = Dominio.URL;
 
   constructor(private activatedRoute: ActivatedRoute,private hotelService: HotelService,private router: Router) { }
 

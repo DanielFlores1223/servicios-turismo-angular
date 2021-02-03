@@ -12,15 +12,15 @@
         <!-- Main -->
         <div id="main" class="wrapper style2 ">
             <div class="title "></div>
-                <div class="container  ">
+            <div class="container  ">
                 <!-- Content -->
-                <div class="container bg-light " id="content" *ngFor= "let siti of sitios |  paginate: { itemsPerPage: 1, currentPage: pageActual }">
+                <div class="container bg-light " id="content" *ngFor="let siti of sitios |  paginate: { itemsPerPage: 1, currentPage: pageActual }">
                     <h2> {{siti.nombresitio}}</h2>
                     <h3>{{siti.subtitulo}}<br class="mobile-hide" /></h3>
                     <article class="box post " id="texto">
-                        <header class="style1"></header> 
-                        <a  class="image featured">
-                            <img class="container" id="img1" [src]="'http://localhost:4000/' + siti.imagePath" alt="" height="450" />
+                        <header class="style1"></header>
+                        <a class="image featured">
+                            <img class="container" id="img1" [src]="url + '/' + siti.imagePath" alt="" height="450" />
                         </a>
                         <p class="text-justify">
                             {{siti.descripcioncorta}}
@@ -30,7 +30,7 @@
                         </p>
                         <p class="text-justify">
                             {{siti.contenido2}}
-                        </p> 
+                        </p>
                     </article>
                     <br>
                 </div>

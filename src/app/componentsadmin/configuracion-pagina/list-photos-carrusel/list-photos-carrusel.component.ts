@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Photo} from '../../../interfaces/Photo';
 import {PhotoService} from '../../../services/photo.service';
 import {Router} from '@angular/router';
+import {Dominio} from '../../../interfaces/Dominio';
 
 @Component({
   selector: 'app-list-photos-carrusel',
@@ -11,6 +12,7 @@ import {Router} from '@angular/router';
 export class ListPhotosCarruselComponent implements OnInit {
   photos: Photo[] = [];
   pageActual = 1;
+  url = Dominio.URL;
 
   constructor(private photoService: PhotoService, private router: Router) { }
 

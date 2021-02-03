@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Sitio} from '../interfaces/Sitio';
+import {Dominio} from '../interfaces/Dominio';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SitioService {
 
-  URI = 'http://localhost:4000/api/sitios';
+  URI = `${Dominio.URL}/api/sitios`;
 
 
   constructor(private http: HttpClient) { }

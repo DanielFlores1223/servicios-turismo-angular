@@ -3,6 +3,7 @@ import { EmpresaService } from '../../../services/empresa.service';
 import { Empresa } from '../../../interfaces/Empresa';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import {Dominio} from '../../../interfaces/Dominio';
 
 @Component({
   selector: 'app-list-empresas',
@@ -15,6 +16,7 @@ export class ListEmpresasComponent implements OnInit {
   empresaInfo: Empresa;
   pageActual = 1;
   opcionSeleccionado = 'Todos';
+  url = Dominio.URL;
   
   constructor(private empresaService: EmpresaService, private router: Router) { }
 

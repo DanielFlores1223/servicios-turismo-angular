@@ -1,34 +1,34 @@
 <!-- Highlights  -->
 
 <body>
-  <br><br>
-  <section id="highlights" class="wrapper style3 container">
-    <div class="title"></div>
-    <div class="container">
-      <h3>Restaurantes</h3>
-      <div class="row aln-center">
-        <section id="highlights" class="wrapper style3">
-          <div class="row">
-            <div class="col-lg-4" *ngFor= "let restaurant of restaurantes |paginate: { itemsPerPage: 6, currentPage: pageActual }">
-              <img [src]="'http://localhost:4000/' + restaurant.imagePath" class="bd-placeholder-img rounded-circle" width="200px"
-                height="200px"><br>
-              <h2>{{restaurant.nombreRes}}</h2><br>
-              <p>{{restaurant.descripcion}}</p>
-              <p><a class="btn btn-outline-info"
-                  href="{{restaurant.link}}"role="button">Ver más &raquo;</a></p>
+    <br><br>
+    <section id="highlights" class="wrapper style3 container">
+        <div class="title"></div>
+        <div class="container">
+            <h3>Restaurantes</h3>
+            <div class="row aln-center">
+                <section id="highlights" class="wrapper style3">
+                    <div class="row">
+                        <div class="col-lg-4" *ngFor="let restaurant of restaurantes |paginate: { itemsPerPage: 6, currentPage: pageActual }">
+                            <img [src]="url + '/' + restaurant.imagePath" class="bd-placeholder-img rounded-circle" width="200px" height="200px"><br>
+                            <h2>{{restaurant.nombreRes}}</h2><br>
+                            <p>{{restaurant.descripcion}}</p>
+                            <p><a class="btn btn-outline-info" href="{{restaurant.link}}" role="button">Ver más &raquo;</a></p>
+                        </div>
+                        <div>
+                        </div>
+                        <!-- /.col-lg-4 -->
+                    </div>
+                    <!-- /.row -->
+                    <hr class="featurette-divider">
+                </section>
             </div>
-            <div >
-            </div><!-- /.col-lg-4 -->
-          </div><!-- /.row -->
-          <hr class="featurette-divider">
-        </section>
-      </div>
-      <div class="col-sm-12 col-md-12 posicionar-pagination">
-        <!-- Pagination md and lg-->
-        <pagination-controls class="pagination-style pagination-table-responsive pagination-md" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
-        </pagination-controls>
-    </div>
-    </div>
-    <hr class="featurette-divider">
-  </section>
+            <div class="col-sm-12 col-md-12 posicionar-pagination">
+                <!-- Pagination md and lg-->
+                <pagination-controls class="pagination-style pagination-table-responsive pagination-md" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+                </pagination-controls>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+    </section>
 </body>

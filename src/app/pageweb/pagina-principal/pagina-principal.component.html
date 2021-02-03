@@ -16,7 +16,7 @@
         <div class="carousel-inner">
             <!--  Aqui se muestran las fotos en el carrusel desde la base de datos -->
             <div *ngFor="let photo of photos; let i = index" class="carousel-item {{i == 0 ? 'active':''}}">
-                <img [src]="'http://localhost:4000/' + photo.imagePath" class="bd-placeholder-img" width="100%">
+                <img [src]="url + '/' + photo.imagePath" class="bd-placeholder-img" width="100%">
             </div>
         </div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -75,11 +75,10 @@
         <div class="row featurette">
             <div class="col-md-7">
 
-              <h2 class="featurette-heading">¿Quieres anunciarte con nosotros?<a routerLink="../registro"><span 
+                <h2 class="featurette-heading">¿Quieres anunciarte con nosotros?<a routerLink="../registro"><span 
                 class="text-muted"> Regístrate.</span></a><span class="text-muted"></span></h2>
-              <p class="lead">El perfil de nuestros lectores es tan diverso como las riquezas de nuestro patrimonio cultural.
-                Anunciarte con nosotros traerá grandes veneficios para tu comercio, dando a conocer tu negocio dentro de Guadalajara.
-              </p>
+                <p class="lead">El perfil de nuestros lectores es tan diverso como las riquezas de nuestro patrimonio cultural. Anunciarte con nosotros traerá grandes veneficios para tu comercio, dando a conocer tu negocio dentro de Guadalajara.
+                </p>
             </div>
             <div class="col-md-5"><br><br><br><br>
                 <img src="https://agenciaclover.com/wp-content/uploads/2017/01/Social-Media.png" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500">

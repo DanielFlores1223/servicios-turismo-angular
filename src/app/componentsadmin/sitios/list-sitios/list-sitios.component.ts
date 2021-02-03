@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SitioService } from '../../../services/sitio.service';
 import { Sitio } from '../../../interfaces/Sitio';
 import { Router } from '@angular/router';
+import {Dominio} from '../../../interfaces/Dominio';
 
 @Component({
   selector: 'app-list-sitios',
@@ -12,6 +13,7 @@ export class ListSitiosComponent implements OnInit {
 
   sitios: Sitio[] = [];//creamos list vacia
   pageActual = 1;
+  url = Dominio.URL;
 
   constructor(private sitioService: SitioService, private router: Router) { }
 

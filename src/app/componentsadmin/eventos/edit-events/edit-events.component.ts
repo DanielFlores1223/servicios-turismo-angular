@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EventoService } from '../../../services/evento.service';
 import {Evento} from '../../../interfaces/Evento';
 import Swal from 'sweetalert2';
+import {Dominio} from '../../../interfaces/Dominio';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class EditEventsComponent implements OnInit {
 
   id: string;
   evento: Evento;
+  url = Dominio.URL;
 
   constructor(private activatedRoute: ActivatedRoute,private eventoService: EventoService,private router: Router) { }
 
