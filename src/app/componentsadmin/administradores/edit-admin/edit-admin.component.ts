@@ -31,6 +31,8 @@ export class EditAdminComponent implements OnInit {
     console.log(this.activatedRoute.snapshot.params.id)
     this.consultarAdmin(this.activatedRoute.snapshot.params.id)
   }
+  
+  
   add(){
     this.activatedRoute.params.subscribe((data)=>{
       this.modificarAdmin(data[':id'])
@@ -40,7 +42,7 @@ export class EditAdminComponent implements OnInit {
   consultarAdmin(id:String){
     this.registroAdminservicio.consultarAdmin(id).subscribe((data)=>{
       this.administrador=data;
-      console.log(data)
+      
     })
 
     

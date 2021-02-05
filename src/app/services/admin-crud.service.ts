@@ -16,7 +16,7 @@ private loginadmin=`${Dominio.URL}/usuario/login`
 private eliminaradmin=`${Dominio.URL}/usuario/eliminar`
 private modificaradmin=`${Dominio.URL}/usuario/modificar`
 private veradmin=`${Dominio.URL}/usuario/`
-private verporid=`${Dominio.URL}/ver/`
+private verporid=`${Dominio.URL}/usuario/ver/`
 
 @Output() change: EventEmitter<boolean> = new EventEmitter();
 @Output() change1: EventEmitter<boolean> = new EventEmitter();
@@ -38,7 +38,7 @@ private verporid=`${Dominio.URL}/ver/`
    return !!localStorage.getItem('tipo')
    }
    consultarAdmin(id:String) : Observable<Administradores>{
-    return this.http.get<Administradores>(this.verporid+id)
+    return this.http.get<any>(this.verporid+id)
   }
    eliminaradministrador(usuario){
     return this.http.post<any>(this.eliminaradmin,usuario)
