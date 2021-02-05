@@ -47,7 +47,7 @@ export class EditAdminComponent implements OnInit {
 
     
   }
-    modificarAdmin(id:String){
+  modificarAdmin(id:String){
       this.registroAdminservicio.modificarAdmin(id,this.administrador)
       .subscribe(async res=>{
         await Swal.fire({
@@ -59,8 +59,7 @@ export class EditAdminComponent implements OnInit {
         })       
         console.log(res)
         
-        this.router.navigate(['/administradores'])
-        
+        this.router.navigate(['/administradoresLista'])
       },
       err=> Swal.fire({
         position: 'center',
@@ -68,6 +67,7 @@ export class EditAdminComponent implements OnInit {
         title: 'Modificacion no completa, revisa tus datos',
         showConfirmButton: false,
         timer: 2000
+        
       })       
       ) 
     }

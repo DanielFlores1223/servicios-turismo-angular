@@ -14,7 +14,7 @@ export class AdminCrudService {
 private registroadmin=`${Dominio.URL}/usuario/`
 private loginadmin=`${Dominio.URL}/usuario/login`
 private eliminaradmin=`${Dominio.URL}/usuario/eliminar`
-private modificaradmin=`${Dominio.URL}/usuario/modificar`
+private modificaradmin=`${Dominio.URL}/usuario/modificar/`
 private veradmin=`${Dominio.URL}/usuario/`
 private verporid=`${Dominio.URL}/usuario/ver/`
 
@@ -43,9 +43,9 @@ private verporid=`${Dominio.URL}/usuario/ver/`
    eliminaradministrador(usuario){
     return this.http.post<any>(this.eliminaradmin,usuario)
    }
-   modificaradministrador(usuario){
+  /* modificaradministrador(usuario){
     return this.http.post<any>(this.modificaradmin,usuario)
-   }
+   }*/
    veradministrador(){
     return this.http.get<any>(this.veradmin)
    }
@@ -53,4 +53,5 @@ private verporid=`${Dominio.URL}/usuario/ver/`
    modificarAdmin(id:String,usuario:Administradores){
     return this.http.put(this.modificaradmin+id,usuario)
   }
+ 
 }
