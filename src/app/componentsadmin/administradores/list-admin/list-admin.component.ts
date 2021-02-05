@@ -38,8 +38,8 @@ export class ListAdminComponent implements OnInit {
     ()=>console.log("no borrado")
     )
   }
-  modificaradministrador(tipo:String){
-    this.router.navigate(["administradores",tipo]);
+  modificaradministrador(id:String){
+    this.router.navigate(["administradores",id]);
 
   }
   navegacion(){

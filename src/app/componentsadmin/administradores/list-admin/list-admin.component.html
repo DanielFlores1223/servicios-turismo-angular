@@ -52,7 +52,7 @@
                                     <!--routerLink="['/edit-afiliados',comerciant.numerosocio]"-->
                                     <td>
                                       <a routerLink="/administradores/{{admin._id}}" class="btn btn-sm btn-primary btn-pill" ><i class="material-icons" style="font-size:14px;">edit</i></a>
-                                      <button  class="btn btn-sm btn-danger btn-pill" (click)="eliminaradministrador(admin._id)"><i class="material-icons" style="font-size:14px;">delete</i></button>
+                                      <button  routerLink="/administradores/{{admin._id}}"class="btn btn-sm btn-danger btn-pill" (click)="eliminaradministrador(admin._id)"><i class="material-icons" style="font-size:14px;">delete</i></button>
                                     </td>
                                 </tr>
 
