@@ -40,6 +40,7 @@ export class DashAfiliadoComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('tipo');
     localStorage.removeItem('nombre');
+    localStorage.removeItem('i');
     this.llenarEntrar();
     await window.location.reload();
     await this.router.navigate(['paginaprincipal'])

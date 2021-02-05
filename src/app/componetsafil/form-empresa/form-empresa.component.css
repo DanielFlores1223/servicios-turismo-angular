@@ -1,0 +1,23 @@
+.pocisionar-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+textarea {
+    height: 7rem;
+}
+
+.width-90 {
+    display: inline;
+    width: 93%;
+}
+
+.width-95 {
+    width: 97%;
+}
+
+@media (max-width: 576px) {
+    .pocisionar-btn {
+        justify-content: center;
+    }
+}

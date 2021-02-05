@@ -95,6 +95,10 @@ span {
     font-size: 0.938rem;
 }
 
+.btn-borde {
+    border-color: #d3d5db;
+}
+
 @media (max-width: 768px) {
     .ocultar-md {
         display: none;

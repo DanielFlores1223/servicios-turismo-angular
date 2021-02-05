@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Empresa} from '../interfaces/Empresa';
+import {Empresa,EmpresaCreate} from '../interfaces/Empresa';
 import {Dominio} from '../interfaces/Dominio';
 
 @Injectable({
@@ -12,11 +12,29 @@ export class EmpresaService {
 
   constructor(private http: HttpClient) { }
 
-  createEmpresa(nombreEmpresa: string, giro: string, redsocial: string, telefono: string, photo: File) {
+
+  /*nombreEmpresa: string, giro: string, estatus: string, descripcion: string, idComerciante: string, paginaWeb: string, facebook:  string, twitter: string,telefono: string, */
+  createEmpresa(datosEmpresa: EmpresaCreate, photo: File) {
+    const {nombreEmpresa, 
+           giro, 
+           telefono, 
+           estatus, 
+           descripcion, 
+           idComerciante ,
+           paginaWeb,
+           facebook, 
+           twitter} = datosEmpresa;
+
+
     const fd = new FormData();
     fd.append('nombreEmpresa', nombreEmpresa);
     fd.append('giro', giro);
-    fd.append('redsocial', redsocial);
+    fd.append('estatus', estatus);
+    fd.append('descripcion', descripcion);
+    fd.append('idComerciante', idComerciante);
+    fd.append('paginaWeb', paginaWeb);
+    fd.append('facebook', facebook);
+    fd.append('twitter',twitter);
     fd.append('telefono', telefono);
     fd.append('image', photo);
     return this.http.post(this.URI, fd);

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { EmpreaRoutingModule } from './emprea-routing.module';
@@ -14,8 +15,9 @@ import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
   ],
   imports: [
     CommonModule,
-    EmpreaRoutingModule
+    EmpreaRoutingModule,
+    FormsModule
   ],
-  exports:[DashAfiliadoComponent]
+  exports:[DashAfiliadoComponent, FormsModule]
 })
 export class EmpreaModule { }

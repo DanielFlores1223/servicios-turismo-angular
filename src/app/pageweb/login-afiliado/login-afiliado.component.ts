@@ -34,7 +34,7 @@ export class LoginAfiliadoComponent implements OnInit {
   loginc(){
     this.serviciologin.loginafili(this.comerciante)
     .subscribe(async  res=>{
-     
+     console.log(res);
       console.log(res)
       await Swal.fire({
         position: 'center',
@@ -47,6 +47,7 @@ export class LoginAfiliadoComponent implements OnInit {
       localStorage.setItem('token',res.envio[0])
       localStorage.setItem('nombre',res.envio[1])
       localStorage.setItem('tipo', res.envio[2])
+      localStorage.setItem('i', res.envio[3])
       this.serviciologin.eslogueadoafili()
       this.serviciologin.tipousuafili()
       
