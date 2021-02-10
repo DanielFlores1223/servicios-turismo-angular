@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CrudService } from '../../services/crud.service';
 import { Usuario } from '../../interfaces/Usuario';
 import {UsuarioService} from '../../services/usuario.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-cont-dashboard',
@@ -21,7 +22,13 @@ export class ContDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+
     this.obtenerMiInfo();
+    
   }
 
   //validar que el tipo de usuario no se cambie manualmente en el localStorage

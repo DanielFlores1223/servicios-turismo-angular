@@ -1,12 +1,18 @@
-.card{
-    height: 630px;
+.card-body{
+    width: auto;
+    height: 400px;
 }
 img{
     height: 200px;
 }
 #info{
-    height: 250px;
+    height: 220px;
 }
 h5{
     margin-top: 10px;
+}
+#btn-responsive{
+    position:absolute;
+    bottom:5px;
+    right:10px;
 }

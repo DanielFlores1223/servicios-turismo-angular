@@ -1,5 +1,6 @@
-.card{
-    height: 600px;
+.card-body{
+    width: auto;
+    height: 400px;
 }
 img{
     height: 200px;
@@ -9,4 +10,9 @@ img{
 }
 h5{
     margin-top: 10px;
+}
+#btn-responsive{
+    position:absolute;
+    bottom:5px;
+    right:10px;
 }

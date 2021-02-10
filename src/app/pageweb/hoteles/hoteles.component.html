@@ -26,7 +26,7 @@
                                 <p class="card-text">{{hottel.descripcion}}</p><br><br>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <p><a class="btn btn-outline-success" href="{{hottel.link}}" role="button">Ver más&raquo;</a></p>
+                                        <p><a class="btn btn-outline-success" href="{{hottel.link}}" role="button" target="blank">Ver más&raquo;</a></p>
                                     </div>
                                     <small class="text-muted"></small>
                                 </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="col-sm-12 col-md-12 posicionar-pagination">
                 <!-- Pagination md and lg-->
-                <pagination-controls class="pagination-style pagination-table-responsive pagination-md" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+                <pagination-controls class="pagination-style pagination-table-responsive" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
                 </pagination-controls>
             </div>
         </div>
