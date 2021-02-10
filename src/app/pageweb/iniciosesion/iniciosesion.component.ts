@@ -53,6 +53,7 @@ export class IniciosesionComponent implements OnInit {
       this.serviciologin.eslogueado()
       this.serviciologin.tipousu()
       this.router.navigate(['/panel'])
+      
 
     },
     err=> Swal.fire({

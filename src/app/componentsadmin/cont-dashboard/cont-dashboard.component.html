@@ -7,7 +7,7 @@
                 <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
                     <a class="navbar-brand w-100 mr-0" routerLink="panel" style="line-height: 25px;">
                         <div class="d-table m-auto">
-                            <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 35px;" src="/assets/Catedral_centro_rotonda.jpg" alt="CANACO">
+                            <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 35px;" src="./assets/Catedral_centro_rotonda.jpg" alt="CANACO">
                             <span class="d-none d-md-inline ml-1">CANACO</span>
                         </div>
                     </a>
@@ -107,12 +107,12 @@
                     <ul class="navbar-nav border-left flex-row ">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                <img class="user-avatar rounded-circle mr-2" src="/assets/login_icon.png">
+                                <img class="user-avatar rounded-circle mr-2" src="./assets/login_icon.png">
                                 <span class="d-none d-md-inline-block">Administrador</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-small">
                                 <a class="dropdown-item" href="#">
-                                    <i class="material-icons">&#xE7FD;</i>{{nivelusu}}</a>
+                                    <i class="material-icons">&#xE7FD;</i>{{miInfo.nombre}}</a>
                                 <a class="btn btn text-danger" (click)="cerrarsession()">
                                     <i class="material-icons text-danger">&#xE879;</i>Cerrar Sesion</a>
                             </div>

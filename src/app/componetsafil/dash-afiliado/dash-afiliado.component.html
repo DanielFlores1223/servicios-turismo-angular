@@ -17,7 +17,7 @@
         <!-- Sidebar -->
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading title-sidebar py-4">
-                <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 35px;" src="/assets/Catedral_centro_rotonda.jpg" alt="CANACO">
+                <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 35px;" src="./assets/Catedral_centro_rotonda.jpg" alt="CANACO">
                 <span class="d-none d-md-inline ml-1">CANACO</span>
             </div>
             <div class="list-group list-group-flush ">
@@ -42,13 +42,13 @@
 
 
                 <a class="nav-link dropdown-toggle text-nowrap px-3 navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <img class="user-avatar rounded-circle mr-2 imagen-afiliado" src="/assets/login_icon.png">
+                    <img class="user-avatar rounded-circle mr-2 imagen-afiliado" src="./assets/login_icon.png">
                     <span class="d-none d-md-inline-block">Afiliado</span>
                 </a>
 
                 <div class="collapse navbar-collapse ocultar-lg" id="navbarSupportedContent">
                     <a class="dropdown-item ocultar-lg">
-                        <i class="material-icons">&#xE7FD;</i><span>{{nivelusu}}</span>
+                        <i class="material-icons">&#xE7FD;</i><span>{{nombre}}</span>
                     </a>
                     <a class="btn btn text-danger ocultar-lg" (click)="cerrarsession()">
                         <i class="material-icons text-danger">&#xE879;</i>Cerrar Sesion
@@ -59,12 +59,12 @@
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item dropdown li-opciones">
                             <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                <img class="user-avatar rounded-circle mr-2 imagen-afiliado" src="/assets/login_icon.png">
+                                <img class="user-avatar rounded-circle mr-2 imagen-afiliado" src="./assets/login_icon.png">
                                 <span class="d-none d-md-inline-block">Afiliado</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-small">
                                 <a class="dropdown-item">
-                                    <i class="material-icons">&#xE7FD;</i><span>{{nivelusu}}</span>
+                                    <i class="material-icons">&#xE7FD;</i><span>{{nombre}}</span>
                                 </a>
                                 <a class="btn btn text-danger" (click)="cerrarsession()">
                                     <i class="material-icons text-danger">&#xE879;</i>Cerrar Sesion

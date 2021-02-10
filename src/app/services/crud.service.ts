@@ -16,10 +16,10 @@ export class CrudService {
   private verafil=`${Dominio.URL}/comerciante/`
   private verfiltrado=`${Dominio.URL}/comerciante/ver/`
    
-  @Output() change: EventEmitter<boolean> = new EventEmitter();
+  @Output() change: EventEmitter<string> = new EventEmitter();
   @Output() change1: EventEmitter<boolean> = new EventEmitter();
   @Output() change2: EventEmitter<boolean> = new EventEmitter();
-  @Output() change3: EventEmitter<boolean> = new EventEmitter();
+  @Output() change3: EventEmitter<string> = new EventEmitter();
   
 
   constructor(private http: HttpClient) { }
@@ -48,15 +48,17 @@ export class CrudService {
     return !!localStorage.getItem('token')
   }
   tipousuafili(){
-  this.change3.emit(!!localStorage.getItem('tipo'))
-  return !!localStorage.getItem('tipo')
+  this.change3.emit(localStorage.getItem('tipo'))
+  return localStorage.getItem('tipo')
   }
-   eslogueado(){
+
+  eslogueado(){
      this.change1.emit(!!localStorage.getItem('token'))
      return !!localStorage.getItem('token')
    }
+   
    tipousu(){
-   this.change.emit(!!localStorage.getItem('tipo'))
-   return !!localStorage.getItem('tipo')
+   this.change.emit(localStorage.getItem('tipo'))
+   return localStorage.getItem('tipo')
    }
 }

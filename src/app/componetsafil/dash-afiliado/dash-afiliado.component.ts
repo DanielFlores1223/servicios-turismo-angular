@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Comerciante } from 'src/app/interfaces/comerciante';
 import { CrudService } from 'src/app/services/crud.service';
+import {UsuarioService} from '../../services/usuario.service';
+import { Usuario } from '../../interfaces/Usuario';
+
 import * as $ from 'jquery';
 
 @Component({
@@ -10,13 +13,13 @@ import * as $ from 'jquery';
   styleUrls: ['./dash-afiliado.component.css']
 })
 export class DashAfiliadoComponent implements OnInit {
-  entrar=false
   
-  nivelusu=" ";
+  entrar=false
+  miInfo : Usuario;
+  id: String = localStorage.getItem('token');
+  nombre = '-';
 
-  constructor(private router:Router,private serviciologin: CrudService) {
-    this.nivelusu=localStorage.getItem('nombre');
-     
+  constructor(private router:Router,private serviciologin: CrudService, private usuarioService: UsuarioService) {  
   }
 
   ngOnInit(): void {
@@ -25,25 +28,35 @@ export class DashAfiliadoComponent implements OnInit {
       $("#wrapper").toggleClass("toggled");
     });
 
+    this.obtenerMiInfo();
     
-    this.serviciologin.change.subscribe(isOpen =>{
-      this.entrar=isOpen;
-      
-    });
-    this.llenarEntrar(); 
-  }
-  llenarEntrar(){
-    this.entrar=this.serviciologin.eslogueado(); 
   }
 
+  //validar que el tipo de usuario no se cambie manualmente en el localStorage
+  validarTipoUsuario(){
+    let tipoStorage = this.usuarioService.tipoUsu();
+    const {tipo} = this.miInfo;
+
+    if (tipoStorage === tipo) {
+      return true;
+    }else{
+      localStorage.setItem('tipo', tipo);  
+      tipoStorage = this.usuarioService.tipoUsu();  
+      return false;
+    }
+ }
+
+  obtenerMiInfo(){
+   this.usuarioService.getUsuarioId(this.id).subscribe( async res => {
+     this.miInfo = res;
+     this.nombre = res.nombre;
+     this.validarTipoUsuario();
+   });
+ }
+  
   async cerrarsession(){
-    localStorage.removeItem('token');
-    localStorage.removeItem('tipo');
-    localStorage.removeItem('nombre');
-    localStorage.removeItem('i');
-    this.llenarEntrar();
-    await window.location.reload();
-    await this.router.navigate(['paginaprincipal'])
-     
+    localStorage.clear();
+    this.entrar = this.usuarioService.loginExito();
+    this.router.navigate(['/paginaprincipal'])
   }
 }

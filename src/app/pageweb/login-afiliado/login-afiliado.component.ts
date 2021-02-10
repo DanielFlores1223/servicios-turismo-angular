@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { CrudService } from '../../services/crud.service';
+import {UsuarioService} from '../../services/usuario.service';
 
 import Swal from 'sweetalert2';
 
@@ -11,62 +11,55 @@ import Swal from 'sweetalert2';
 })
 export class LoginAfiliadoComponent implements OnInit {
 
-  comerciante={
-    nombre:"",
-    email:"",
-    numerodesocio:"",
-    password:"",
-    tipo:""
-  }
 
-  constructor(private router:Router,private serviciologin:CrudService ) { }
+  constructor(private router:Router, private usuarioService: UsuarioService ) { }
 
   async ngOnInit(): Promise<void> {
+
+    //al cargar el login el scroll se pocisiona en la coordenada x=0 y=15
     await this.router.events.subscribe((evt) => { 
       if (!(evt instanceof NavigationEnd)) { 
        return; 
       } 
-      window.scrollTo(0, 0) 
+      window.scrollTo(0, 15) 
      }); 
      
   }
- @HostListener('login')
-  loginc(){
-    this.serviciologin.loginafili(this.comerciante)
-    .subscribe(async  res=>{
-     console.log(res);
-      console.log(res)
-      await Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Bienvenido',
-        showConfirmButton: false,
-        timer: 2000
-  
-      }),
-      localStorage.setItem('token',res.envio[0])
-      localStorage.setItem('nombre',res.envio[1])
-      localStorage.setItem('tipo', res.envio[2])
-      localStorage.setItem('i', res.envio[3])
-      this.serviciologin.eslogueadoafili()
-      this.serviciologin.tipousuafili()
-      
-      this.router.navigate(['empresa/new'])
-      
-      
-    },
-    err=> Swal.fire({
-      position: 'center',
-      icon: 'error',
-      title: 'numero de socio o contraseña invalido',
-      showConfirmButton: false,
-      timer: 1500
 
-    })
-    )
-  }
-  loginAdmin(){
-    this.router.navigate(['iniciosesion']);
-  }
+login(email: HTMLInputElement, password: HTMLInputElement){
+  
+  this.usuarioService.login(email.value, password.value).subscribe(async res => {
+
+    //mostramos alerta de bienvenida
+    await Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Bienvenido',
+      showConfirmButton: false,
+      timer: 2000
+    });
+
+    localStorage.setItem('token',res.envio[0]);
+    localStorage.setItem('tipo',res.envio[1]); 
+    this.usuarioService.loginExito();
+    const tipoUsu = this.usuarioService.tipoUsu();
+    
+    //Se define la ruta a navegar
+    if (tipoUsu == 'admin') 
+      this.router.navigate(['/panel']);  
+    else if(tipoUsu == 'afiliado')
+      this.router.navigate(['/empresa/new']);
+    
+  },
+  err=> Swal.fire({
+    position: 'center',
+    icon: 'error',
+    title: 'Correo eléctronico o contraseña incorrectos',
+    showConfirmButton: false,
+    timer: 1500
+
+  }));
+}
+
 
 }
