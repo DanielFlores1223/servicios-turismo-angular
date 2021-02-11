@@ -18,7 +18,7 @@ export class ListEmpresasComponent implements OnInit {
   opcionSeleccionado = 'Todos';
   url = Dominio.URL;
   
-  constructor(private empresaService: EmpresaService, private router: Router) { }
+  constructor(private empresaService: EmpresaService, private ruta: Router) { }
 
   ngOnInit(): void {
     this.getEmpresas();
@@ -104,6 +104,7 @@ export class ListEmpresasComponent implements OnInit {
           );
 
           this.getEstatusEmpresas();
+          this.ruta.navigate(['/empresas']);
         }
       } else if (
         /* Read more about handling dismissals below */

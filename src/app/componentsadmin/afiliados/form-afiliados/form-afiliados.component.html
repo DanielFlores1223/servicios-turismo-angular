@@ -20,22 +20,19 @@
                                 <form>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input [(ngModel)]="comerciante.nombre" [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Nombre completo">
+                                            <input [(ngModel)]="afiliado.nombre" [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Nombre completo">
                                         </div>
 
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
-                                            <input [(ngModel)]="comerciante.email" [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="email">
+                                            <input [(ngModel)]="afiliado.email" [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="email">
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <input min="1" [(ngModel)]="comerciante.numerosocio" [ngModelOptions]="{standalone: true}" type="number" class="form-control" placeholder="Numero de socio">
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <input [(ngModel)]="comerciante.password" [ngModelOptions]="{standalone: true}" type="password" class="form-control" maxlength="10" placeholder="Ingresa contraseña">
+                                            <input [(ngModel)]="afiliado.password" [ngModelOptions]="{standalone: true}" type="password" class="form-control" maxlength="10" placeholder="Ingresa contraseña">
                                         </div>
                                     </div>
-                                    <button class="btn btn-sm btn-outline-accent btn-responsive-form" (click)="registro()">
+                                    <button class="btn btn-sm btn-outline-accent btn-responsive-form" (click)="registrar()">
                                     <i class="material-icons" >save</i>
                                     Guardar usuario
                                     </button>

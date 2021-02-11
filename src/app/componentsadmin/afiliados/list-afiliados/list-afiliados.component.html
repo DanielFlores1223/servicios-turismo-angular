@@ -1,4 +1,3 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <main class="row">
     <div class="main-content-container container-fluid px-4">
         <!-- Page Header -->
@@ -9,9 +8,9 @@
         </div>
         <div class="row mb-4">
             <div class="col-12 centrar-btn">
-                <button class="btn btn-sm btn-success btn-pill btn-responsive" (click)="navegacion()">
+                <a routerLink="/afiliados/new" class="btn btn-sm btn-success btn-pill btn-responsive">
                     <i class="material-icons">add</i>Agregar nuevo usuario
-                </button>
+                </a>
             </div>
         </div>
 
@@ -38,19 +37,16 @@
                                 <tr>
                                     <th scope="col" class="border-0">Nombre</th>
                                     <th scope="col" class="border-0">email</th>
-                                    <th scope="col" class="border-0">No. Socio</th>
                                     <th scope="col" class="border-0">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let comerciant of comerciantes |  paginate: { itemsPerPage: 4, currentPage: pageActual }">
-                                    <td>{{comerciant.nombre}}</td>
-                                    <td>{{comerciant.email}}</td>
-                                    <td>{{comerciant.numerosocio}}</td>
-                                    <!--routerLink="['/edit-afiliados',comerciant.numerosocio]"-->
+                                <tr *ngFor="let afiliado of afiliados |  paginate: { itemsPerPage: 4, currentPage: pageActual }">
+                                    <td>{{afiliado.nombre}}</td>
+                                    <td>{{afiliado.email}}</td>
                                     <td>
-                                        <button class="btn btn-sm btn-primary btn-pill btn-reponsive-crud" (click)="modificar(comerciant.numerosocio)"><i class="material-icons" style="font-size:14px;">edit</i></button>
-                                        <button class="btn btn-sm btn-danger btn-pill btn-reponsive-crud" (click)="eliminar(comerciant.numerosocio)"><i class="material-icons" style="font-size:14px;">delete</i></button>
+                                        <a routerLink="/afiliados/{{afiliado._id}}" class="btn btn-sm btn-primary btn-pill btn-reponsive-crud"><i class="material-icons" style="font-size:14px;">edit</i></a>
+                                        <button class="btn btn-sm btn-danger btn-pill btn-reponsive-crud"><i class="material-icons" style="font-size:14px;" (click)="mostrarConfirmacionDelete(afiliado._id)">delete</i></button>
                                     </td>
                                 </tr>
 

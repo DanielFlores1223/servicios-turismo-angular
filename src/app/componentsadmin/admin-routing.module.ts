@@ -37,7 +37,7 @@ const routes: Routes = [
 
   {path: 'afiliados', component: ListAfiliadosComponent,canActivate :[GuarloginGuard]}, 
   {path: 'afiliados/new',component: FormAfiliadosComponent,canActivate :[GuarloginGuard]},
-  {path: 'afiliados/:numerosocio',component: EditAfiliadosComponent,canActivate :[GuarloginGuard]},
+  {path: 'afiliados/:id',component: EditAfiliadosComponent,canActivate :[GuarloginGuard]},
 
   
   {path: 'administradoresLista', component:ListAdminComponent, canActivate:[GuarloginGuard]},

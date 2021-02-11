@@ -9,9 +9,9 @@
         </div>
         <div class="row mb-4">
             <div class="col-12 centrar-btn">
-                <button class="btn btn-sm btn-success btn-pill btn-responsive" (click)="navegacion()">
+                <a routerLink="/administradores/new" class="btn btn-sm btn-success btn-pill btn-responsive">
                     <i class="material-icons">add</i>Agregar nuevo administrador
-                </button>
+                </a>
             </div>
         </div>
 
@@ -44,7 +44,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let admin of admin |  paginate: { itemsPerPage: 4, currentPage: pageActual }">
+                                <tr *ngFor="let admin of administradores |  paginate: { itemsPerPage: 4, currentPage: pageActual }">
                                     <td>{{admin.nombre}}</td>
                                     <td>{{admin.email}}</td>
                                     <td>{{admin.direccion}}</td>
@@ -52,7 +52,7 @@
                                     <!--routerLink="['/edit-afiliados',comerciant.numerosocio]"-->
                                     <td>
                                         <a routerLink="/administradores/{{admin._id}}" class="btn btn-sm btn-primary btn-pill"><i class="material-icons" style="font-size:14px;">edit</i></a>
-                                        <button routerLink="/administradores/{{admin._id}}" class="btn btn-sm btn-danger btn-pill" (click)="eliminaradministrador(admin._id)"><i class="material-icons" style="font-size:14px;">delete</i></button>
+                                        <button (click)="mostrarConfirmacionDelete(admin._id)" class="btn btn-sm btn-danger btn-pill"><i class="material-icons" style="font-size:14px;">delete</i></button>
                                     </td>
                                 </tr>
 

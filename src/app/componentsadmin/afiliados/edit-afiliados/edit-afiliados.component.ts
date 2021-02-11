@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { CrudService } from '../../../services/crud.service';
-import { Comerciante } from '../../../interfaces/Comerciante';
+import { Usuario, UsuarioObj } from '../../../interfaces/Usuario';
+import {UsuarioService} from '../../../services/usuario.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,60 +10,69 @@ import Swal from 'sweetalert2';
   styleUrls: ['./edit-afiliados.component.css']
 })
 export class EditAfiliadosComponent implements OnInit {
+  afiliado = UsuarioObj;
+  id = this.activatedRoute.snapshot.params.id;
 
-  constructor(private router:Router,private registroservicio:CrudService,private activatedRoute:ActivatedRoute) {
-    this.activatedRoute.params.subscribe((data)=>{
-      this.consultar(data['numerosocio']);
-    })
-   }
-  comerciante:Comerciante={
-    _id:" ",
-    nombre:" ",
-    email:" ",
-    numerosocio:0,
-    password:" ",
-    tipo:" ",
+  constructor(private router:Router, private usuarioService: UsuarioService ,private activatedRoute:ActivatedRoute) {
+   
   }
   
   ngOnInit(): void {
+    this.getUsuario();
+  }
+
+  getUsuario(){
+    this.usuarioService.getUsuarioId(this.id).subscribe( res => {
+      res.password = '';
+     this.afiliado = res;
+    });
+  }
+
+  updateUsuario(){
+    if (this.validarFormulario()) {
+      this.usuarioService.updateUsuario(this.id, this.afiliado).subscribe(async res => {
+        await Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'La información se modificó correctamente.',
+          showConfirmButton: false,
+          timer: 2500,
+          timerProgressBar:true  
+        });
+  
+        await this.router.navigate(['/afiliados']);
+      }, 
+      err => {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Error!',
+          text: 'Hubó un error, revise que este cumpliendo con todas las instrucciones.',
+          showConfirmButton: false,
+          timer: 4000,
+          timerProgressBar:true  
+        });
+      });
+    }
+   
+  }
+
+  validarFormulario(){
+    if (this.afiliado.nombre === '') {      
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Revise que los campos obligatorios esten llenos',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar:true  
+          });
+
+          return false;
+    }else{
+      return true;
+    }
   }
  
-  add(){
-    this.activatedRoute.params.subscribe((data)=>{
-      this.modificar(data['numerosocio'])
-    })
-  }
-  
-  consultar(numerosocio:Number){
-    this.registroservicio.consultarafili(numerosocio).subscribe((data)=>{
-      this.comerciante=data;
-    })
-
-    
-  }
-  modificar(numerosocio:Number){
-    this.registroservicio.modificarafili(numerosocio,this.comerciante)
-    .subscribe(async res=>{
-      await Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'modificación Con exito',
-        showConfirmButton: false,
-        timer: 2000
-      })       
-      console.log(res)
-      
-      this.router.navigate(['/afiliados'])
-      
-    },
-    err=> Swal.fire({
-      position: 'center',
-      icon: 'error',
-      title: 'Modificacion no completa, revisa tus datos',
-      showConfirmButton: false,
-      timer: 2000
-    })       
-    ) 
-  }
 
 }
