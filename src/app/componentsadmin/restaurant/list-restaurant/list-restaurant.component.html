@@ -27,7 +27,7 @@
 
                 <!-- restaurante list -->
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-12 mb-4" *ngFor="let restaurante of restaurantes |  paginate: { itemsPerPage: 4, currentPage: pageActual }">
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4" *ngFor="let restaurante of restaurantes |  paginate: { itemsPerPage: 3, currentPage: pageActual }">
                         <div class="card card-small card-post card-post--1">
                             <div class="card-post__image">
                                 <img [src]="url + '/' + restaurante.imagePath" class="img-card-top w-100">
@@ -40,7 +40,7 @@
                                 <p class="card-text mb-3">{{restaurante.direccion}}</p>
                                 <p class="card-text mb-3">{{restaurante.link}}</p>
                                 <div class="my-auto ml-auto text-center">
-                                    <button class="btn btn-sm btn-primary btn-pill btn-responsive" (click)="selectedButton(restaurante._id)"><i class="material-icons">edit</i>Editar
+                                    <button id="btn-responsive" class="btn btn-sm btn-primary btn-pill btn-responsive" (click)="selectedButton(restaurante._id)"><i class="material-icons">edit</i>Editar
                                     </button>
                                 </div>
                             </div>

@@ -28,7 +28,19 @@ h3{
     justify-content: flex-end;
     align-items: center;
   }
-  @media (min-width: 386px) {
+  /* Móviles en horizontal o tablets en vertical
+  ------------------------------------------------------------------------- */
+  @media (min-width:481px) and (max-width: 1199px) { 
+    img{
+      align-items: center;
+      margin: 1em;
+      margin-left: 35%;
+  
+  }
+  }
+  /* Móviles en vertical
+  ------------------------------------------------------------------------- */
+  @media (min-width:320px) and (max-width: 480px) {
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
     }

@@ -1,131 +1,119 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div class="container-fluid">
-    <div class="row">
-        <!-- Main Sidebar -->
-        <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
-            <div class="main-navbar">
-                <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
-                    <a class="navbar-brand w-100 mr-0" routerLink="panel" style="line-height: 25px;">
-                        <div class="d-table m-auto">
-                            <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 35px;" src="./assets/Catedral_centro_rotonda.jpg" alt="CANACO">
-                            <span class="d-none d-md-inline ml-1">CANACO</span>
-                        </div>
-                    </a>
-                    <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
-                        <i class="material-icons">&#xE5C4;</i>
-                    </a>
-                </nav>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading title-sidebar py-4">
+                <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 35px;" src="./assets/Catedral_centro_rotonda.jpg" alt="CANACO">
+                <span class="d-none d-md-inline ml-1">CANACO</span>
             </div>
-            <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
-                <div class="input-group input-group-seamless ml-3">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <i class="fas fa-search"></i>
-                        </div>
-                    </div>
-                    <input class="navbar-search form-control" type="text" placeholder="Buscador" aria-label="Search">
+            <div class="list-group list-group-flush ">
+                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="">
+                    <i class="material-icons">image</i>
+                    <span>Slider</span>
+                </a>
+                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./sitios" routerLinkActive="link-style--activo">
+                    <i class="material-icons">location_city</i>
+                    <span>Sitios</span>
+                </a>
+                
+                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./eventos" routerLinkActive="link-style--activo">
+                    <i class="material-icons">event</i>
+                    <span>Eventos</span>
+                </a>
+                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./empresas" routerLinkActive="link-style--activo">
+                    <i class="material-icons">note_add</i>
+                    <span>Solicitudes de Empresas</span>
+                </a>
+                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./restaurantes" routerLinkActive="link-style--activo">
+                    <i class="material-icons">food_bank</i>
+                    <span>Restaurantes</span>
+                </a>
+                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./hoteles" routerLinkActive="link-style--activo">
+                    <i class="material-icons">apartment</i>
+                    <span>Hoteles</span>
+                </a>
+                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./administradoresLista" routerLinkActive="link-style--activo">
+                    <i class="material-icons">people_alt</i>
+                    <span>Administradores</span>
+                </a>
+                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./afiliados" routerLinkActive="link-style--activo">
+                    <i class="material-icons">people_alt</i>
+                    <span>Usuarios Afiliados</span>
+                </a>
+                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./carrusel" routerLinkActive="link-style--activo">
+                    <i class="material-icons">settings</i>
+                    <span>Carrusel</span>
+                </a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-borde" id="menu-toggle"><i class="material-icons">menu</i></button>
+
+
+                <a class="nav-link dropdown-toggle text-nowrap px-3 navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <img class="user-avatar rounded-circle mr-2 imagen-afiliado" src="./assets/login_icon.png">
+                    <span class="d-none d-md-inline-block">Administrador</span>
+                </a>
+
+                <div class="collapse navbar-collapse ocultar-lg" id="navbarSupportedContent">
+                    <a class="dropdown-item ocultar-lg">
+                        <i class="material-icons">&#xE7FD;</i><span>{{miInfo.nombre}}</span>
+                    </a>
+                    <a class="btn btn text-danger ocultar-lg" (click)="cerrarsession()">
+                        <i class="material-icons text-danger">&#xE879;</i>Cerrar Sesión
+                    </a>
                 </div>
-            </form>
-            <div class="nav-wrapper">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="">
-                            <i class="material-icons">image</i>
-                            <span>Slider</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="sitios">
-                            <i class="material-icons">location_city</i>
-                            <span>Sitios</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " routerLink="eventos">
-                            <i class="material-icons">event</i>
-                            <span>Eventos</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " routerLink="empresas">
-                            <i class="material-icons">note_add</i>
-                            <span>Solicitudes de Empresas</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " routerLink="restaurantes">
-                            <i class="material-icons">food_bank</i>
-                            <span>Restaurantes</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " routerLink="hoteles">
-                            <i class="material-icons">apartment</i>
-                            <span>Hoteles</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " routerLink="administradoresLista">
-                            <i class="material-icons">people_alt</i>
-                            <span>Administradores</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " routerLink="afiliados">
-                            <i class="material-icons">people_alt
-              </i>
-                            <span>Usuarios Afiliados</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " routerLink="carrusel">
-                            <i class="material-icons">settings
-              </i>
-                            <span>Carrusel</span>
-                        </a>
-                    </li>
 
-
-                </ul>
-            </div>
-        </aside>
-        <!-- End Main Sidebar -->
-        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
-            <div class="main-navbar sticky-top bg-white">
-                <!-- Main Navbar -->
-                <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
-                    <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
-                        <div class="input-group input-group-seamless ml-3">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i class="fas fa-search"></i>
-                                </div>
-                            </div>
-
-                        </div>
-                    </form>
-                    <ul class="navbar-nav border-left flex-row ">
-                        <li class="nav-item dropdown">
+                <div class="ocultar-md">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item dropdown li-opciones">
                             <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                <img class="user-avatar rounded-circle mr-2" src="./assets/login_icon.png">
+                                <img class="user-avatar rounded-circle mr-2 imagen-afiliado" src="./assets/login_icon.png">
                                 <span class="d-none d-md-inline-block">Administrador</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-small">
-                                <a class="dropdown-item" href="#">
-                                    <i class="material-icons">&#xE7FD;</i>{{miInfo.nombre}}</a>
+                                <a class="dropdown-item">
+                                    <i class="material-icons">&#xE7FD;</i><span>{{miInfo.nombre}}</span>
+                                </a>
                                 <a class="btn btn text-danger" (click)="cerrarsession()">
-                                    <i class="material-icons text-danger">&#xE879;</i>Cerrar Sesion</a>
+                                    <i class="material-icons text-danger">&#xE879;</i>Cerrar Sesión
+                                </a>
                             </div>
                         </li>
+
                     </ul>
-                    <nav class="nav">
-                        <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left" data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
-                            <i class="material-icons">&#xE5D2;</i>
-                        </a>
-                    </nav>
-                </nav>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <router-outlet></router-outlet>
             </div>
-        </main>
+        </div>
+        <!-- /#page-content-wrapper -->
+
     </div>
-</div>
-<router-outlet></router-outlet>
+    <!-- /#wrapper -->
+
+</body>
+
+</html>
+
