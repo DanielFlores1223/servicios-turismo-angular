@@ -5,24 +5,25 @@ import {Dominio} from '../../interfaces/Dominio';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-hoteles',
-  templateUrl: './hoteles.component.html',
-  styleUrls: ['./hoteles.component.css']
+  selector: 'app-comercios',
+  templateUrl: './comercios.component.html',
+  styleUrls: ['./comercios.component.css']
 })
-export class HotelesComponent implements OnInit {
+export class ComerciosComponent implements OnInit {
   //Variables
   pageActual: number = 1;//paginador
   url = Dominio.URL; //sirve para obtener las imagenes desde el servidor
-  hoteles: Empresa[] = [];
+  comercios: Empresa[] = [];
 
   constructor(private empresaService: EmpresaService) { }
+
   ngOnInit(): void {
-    this.getHoteles();
+    this.getComercios();
   }
 
-  getHoteles(){
-    this.empresaService.getEmpresasGiro('Hotel').subscribe(
-      res => this.hoteles = res, 
+  getComercios(){
+    this.empresaService.getEmpresasGiro('Comercio').subscribe(
+      res => this.comercios = res, 
       err => {
         Swal.fire({
           position: 'center',
@@ -35,6 +36,4 @@ export class HotelesComponent implements OnInit {
         });
       });
   }
-
-
 }

@@ -42,6 +42,7 @@ import { EmpreaRoutingModule } from './componetsafil/emprea-routing.module';
 import { FormAdminComponent } from '../../src/app/componentsadmin/administradores/form-admin/form-admin.component';
 import { EditAdminComponent } from '../../src/app/componentsadmin/administradores/edit-admin/edit-admin.component';
 import { ListAdminComponent } from '../../src/app/componentsadmin/administradores/list-admin/list-admin.component';
+import { ComerciosComponent } from './pageweb/comercios/comercios.component';
 //import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 
 
@@ -74,6 +75,7 @@ import { ListAdminComponent } from '../../src/app/componentsadmin/administradore
     FormAdminComponent,
     EditAdminComponent,
     ListAdminComponent,
+    ComerciosComponent,
     
     
   ],

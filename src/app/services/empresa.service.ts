@@ -12,8 +12,6 @@ export class EmpresaService {
 
   constructor(private http: HttpClient) { }
 
-
-  /*nombreEmpresa: string, giro: string, estatus: string, descripcion: string, idComerciante: string, paginaWeb: string, facebook:  string, twitter: string,telefono: string, */
   createEmpresa(datosEmpresa: EmpresaCreate, photo: File) {
     const {nombreEmpresa, 
            giro, 
@@ -50,6 +48,10 @@ export class EmpresaService {
 
   getEmpresa(id){
     return this.http.get<Empresa>(`${this.URI}/${id}`);
+  }
+
+  getEmpresasGiro(giro: string){
+    return this.http.get<Empresa[]>(`${this.URI}-giro/${giro}`);
   }
 
   updateEstatus(estatus: string, id: string){

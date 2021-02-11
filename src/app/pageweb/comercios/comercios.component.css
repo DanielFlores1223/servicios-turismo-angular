@@ -1,0 +1,22 @@
+/*Generales*/
+
+h3 {
+    text-align: center;
+    font-size: 40px;
+    padding: 5px;
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+.posicionar-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@media (min-width: 386px) {
+    .posicionar-pagination {
+        justify-content: center;
+        margin-bottom: 0;
+    }
+}

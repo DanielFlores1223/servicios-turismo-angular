@@ -1,5 +1,3 @@
-<!-- Highlights  -->
-
 <body>
     <br><br>
     <section id="highlights" class="wrapper style3 container">
@@ -8,12 +6,12 @@
             <h3>Restaurantes</h3>
             <div class="row aln-center">
                 <section id="highlights" class="wrapper style3">
-                    <div class="row">
+                    <div class="row" *ngIf="restaurantes.length > 0; else noResults">
                         <div class="col-lg-4" *ngFor="let restaurant of restaurantes |paginate: { itemsPerPage: 6, currentPage: pageActual }">
                             <img [src]="url + '/' + restaurant.imagePath" class="bd-placeholder-img rounded-circle" width="200px" height="200px"><br>
-                            <h2>{{restaurant.nombreRes}}</h2><br>
+                            <h2>{{restaurant.nombreEmpresa}}</h2><br>
                             <p>{{restaurant.descripcion}}</p>
-                            <p><a class="btn btn-outline-info" href="{{restaurant.link}}" role="button">Ver más &raquo;</a></p>
+                            <p><a class="btn btn-outline-info" href="{{restaurant.pageWeb}}" role="button">Ver más &raquo;</a></p>
                         </div>
                         <div>
                         </div>
@@ -21,9 +19,10 @@
                     </div>
                     <!-- /.row -->
                     <hr class="featurette-divider">
+
                 </section>
             </div>
-            <div class="col-sm-12 col-md-12 posicionar-pagination">
+            <div class="col-sm-12 col-md-12 posicionar-pagination" *ngIf="restaurantes.length > 0">
                 <!-- Pagination md and lg-->
                 <pagination-controls class="pagination-style pagination-table-responsive pagination-md" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
                 </pagination-controls>
@@ -31,4 +30,13 @@
         </div>
         <hr class="featurette-divider">
     </section>
+
 </body>
+
+<ng-template #noResults>
+    <div class="row">
+        <div class="col-12">
+            <p class="h2 text-center">No se encontrarón resultados :(</p>
+        </div>
+    </div>
+</ng-template>

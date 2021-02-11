@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Restaurante } from 'src/app/interfaces/Restaurante';
-import { RestauranteService } from 'src/app/services/restaurante.service';
+import {EmpresaService} from '../../services/empresa.service';
+import { Empresa } from '../../interfaces/Empresa';
 import {Dominio} from '../../interfaces/Dominio';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-restaurantes',
@@ -10,18 +11,29 @@ import {Dominio} from '../../interfaces/Dominio';
 })
 export class RestaurantesComponent implements OnInit {
   pageActual: number = 1;//paginador
-  url = Dominio.URL;
+  url = Dominio.URL; //sirve para obtener las imagenes desde el servidor
+  restaurantes: Empresa[] = [];
 
-  constructor(private restauranteService: RestauranteService,) { }
-  restaurantes: Restaurante[] = [];//creamos list vacia
+  constructor(private empresaService: EmpresaService) { }
+  
   ngOnInit(): void {
-    this.restauranteService.getRestaurantes()//utilizamos el metodo getres y retorna dos cosas la res y o un error
-      .subscribe(
-        res => {
-          this.restaurantes = res;//utilizamos la propiedad eventos lin 12 y almacena lo que tenga la res
-        },
-        err => console.log(err)
-      )
+    this.getRestaurante();
+  }
+
+  getRestaurante(){
+    this.empresaService.getEmpresasGiro('Restaurante').subscribe(
+      res => this.restaurantes = res, 
+      err => {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Error',
+          text: 'Al parecer hubó un error, recargue la página',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar:true  
+        });
+      });
   }
 
 }

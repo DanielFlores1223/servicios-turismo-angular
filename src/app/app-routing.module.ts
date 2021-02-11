@@ -22,6 +22,7 @@ import { MasSitiosComponent } from './pageweb/mas-sitios/mas-sitios.component';
 import { RegistroComponent } from './pageweb/registro/registro.component';
 import { LoginAfiliadoComponent } from './pageweb/login-afiliado/login-afiliado.component';
 import { EventosComponent } from './pageweb/eventos/eventos.component';
+import { ComerciosComponent } from './pageweb/comercios/comercios.component'
 
 
 const routes: Routes = [//definimos la rutas para el enrutador
@@ -34,6 +35,7 @@ const routes: Routes = [//definimos la rutas para el enrutador
   {path:'rotonda',component:RotondaComponent},
   {path:'sanjuan',component:SanjuanComponent},
   {path:'centroH',component:CentrohistoricoComponent},
+  {path: 'comercios', component: ComerciosComponent},
   
   
   {path:'menu',component:MenuComponent},
