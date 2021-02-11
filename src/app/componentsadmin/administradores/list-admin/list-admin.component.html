@@ -1,5 +1,5 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+<main class="row">
     <div class="main-content-container container-fluid px-4">
         <!-- Page Header -->
         <div class="page-header row no-gutters pt-4 pb-0">
@@ -51,8 +51,8 @@
                                     <td>{{admin.telefono}}</td>
                                     <!--routerLink="['/edit-afiliados',comerciant.numerosocio]"-->
                                     <td>
-                                      <a routerLink="/administradores/{{admin._id}}" class="btn btn-sm btn-primary btn-pill" ><i class="material-icons" style="font-size:14px;">edit</i></a>
-                                      <button  routerLink="/administradores/{{admin._id}}"class="btn btn-sm btn-danger btn-pill" (click)="eliminaradministrador(admin._id)"><i class="material-icons" style="font-size:14px;">delete</i></button>
+                                        <a routerLink="/administradores/{{admin._id}}" class="btn btn-sm btn-primary btn-pill"><i class="material-icons" style="font-size:14px;">edit</i></a>
+                                        <button routerLink="/administradores/{{admin._id}}" class="btn btn-sm btn-danger btn-pill" (click)="eliminaradministrador(admin._id)"><i class="material-icons" style="font-size:14px;">delete</i></button>
                                     </td>
                                 </tr>
 
