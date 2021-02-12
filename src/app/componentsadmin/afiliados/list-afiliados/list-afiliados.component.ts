@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudService } from '../../../services/crud.service';
-import { Comerciante } from '../../../interfaces/Comerciante';
+import { Usuario } from '../../../interfaces/Usuario';
+import {UsuarioService} from '../../../services/usuario.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 
@@ -13,35 +14,82 @@ import { Router } from '@angular/router';
 })
 export class ListAfiliadosComponent implements OnInit {
   pageActual: number = 1;//paginador
-  comerciantes: Comerciante[] = [];//creamos list vacia
+ afiliados: Usuario[] = [];//creamos list vacia
 
-  constructor(private router:Router,private crudService:CrudService) { 
-    this.ver();
+  constructor(private usuarioService: UsuarioService, private router:Router) { 
+    
   }
-  async ngOnInit(): Promise<void> {
-   
-  }//funciona
-  ver(){
-    this.crudService.verafili().subscribe((data)=>{
-      this.comerciantes=data
-      console.log(this.comerciantes)
+  ngOnInit(): void {
+   this.getAfiliados();
+  }
+
+  getAfiliados(){
+    this.usuarioService.getUsuariosTipo('afiliado').subscribe(
+      res => this.afiliados = res, 
+      err =>{
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Error',
+          text: 'Al parecer hubó un error, recargue la página',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar:true  
+        });
+      });
+  }
+
+  mostrarConfirmacionDelete(id: String){
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger mr-2'
+      },
+      buttonsStyling: false
     })
-  }//funciona
-  eliminar(numerosocio:Number){
-    this.crudService.eliminarafili(numerosocio).subscribe(()=>{
-      console.log("borrado");
-      this.ver();
-    },
-    ()=>console.log("no borrado")
-    )
-
+    
+    swalWithBootstrapButtons.fire({
+      title: '¿Estas seguro de eliminar este Afiliado?',
+      text: "Una vez eliminada, la información no se podrá recuperar!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      cancelButtonText: 'Cancelar',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        //revisamos que el usuario se elimino correctamente
+        if (this.deleteUsuario(id)) {
+          swalWithBootstrapButtons.fire(
+            'Eliminado!',
+            'El Afiliado se eliminó correctamente.',
+            'success'
+          )
+          this.getAfiliados();
+          this.router.navigate(['/afiliados']);
+        }   
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'El Afiliado no se borró :)',
+          'error'
+        )
+      }
+    })
   }
-  modificar(numerosocio:Number){
-    this.router.navigate(["afiliados",numerosocio]);
 
+  deleteUsuario(id: String){
+   const eliminado = this.usuarioService.deleteUsuario(id).subscribe( 
+     res => true, 
+     err => false);
+
+   if (eliminado) 
+      return true;
+   else
+     return false;
+   
   }
-navegacion(){
-  this.router.navigate(['afiliados/new'])
-}
-
 }

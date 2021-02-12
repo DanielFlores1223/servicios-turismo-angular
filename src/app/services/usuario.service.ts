@@ -7,8 +7,8 @@ import {Dominio} from '../interfaces/Dominio';
   providedIn: 'root'
 })
 export class UsuarioService {
-  URILogin = `${Dominio.URL}/api/login`;
-  URI = `${Dominio.URL}/api/usuario`;
+  private URILogin = `${Dominio.URL}/api/login`;
+  private URI = `${Dominio.URL}/api/usuario`;
 
   @Output() change: EventEmitter<boolean> = new EventEmitter();
   
@@ -32,6 +32,22 @@ export class UsuarioService {
 
   getUsuarioId(id: String){
     return this.http.get<Usuario>(`${this.URI}/${id}`);
+  }
+
+  getUsuariosTipo(tipo: String){
+    return this.http.get<Usuario[]>(`${this.URI}-tipo/${tipo}`);
+  }
+
+  createUsuario(usuarioNew: Usuario){
+    return this.http.post(this.URI, usuarioNew);
+  }
+
+  deleteUsuario(id: String){
+    return this.http.delete(`${this.URI}/${id}`);
+  }
+
+  updateUsuario(id: String, usuario: Usuario){
+    return this.http.put(`${this.URI}/${id}`, usuario);
   }
 
 }
