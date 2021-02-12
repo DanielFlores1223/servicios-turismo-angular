@@ -15,6 +15,7 @@ export class PanelComponent implements OnInit {
   totalsitios;
   totalotros;
   totaleventos;
+  totalcomercios;
 
   ngOnInit(): void {
     this.conteohotel()
@@ -23,6 +24,7 @@ export class PanelComponent implements OnInit {
     this.conteositio()
     this.conteotros()
     this.conteoevento()
+    this.conteocomercio()
   }
   conteohotel() {
     this.conteoservice.counthoteles().subscribe(res => {
@@ -54,5 +56,11 @@ conteotros() {
   this.conteoservice.countsitiosotros().subscribe(res => {
     this.totalotros = res;
   }, error => console.log(error))
-}
+ }
+
+ conteocomercio(){
+   this.conteoservice.countcomercio().subscribe(res => {
+    this.totalcomercios = res;
+  }, error => console.log(error))
+  }
 }

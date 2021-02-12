@@ -14,6 +14,7 @@ export class ConteoService {
   URL4 = `${Dominio.URL}/api/conteo4`
   URL5 = `${Dominio.URL}/api/conteo5`
   URL6 = `${Dominio.URL}/api/conteo6`
+  URL7 = `${Dominio.URL}/api/conteo7`
 
   counthoteles() {
     return this.http.get(this.URL1);
@@ -36,6 +37,9 @@ export class ConteoService {
   }
   countsitiosotros() {
     return this.http.get(this.URL6);
+  }
+  countcomercio(){
+    return this.http.get(this.URL7);
   }
 }
 
