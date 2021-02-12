@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
 import { GuarloginGuard } from './guards/guarlogin.guard';
+import { GuaradminGuard } from './guards/guaradmin.guard';
+import { GuarafiliGuard } from './guards/guarafili.guard';
+import { GuarpageWebGuard } from './guards/guarpage-web.guard';
 //import { UseradminService } from './services/useradmin.service';
 
 
@@ -95,7 +98,7 @@ import { ComerciosComponent } from './pageweb/comercios/comercios.component';
     
 
   ],
-  providers: [GuarloginGuard],
+  providers: [GuarloginGuard, GuaradminGuard, GuarafiliGuard, GuarpageWebGuard],
   bootstrap: [AppComponent],
   exports: [FormsModule]
 })
