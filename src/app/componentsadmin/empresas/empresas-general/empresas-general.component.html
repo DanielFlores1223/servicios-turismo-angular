@@ -1,0 +1,107 @@
+<main class="container-fluid">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters pt-4 pb-0">
+        <div class="col-md-12 col-sm-12 text-center text-sm-left mb-2">
+            <span class="text-uppercase page-subtitle">Empresas</span>
+            <h3 class="page-title">Lista de Empresas validadas</h3>
+        </div>
+        <div class="col-12 row mt-0 mb-2">
+            <div class="col-12 centrar-btn">
+                <a routerLink="/empresas-validadas/new" class="btn btn-sm btn-success btn-pill btn-responsive">
+                    <i class="material-icons">add</i>Agregar nueva empresa validada
+                </a>
+            </div>
+        </div>
+        <div class="col-12 row mt-1 mb-2">
+            <div class="col-md-6 col-sm-12 filtrar">
+                <label for="">Filtrar Resultados</label>
+                <select name="" id="" class="select-filtros" [(ngModel)]="opcionSeleccionado" (change)="getEmpresasValidadas()">
+             <option value="Todos" selected>Todos</option>
+             <option value="Hotel">Hoteles</option>
+             <option value="Restaurante">Restaurantes</option>
+             <option value="Comercio">Comercios</option>
+             <option value="Otros">Otros</option>
+         </select>
+            </div>
+            <!-- Pagination md and lg-->
+            <div class="col-md-6 col-sm-12 d-md-flex justify-content-md-end ">
+                <pagination-controls class="pagination-style pagination-md {{ empresas.length > 0 ? '':'d-none' }}" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+                </pagination-controls>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- no results found -->
+    <div class="row mt-5 {{ empresas.length > 0 ? 'd-none':'' }}">
+        <div class="col-12">
+            <h3 class="text-center font-weight-bold">No se encontraron resultados.</h3>
+        </div>
+    </div>
+
+
+    <!-- empresas list -->
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4" *ngFor="let empresa of empresas |  paginate: { itemsPerPage: 4, currentPage: pageActual }">
+            <div class="card card-small card-post card-post--1">
+                <div class="card-post__image">
+                    <img [src]="url + '/' + empresa.imagePath" class="img-card-top w-100">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a class="text-fiord-blue text-center">{{empresa.nombreEmpresa}}</a>
+                    </h5>
+                    <p class="card-text mb-3">Giro: {{empresa.giro}}</p>
+                    <p class="card-text mb-3 ">Estatus: {{empresa.estatus}}</p><br>
+                    <div class="d-flex flex-column align-items-center" id="btn">
+                        <a routerLink="/empresas-validadas/{{empresa._id}}" class="btn btn-pill btn-primary"><i class="material-icons">edit</i> Editar</a>
+
+                        <button class="mt-1 btn btn-sm btn-outline-primary btn-pill btn-block" data-toggle="modal" data-target="#masInfo" (click)="getEmpresa(empresa._id)"><i class="material-icons">preview</i>Ver más info
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- pagination-sm -->
+    <pagination-controls class="pagination-style pagination-sm {{ empresas.length > 0 ? '':'d-none' }}" (pageChange)="pageActual = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente">
+    </pagination-controls>
+</main>
+
+<!-- Modal masInfo-->
+<div class="modal fade" id="masInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="page-header row pt-4 pb-0">
+                    <div class="col-md-12 col-sm-12 text-center text-sm-left mb-2">
+                        <span class="text-uppercase page-subtitle">Más Información</span>
+                        <h3 class="page-title">Empresa Validada</h3>
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+            </div>
+            <div class="modal-body" *ngIf="empresaInfo != undefined">
+                <div class="row">
+                    <div class="col-md-5 col-sm-12">
+                        <img [src]="url + '/' + empresaInfo.imagePath" class="img-card-top w-100">
+                    </div>
+                    <div class="col-md-7 col-sm-12">
+                        <h4>Información</h4>
+                        <div>
+                            <p class="mb-2"><b>Nombre de la Empresa: </b>{{empresaInfo.nombreEmpresa}}</p>
+                            <p class="mb-2"><b>Giro: </b>{{empresaInfo.giro}}</p>
+                            <p class="mb-2"><b>Red Social: </b>{{empresaInfo.redsocial}}</p>
+                            <p class="mb-2"><b>Página web: </b><a class="text-fiord-blue" href="{{empresaInfo.paginaWeb}}" target="_blank">Ver sitio</a></p>
+                            <p class="mb-2"><b>Teléfono: </b>{{empresaInfo.telefono}}</p>
+                            <p class="mb-2"><b>Estatus: </b>{{empresaInfo.estatus}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

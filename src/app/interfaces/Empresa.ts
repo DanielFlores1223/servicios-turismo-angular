@@ -36,6 +36,7 @@ export interface EmpresaCreate{
 }
 
 export const  EmpresaObj = {
+    _id: '',
     nombreEmpresa: '',
     giro: '',
     paginaWeb: '',

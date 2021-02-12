@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { from } from 'rxjs';
 import { GuarloginGuard } from '../guards/guarlogin.guard';
@@ -27,19 +27,18 @@ import { ListSitiosComponent } from './sitios/list-sitios/list-sitios.component'
 import { ListEmpresasComponent } from './solicitudes/list-empresas/list-empresas.component';
 import {ListPhotosCarruselComponent} from './configuracion-pagina/list-photos-carrusel/list-photos-carrusel.component';
 import {FormPhotosCarruselComponent} from './configuracion-pagina/form-photos-carrusel/form-photos-carrusel.component';
+import {EmpresasGeneralComponent} from './empresas/empresas-general/empresas-general.component';
+import { FormEmpresasComponent } from './empresas/form-empresas/form-empresas.component';
+import { EditEmpresasAdminComponent } from './empresas/edit-empresas-admin/edit-empresas-admin.component';
 
 const routes: Routes = [
 
- 
-
- 
   {path: 'panel',component: PanelComponent,canActivate :[GuarloginGuard]},
 
   {path: 'afiliados', component: ListAfiliadosComponent,canActivate :[GuarloginGuard]}, 
   {path: 'afiliados/new',component: FormAfiliadosComponent,canActivate :[GuarloginGuard]},
   {path: 'afiliados/:id',component: EditAfiliadosComponent,canActivate :[GuarloginGuard]},
 
-  
   {path: 'administradoresLista', component:ListAdminComponent, canActivate:[GuarloginGuard]},
   {path: 'administradores/new', component:FormAdminComponent, canActivate:[GuarloginGuard]},
   {path: 'administradores/:id', component:EditAdminComponent, canActivate:[GuarloginGuard]},
@@ -60,7 +59,10 @@ const routes: Routes = [
   {path: 'sitios/new',component: FormSitiosComponent,canActivate :[GuarloginGuard]},
   {path: 'sitios/:id',component: EditSitiosComponent,canActivate :[GuarloginGuard]},
 
-  {path: 'empresas', component: ListEmpresasComponent,canActivate :[GuarloginGuard]}, 
+  {path: 'empresas', component: ListEmpresasComponent,canActivate :[GuarloginGuard]},
+  {path : 'empresas-validadas', component: EmpresasGeneralComponent} ,
+  {path: 'empresas-validadas/new', component: FormEmpresasComponent},
+  {path: 'empresas-validadas/:id', component: EditEmpresasAdminComponent},
 
   {path: 'carrusel', component: ListPhotosCarruselComponent, canActivate: [GuarloginGuard]},
   {path: 'carrusel/new-photo', component: FormPhotosCarruselComponent, canActivate: [GuarloginGuard]},

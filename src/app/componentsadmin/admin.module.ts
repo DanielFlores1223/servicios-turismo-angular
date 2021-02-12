@@ -25,11 +25,9 @@ import { FormsModule } from '@angular/forms';
 import { ListEmpresasComponent } from './solicitudes/list-empresas/list-empresas.component';
 import { ListPhotosCarruselComponent } from './configuracion-pagina/list-photos-carrusel/list-photos-carrusel.component';
 import { FormPhotosCarruselComponent } from './configuracion-pagina/form-photos-carrusel/form-photos-carrusel.component';
-
-
-
-
-
+import { FormEmpresasComponent } from './empresas/form-empresas/form-empresas.component';
+import { EmpresasGeneralComponent } from './empresas/empresas-general/empresas-general.component';
+import { EditEmpresasAdminComponent } from './empresas/edit-empresas-admin/edit-empresas-admin.component';
 
 
 @NgModule({
@@ -50,7 +48,7 @@ import { FormPhotosCarruselComponent } from './configuracion-pagina/form-photos-
     ListRestaurantComponent, 
     EditSitiosComponent, 
     FormSitiosComponent, 
-    ListSitiosComponent, ListEmpresasComponent, ListPhotosCarruselComponent, FormPhotosCarruselComponent,
+    ListSitiosComponent, ListEmpresasComponent, ListPhotosCarruselComponent, FormPhotosCarruselComponent, FormEmpresasComponent, EmpresasGeneralComponent, EditEmpresasAdminComponent,
     
   ],
   imports: [

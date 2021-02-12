@@ -58,6 +58,11 @@ export class EmpresaService {
     return this.http.put<Empresa[]>(`${this.URI}/${id}`, { estatus })
   }
 
+  updateEmpresa(datosEmpresa: EmpresaCreate, id: String){
+    //falta agregar la opcion de modificar la imagen
+    return this.http.put(`${this.URI}-plus/${id}`, datosEmpresa);
+  }
+
   deleteEmpresaSolicitud(id:string){
     return this.http.delete(`${this.URI}/${id}`);
   }
