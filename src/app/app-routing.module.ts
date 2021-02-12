@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PhotoListComponent } from './componentsadmin/photo-list/photo-list.component'
 import { PhotoFormComponent } from './componentsadmin/photo-form/photo-form.component'
 import { PhotoPreviewComponent } from './componentsadmin/photo-preview/photo-preview.component'
-
+import { GuarpageWebGuard } from './guards/guarpage-web.guard'
 import { CatedralComponent } from './pageweb/catedral/catedral.component';
 import { CentrohistoricoComponent } from './pageweb/centrohistorico/centrohistorico.component';
 import { HotelesComponent } from './pageweb/hoteles/hoteles.component';
@@ -27,29 +27,29 @@ import { ComerciosComponent } from './pageweb/comercios/comercios.component'
 
 const routes: Routes = [//definimos la rutas para el enrutador
 
-  {path:'hotels',component:HotelesComponent},
-  {path:'rutascamion',component:RutasCamionComponent},
-  {path:'lugares',component:LugaresComponent},
-  {path:'catedral',component:CatedralComponent},
-  {path:'teatro',component:TeatroComponent},
-  {path:'rotonda',component:RotondaComponent},
-  {path:'sanjuan',component:SanjuanComponent},
-  {path:'centroH',component:CentrohistoricoComponent},
-  {path: 'comercios', component: ComerciosComponent},
+  {path:'hotels',component:HotelesComponent, canActivate: [GuarpageWebGuard]},
+  {path:'rutascamion',component:RutasCamionComponent, canActivate: [GuarpageWebGuard]},
+  {path:'lugares',component:LugaresComponent, canActivate: [GuarpageWebGuard]},
+  {path:'catedral',component:CatedralComponent, canActivate: [GuarpageWebGuard]},
+  {path:'teatro',component:TeatroComponent, canActivate: [GuarpageWebGuard]},
+  {path:'rotonda',component:RotondaComponent, canActivate: [GuarpageWebGuard]},
+  {path:'sanjuan',component:SanjuanComponent, canActivate: [GuarpageWebGuard]},
+  {path:'centroH',component:CentrohistoricoComponent, canActivate: [GuarpageWebGuard]},
+  {path: 'comercios', component: ComerciosComponent, canActivate: [GuarpageWebGuard]},
   
   
-  {path:'menu',component:MenuComponent},
-  {path:'iniciosesion',component:IniciosesionComponent},
-  {path:'paginaprincipal',component:PaginaPrincipalComponent},
-  {path:'pie',component:PiePaginaComponent},
-  {path:'restaurant',component:RestaurantesComponent},
-  {path:'pagNoFound',component:PagNofoundComponent},
-  {path:'massitios',component:MasSitiosComponent},
-  {path:'registro', component:RegistroComponent},
-  {path:'loginAfiliado', component:LoginAfiliadoComponent},
-  {path: 'even', component:EventosComponent},
+  {path:'menu',component:MenuComponent, canActivate: [GuarpageWebGuard]},
+  {path:'iniciosesion',component:IniciosesionComponent, canActivate: [GuarpageWebGuard]},
+  {path:'paginaprincipal',component:PaginaPrincipalComponent, canActivate: [GuarpageWebGuard]},
+  {path:'pie',component:PiePaginaComponent, canActivate: [GuarpageWebGuard]},
+  {path:'restaurant',component:RestaurantesComponent, canActivate: [GuarpageWebGuard]},
+  {path:'pagNoFound',component:PagNofoundComponent, canActivate: [GuarpageWebGuard]},
+  {path:'massitios',component:MasSitiosComponent, canActivate: [GuarpageWebGuard]},
+  {path:'registro', component:RegistroComponent, canActivate: [GuarpageWebGuard]},
+  {path:'loginAfiliado', component:LoginAfiliadoComponent, canActivate: [GuarpageWebGuard]},
+  {path: 'even', component:EventosComponent, canActivate: [GuarpageWebGuard]},
 
-  {path:'',redirectTo:'paginaprincipal', pathMatch:'full' },
+  {path:'',redirectTo:'paginaprincipal', pathMatch:'full'},
   {path:'**',redirectTo:'pagNoFound', pathMatch:'full'}
 
 /*cuando yo vicite esta ruta renderizame este componente
