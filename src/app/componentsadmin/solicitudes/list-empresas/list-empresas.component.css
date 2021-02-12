@@ -15,20 +15,24 @@
     border: 1px solid rgba(99, 99, 255, 0.71);
     border-left: 8px solid rgba(57, 143, 210);
 }
-.card{
-    height: 515px;
+.card-body{
+    width: auto;
+    height: 300px;
 }
 img{
     height: 200px;
 }
-p{
-    padding: 5px;
+#info{
+    height: 220px;
 }
-#btn{
-    height: auto;
+h5{
+    margin-top: 10px;
 }
-
-
+#btn-responsive{
+    position:absolute;
+    bottom:5px;
+    right:10px;
+}
 @media (max-width: 576px) {
     .select-filtros {
         width: 100%;
