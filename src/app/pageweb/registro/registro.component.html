@@ -32,28 +32,28 @@
                         <!-- Input Box -->
                         <div class="form-input">
                             <span><i class="fa fa-user"></i></span>
-                            <input [(ngModel)]="comerciante.nombre" [ngModelOptions]="{standalone: true}" type="text" placeholder="Nombre(s)" tabindex="10" required>
+                            <input [(ngModel)]="afiliado.nombre" [ngModelOptions]="{standalone: true}" type="text" placeholder="Nombre(s)" tabindex="10" required>
                         </div>
                         <div class="form-input">
                             <span><i class="fa fa-envelope"></i></span>
-                            <input [(ngModel)]="comerciante.email" [ngModelOptions]="{standalone: true}" type="email" name="" placeholder="Correo electrónico" tabindex="10" required>
+                            <input [(ngModel)]="afiliado.email" [ngModelOptions]="{standalone: true}" type="email" name="" placeholder="Correo electrónico" tabindex="10" required>
                         </div>
                         <div class="form-input">
                             <span><i class="fa fa-lock"></i></span>
-                            <input [(ngModel)]="comerciante.password" [ngModelOptions]="{standalone: true}" type="password" name="" placeholder="Contraseña" required>
+                            <input [(ngModel)]="afiliado.password" [ngModelOptions]="{standalone: true}" type="password" name="" placeholder="Contraseña" required>
                         </div>
                         <div class="form-input">
                             <span><i class="fa fa-envelope"></i></span>
-                            <input [(ngModel)]="comerciante.telefono" [ngModelOptions]="{standalone: true}" type="text" name="" placeholder="Telefono" tabindex="10" required>
+                            <input [(ngModel)]="afiliado.telefono" [ngModelOptions]="{standalone: true}" type="text" name="" placeholder="Teléfono" tabindex="10" required>
                         </div>
                         <div class="form-input">
                             <span><i class="fa fa-envelope"></i></span>
-                            <input [(ngModel)]="comerciante.direccion" [ngModelOptions]="{standalone: true}" type="text" name="" placeholder="Direccion" tabindex="10" required>
+                            <input [(ngModel)]="afiliado.direccion" [ngModelOptions]="{standalone: true}" type="text" name="" placeholder="Dirección" tabindex="10" required>
                         </div>
 
                         <!-- Register Button -->
                         <div class="mb-3 text-center">
-                            <button type="submit" class="btn btn-primary" (click)="registro()">Registrar</button>
+                            <button type="submit" class="btn btn-primary" (click)="registrar()">Registrar</button>
                         </div>
 
                         <div class="text-center mb-5" style="color: #777;">Ya tienes una cuenta?
