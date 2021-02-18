@@ -20,18 +20,18 @@
                                 <form>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <input [(ngModel)]="administrador.nombre" [ngModelOptions]="{standalone: true}" type="text" class="form-control " maxlength="40" placeholder="Nombre completo" required>
+                                            <input (keypress)="soloLetras($event)" [(ngModel)]="administrador.nombre" [ngModelOptions]="{standalone: true}" type="text" class="form-control " maxlength="40" placeholder="Nombre completo" required>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
-                                            <input [(ngModel)]="administrador.email" [ngModelOptions]="{standalone: true}" type="text" class="form-control " placeholder="correo electrónico" required>
+                                            <input [(ngModel)]="administrador.email" [ngModelOptions]="{standalone: true}" type="text" class="form-control " placeholder="Correo electrónico" required>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <input [(ngModel)]="administrador.direccion" [ngModelOptions]="{standalone: true}" type="text" class="form-control " min="1" placeholder="Dirección" required>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <input [(ngModel)]="administrador.telefono" [ngModelOptions]="{standalone: true}" type="text" class="form-control " maxlength="10" placeholder="Teléfono" required>
+                                            <input (keypress)="soloNumeros($event)" [(ngModel)]="administrador.telefono" [ngModelOptions]="{standalone: true}" type="text" class="form-control " maxlength="10" placeholder="Teléfono" required>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <input [(ngModel)]="administrador.password" [ngModelOptions]="{standalone: true}" type="password" class="form-control " maxlength="10" placeholder="Ingresa contraseña" required>
@@ -48,12 +48,12 @@
                     <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                         <div class="card card-small card-post card-post--1">
                             <div class="card-header">
-                                <h6 class="m-0">¿Como editar un administrador?</h6>
+                                <h6 class="m-0">¿Cómo editar un administrador?</h6>
                             </div>
                             <img src="./assets/img/useredit.png" style="max-width: 100%; height: 21rem;">
                             <div class="card-body">
                                 <h5 class="card-title"><a>Instrucciones</a></h5>
-                                <p class="card-text d-inline-block mb-1">*Llena todos los campos correctamente.</p>
+                                <p class="card-text d-inline-block mb-1">* Llena todos los campos correctamente.</p>
                             </div>
                         </div>
                     </div>

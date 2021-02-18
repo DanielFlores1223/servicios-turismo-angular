@@ -42,7 +42,7 @@ export class FormAfiliadosComponent implements OnInit {
           position: 'center',
           icon: 'error',
           title: 'Error!',
-          text: 'El correo eléctronico que intenta registrar ya existe en la base de datos.',
+          text: 'El correo eléctronico que intenta registrar ya existe.',
           showConfirmButton: false,
           timer: 4000,
           timerProgressBar:true  
@@ -50,34 +50,63 @@ export class FormAfiliadosComponent implements OnInit {
       });
     }
   }
-
   validarFormulario(){
+    const validCorreo = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+    
     if (this.afiliado.email === '' ||
         this.afiliado.nombre === '' ||
         this.afiliado.password === '') {
-        
+    
           Swal.fire({
             position: 'center',
             icon: 'error',
-            title: 'Revise que los campos obligatorios esten llenos',
+            title: 'Los campos deben estar llenos',
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar:true  
           });
-
           return false;
     }else{
-      return true;
+      //console.log(this.usuario.email);
+      if(!validCorreo.test(this.afiliado.email)){
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'No es un correo válido',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar:true  
+        });
+        return false;
+      }else{
+        return true; 
     }
   }
-
+}
+  
   limpiarFormulario(){
     this.afiliado.email =''; 
     this.afiliado.nombre =''; 
     this.afiliado.password =''; 
   }
-  
-  
- 
+  soloLetras(evento) {
+    var key = evento.KeyCode || evento.which;
+    var tecla = String.fromCharCode(key).toLocaleLowerCase();
+    var letras = "abcdefghijklmnñopqrstuvwxyzáéíóú";
+    var especiales = [32, 8, 239];
 
+    var tecla_especial = false;
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+
+    } else {
+        return true;
+    }
+  }
 }

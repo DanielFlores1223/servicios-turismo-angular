@@ -30,26 +30,26 @@
                     <!-- Form -->
                     <form class="px-3">
                         <!-- Input Box -->
-                        <div class="form-input">
+                        <div class="form-input" >
                             <span><i class="fa fa-user"></i></span>
-                            <input [(ngModel)]="afiliado.nombre" [ngModelOptions]="{standalone: true}" type="text" placeholder="Nombre(s)" tabindex="10" required>
+                            <input (keypress)="soloLetras($event)" [(ngModel)]="afiliado.nombre" [ngModelOptions]="{standalone: true}" type="text" placeholder="Nombre(s)" tabindex="10" required>
                         </div>
                         <div class="form-input">
                             <span><i class="fa fa-envelope"></i></span>
-                            <input [(ngModel)]="afiliado.email" [ngModelOptions]="{standalone: true}" type="email" name="" placeholder="Correo electrónico" tabindex="10" required>
+                            <input [(ngModel)]="afiliado.email" [ngModelOptions]="{standalone: true}" type="email" name="email" id="email" placeholder="Correo electrónico" tabindex="10" required>
                         </div>
                         <div class="form-input">
                             <span><i class="fa fa-lock"></i></span>
                             <input [(ngModel)]="afiliado.password" [ngModelOptions]="{standalone: true}" type="password" name="" placeholder="Contraseña" required>
                         </div>
-                        <div class="form-input">
+                        <!--div class="form-input">
                             <span><i class="fa fa-envelope"></i></span>
                             <input [(ngModel)]="afiliado.telefono" [ngModelOptions]="{standalone: true}" type="text" name="" placeholder="Teléfono" tabindex="10" required>
                         </div>
                         <div class="form-input">
                             <span><i class="fa fa-envelope"></i></span>
                             <input [(ngModel)]="afiliado.direccion" [ngModelOptions]="{standalone: true}" type="text" name="" placeholder="Dirección" tabindex="10" required>
-                        </div>
+                        </div-->
 
                         <!-- Register Button -->
                         <div class="mb-3 text-center">

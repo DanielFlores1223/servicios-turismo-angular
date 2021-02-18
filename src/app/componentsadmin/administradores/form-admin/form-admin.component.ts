@@ -45,8 +45,12 @@ export class FormAdminComponent implements OnInit {
       });
     }
   }
-
+ 
+   
+    
   validarFormulario(){
+    const validCorreo = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+    
     if (this.usuario.direccion === '' ||
         this.usuario.email === '' ||
         this.usuario.nombre === '' ||
@@ -56,18 +60,29 @@ export class FormAdminComponent implements OnInit {
           Swal.fire({
             position: 'center',
             icon: 'error',
-            title: 'Revise que los campos obligatorios esten llenos',
+            title: 'Los campos deben estar llenos',
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar:true  
           });
-
           return false;
     }else{
-      return true;
+      //console.log(this.usuario.email);
+      if(!validCorreo.test(this.usuario.email)){
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'No es un correo válido',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar:true  
+        });
+        return false;
+      }else{
+        return true; 
     }
   }
-
+}
   limpiarFormulario(){
     this.usuario.direccion =''; 
     this.usuario.email =''; 
@@ -75,6 +90,48 @@ export class FormAdminComponent implements OnInit {
     this.usuario.password =''; 
     this.usuario.telefono ='';
   }
-  
+  soloLetras(evento) {
+    var key = evento.KeyCode || evento.which;
+    var tecla = String.fromCharCode(key).toLocaleLowerCase();
+    var letras = "abcdefghijklmnñopqrstuvwxyzáéíóú";
+    var especiales = [32, 8, 239];
+
+    var tecla_especial = false;
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+
+    } else {
+        return true;
+    }
+  }
+  soloNumeros(evento) {
+    var key = evento.KeyCode || evento.which;
+    var tecla = String.fromCharCode(key).toLocaleLowerCase();
+    var letras = "1234567890";
+    var especiales = [32, 8, 239];
+
+    var tecla_especial = false;
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+
+    } else {
+        return true;
+    }
+  }
+
 
 }

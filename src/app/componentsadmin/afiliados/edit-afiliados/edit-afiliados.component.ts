@@ -73,6 +73,26 @@ export class EditAfiliadosComponent implements OnInit {
       return true;
     }
   }
- 
+  soloLetras(evento) {
+    var key = evento.KeyCode || evento.which;
+    var tecla = String.fromCharCode(key).toLocaleLowerCase();
+    var letras = "abcdefghijklmnñopqrstuvwxyzáéíóú";
+    var especiales = [32, 8, 239];
 
+    var tecla_especial = false;
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+
+    } else {
+        return true;
+    }
+  }
+  
 }

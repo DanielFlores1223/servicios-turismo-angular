@@ -20,7 +20,7 @@
                                 <form>
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
-                                            <input [(ngModel)]="afiliado.nombre" [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Nombre completo">
+                                            <input (keypress)="soloLetras($event)" [(ngModel)]="afiliado.nombre" [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Nombre completo">
                                         </div>
 
                                     </div>
