@@ -1,0 +1,36 @@
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">solicitudes</span>
+            <h3 class="page-title">Todas tu solicitudes</h3>
+        </div>
+    </div>
+    <!-- End Page Header -->
+    <div class="container">
+        <div class="card-header">
+            lista de Solicitudes
+        </div>
+        <div class="card-blck"*ngIf="solicitudes.length>0;else NoSolicitud" >
+            <table class="table table-hover">
+                <thead class= " thead-default">
+                    <tr>
+                        <th>Nombre de la empresa</th>
+                        <th>Giro</th>
+                        <th>Estatus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let solicitud of solicitudes">
+                        <td>{{solicitud.nombreEmpresa}}</td>
+                        <td>{{solicitud.giro}}</td>
+                        <td>{{solicitud.estatus}}</td>
+                    </tr>
+                 </tbody>
+            </table>
+        </div>
+        <ng-template #NoSolicitud>
+            <h4>No hay solicitudes</h4>
+        </ng-template>
+    </div>
+</div>
