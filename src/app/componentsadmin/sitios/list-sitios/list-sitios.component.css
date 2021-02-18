@@ -1,18 +1,22 @@
-.card-body{
+.card-body {
     width: auto;
-    height: 350px;
+    height: 450px;
 }
-img{
+
+img {
     height: 200px;
 }
-#info{
+
+#info {
     height: 220px;
 }
-h5{
+
+h5 {
     margin-top: 10px;
 }
-#btn-responsive{
-    position:absolute;
-    bottom:5px;
-    right:10px;
+
+#btn-responsive {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
 }

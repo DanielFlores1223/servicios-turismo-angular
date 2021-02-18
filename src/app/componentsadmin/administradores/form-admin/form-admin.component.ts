@@ -47,6 +47,7 @@ export class FormAdminComponent implements OnInit {
   }
 
   validarFormulario(){
+    
     if (this.usuario.direccion === '' ||
         this.usuario.email === '' ||
         this.usuario.nombre === '' ||

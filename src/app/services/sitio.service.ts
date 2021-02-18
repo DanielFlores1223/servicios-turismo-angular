@@ -8,7 +8,7 @@ import {Dominio} from '../interfaces/Dominio';
 })
 export class SitioService {
 
-  URI = `${Dominio.URL}/api/sitios`;
+ private URI = `${Dominio.URL}/api/sitios`;
 
 
   constructor(private http: HttpClient) { }
@@ -36,8 +36,13 @@ export class SitioService {
     return this.http.delete(`${this.URI}/${id}`);
   }
 
-  
   updateSitio(id: string, nombresitio: string, subtitulo: string, descripcioncorta: string, contenido1: string, contenido2: string) {
     return this.http.put(`${this.URI}/${id}`, {nombresitio, subtitulo, descripcioncorta, contenido1, contenido2});
+  }
+
+  updateSitioImage(photo: File, id: String){
+    const fd = new FormData();
+    fd.append('image', photo);
+    return this.http.put(`${this.URI}-image/${id}`, fd);
   }
 }

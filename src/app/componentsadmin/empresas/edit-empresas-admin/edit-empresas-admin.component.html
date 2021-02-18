@@ -1,14 +1,14 @@
 <div class="main-content-container container-fluid px-4">
     <!-- Page Header -->
     <div class="page-header row no-gutters py-4">
-        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0" *ngIf="empresaInfo">
             <span class="text-uppercase page-subtitle">Empresa</span>
             <h3 class="page-title">Editar {{empresaInfo.giro}}</h3>
         </div>
     </div>
     <!-- End Page Header -->
 
-    <div class="row">
+    <div class="row" *ngIf="empresaInfo">
         <div class="col-lg-9 mb-4">
             <div class="card card-small mb-4">
                 <div class="card-body">
@@ -59,14 +59,13 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12 mb-0">
-                                <p class="mb-1">* Presiona la imagen para subir una foto de tu Empresa</p>
+                                <p class="mb-1">* Presiona la imagen para modificar la foto del {{empresaInfo.giro}}</p>
                             </div>
                             <div class="form-group col-md-4"></div>
                             <div class="form-group col-md-4">
-                                <!-- <input class="form-control width-90" type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
-                                si existe una foto seleccionada utiliza si no usa la que tenemos en assets
-                                <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid pointer" alt="No image" (click)="photoInput.click()"> -->
-                                <img [src]="url + '/' + empresaInfo.imagePath" class="img-card-top w-100">
+                                 <input class="form-control width-90" type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+                                <!-- si existe una foto seleccionada utiliza si no usa la que tenemos en assets -->
+                                <img [src]="photoSelected || url + '/' + empresaInfo.imagePath" class="img-fluid pointer" alt="No image" (click)="photoInput.click()">
                             </div>
                             <div class="form-group col-md-4"></div>
                         </div>

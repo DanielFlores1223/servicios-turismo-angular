@@ -38,10 +38,13 @@
                                 </h5>
                                 <p class="card-text text-justify d-inline-block mb-3" id="info">{{evento.descripcion}}</p>
                                 <p class="card-text text-center mb-3">{{evento.fecha_inicio}}</p>
-                                <div class="my-auto ml-auto text-center">
-                                    <button class="btn btn-sm btn-primary btn-pill btn-responsive" (click)="selectedButton(evento._id)" id="btn-responsive"><i class="material-icons">edit</i>Editar
+                                <div class="d-flex flex-column align-items-center">
+                                    <button class="btn btn-sm btn-primary btn-pill btn-responsive btn-block" (click)="selectedButton(evento._id)"><i class="material-icons">edit</i>Editar
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger btn-pill btn-responsive btn-block" (click)="deleteEvento(evento._id)"><i class="material-icons">delete</i>Eliminar
                                     </button>
                                 </div>
+
                             </div>
                         </div>
                     </div>

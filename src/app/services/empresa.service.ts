@@ -63,6 +63,12 @@ export class EmpresaService {
     return this.http.put(`${this.URI}-plus/${id}`, datosEmpresa);
   }
 
+  updateEmpresaImage(photo: File, id: String){
+    const fd = new FormData();
+    fd.append('image', photo);
+    return this.http.put(`${this.URI}-image/${id}`, fd);
+  }
+
   deleteEmpresaSolicitud(id:string){
     return this.http.delete(`${this.URI}/${id}`);
   }
