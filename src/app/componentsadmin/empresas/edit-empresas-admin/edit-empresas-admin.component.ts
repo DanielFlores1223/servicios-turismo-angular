@@ -5,6 +5,9 @@ import {Dominio} from '../../../interfaces/Dominio';
 import { EmpresaService } from '../../../services/empresa.service';
 import { Empresa, EmpresaObj } from '../../../interfaces/Empresa';
 
+interface HtmlInputEvent extends Event {
+  target: HTMLInputElement & EventTarget;
+}
 
 @Component({
   selector: 'app-edit-empresas-admin',
@@ -15,12 +18,25 @@ export class EditEmpresasAdminComponent implements OnInit {
   empresaInfo: Empresa;
   url = Dominio.URL;
   id = this.activatedRoute.snapshot.params.id;
+  file: File;
+  photoSelected: string | ArrayBuffer;
 
   constructor(private empresaService: EmpresaService, private ruta: Router, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getEmpresa();
   }
+
+  onPhotoSelected(event: HtmlInputEvent): void {
+    if (event.target.files && event.target.files[0]){
+      this.file = <File>event.target.files[0];
+      // image preview
+      const reader = new FileReader();
+      reader.onload = e => this.photoSelected = reader.result;
+      reader.readAsDataURL(this.file);
+    }
+  }
+
 
   getEmpresa(){
     this.empresaService.getEmpresa(this.id).subscribe(res => this.empresaInfo = res, err => {
@@ -32,6 +48,9 @@ export class EditEmpresasAdminComponent implements OnInit {
 
     if (this.validarCamposObligatorios()) {
       this.empresaService.updateEmpresa(this.empresaInfo, this.id).subscribe(async res => {
+        //primero revisamos si se necesita actualizar la imagen
+        await this.updateImage();
+
         await Swal.fire({
           position: 'center',
           icon: 'success',
@@ -40,7 +59,7 @@ export class EditEmpresasAdminComponent implements OnInit {
           timer: 2500,
           timerProgressBar:true  
         });
-        
+
         this.ruta.navigate(['/empresas-validadas']);
       },
       err => {
@@ -57,6 +76,39 @@ export class EditEmpresasAdminComponent implements OnInit {
     
   }
 
+ async updateImage(){
+    if (this.file != undefined) {
+      //validamos que el tipo file sea una imagen
+      const tipoImagen = this.file.type.split('/');
+      if (tipoImagen[0] !== 'image') {
+        //en caso de que sea diferente de image se muestra una alerta
+      await Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Error al intentar subir la imagen.',
+          text: 'El Formato de imagen que intentó subir no se permite, Intente con una imagen en formato .png/.jpg',
+          showConfirmButton: false,
+          timer: 4000,
+          timerProgressBar:true  
+        });
+
+      }else{
+        //si es una imagen entonces hacemos la petición
+        this.empresaService.updateEmpresaImage(this.file, this.id).subscribe(
+          res => true,
+          err => {
+            Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: 'Hubó un error al intentar subir la imagen',
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar:true  
+            });
+        })
+      }
+    }
+  }
 
   validarCamposObligatorios(){
   //falta validar la img
@@ -75,24 +127,7 @@ export class EditEmpresasAdminComponent implements OnInit {
       });
       return false;
 
-    }/*else{
-      //PENDIENTE!!!!!
-      //validamos que el tipo file sea una imagen
-      //8const tipoImagen = this.file.type.split('/');
-  
-      if (tipoImagen[0] !== 'image') {
-        //en caso de que sea diferente de image se muestra una alerta
-        Swal.fire({
-          position: 'center',
-          icon: 'error',
-          title: 'El Formato de imagen que intentó subir no se permite.',
-          text: 'Intente con una imagen en formato .png/.jpg',
-          showConfirmButton: false,
-          timer: 4000,
-          timerProgressBar:true  
-        });
-        return false;
-      }*/else{
+    }else{
         return true;
       }
       

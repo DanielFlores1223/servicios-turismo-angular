@@ -8,7 +8,7 @@ import {Dominio} from '../interfaces/Dominio';
 })
 export class EventoService {
 
-  URI = `${Dominio.URL}/api/eventos`;
+  private URI = `${Dominio.URL}/api/eventos`;
 
 
   constructor(private http: HttpClient) { }
@@ -38,5 +38,12 @@ export class EventoService {
 
   updateEvento(id: string, nombreEvento: string, direccion: string, fecha_inicio: string, fecha_fin: string, descripcion: string) {
     return this.http.put(`${this.URI}/${id}`, {nombreEvento, direccion, fecha_inicio, fecha_fin, descripcion});
+  }
+
+  updateEventoImage(photo: File, id: String){
+    const fd = new FormData();
+    fd.append('image', photo);
+    return this.http.put(`${this.URI}-image/${id}`, fd);
+
   }
 }
