@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { EmpreaRoutingModule } from './emprea-routing.module';
 import { DashAfiliadoComponent } from './dash-afiliado/dash-afiliado.component';
 import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
+import { SolicitudAfiliadosComponent } from './solicitud-afiliados/solicitud-afiliados.component';
 
 
 
@@ -12,6 +13,7 @@ import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
   declarations: [
     DashAfiliadoComponent,
      FormEmpresaComponent,
+     SolicitudAfiliadosComponent,
   ],
   imports: [
     CommonModule,

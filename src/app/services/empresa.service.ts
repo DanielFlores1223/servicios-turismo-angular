@@ -67,4 +67,9 @@ export class EmpresaService {
     return this.http.delete(`${this.URI}/${id}`);
   }
 
+  getsolicitud(id: string){
+
+    return this.http.get<Empresa[]>(`${this.URI}-solicitudes-usuario/${id}`);
+  }
+
 }
