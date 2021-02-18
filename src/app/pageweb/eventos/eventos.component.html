@@ -27,7 +27,7 @@
                     <!-------------------------------pruebassss------------->
                     <div class="col-md-4" *ngFor="let event of eventos |paginate: { itemsPerPage: 6, currentPage: pageActual }">
                         <div class="card mb-4 shadow-sm">
-                            <img [src]="url + '/' + event.imagePath" class="bd-placeholder-img card-img-top" width="50%" height="225" preserveAspectRatio="xMidYMid slice">
+                            <img [src]="url + '/' + event.imagePath" class="bd-placeholder-img card-img-top" width="50%" height="225" preserveAspectRatio="xMidYMid slice" alt="{{event.nombreEvento}}">
                             <div class="card-body">
                                 <h4>{{event.nombreEvento}}</h4>
                                 <p class="card-text">{{event.descripcion}}</p>

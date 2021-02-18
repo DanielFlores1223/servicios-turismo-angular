@@ -8,7 +8,7 @@
                 <section id="highlights" class="wrapper style3">
                     <div class="row" *ngIf="restaurantes.length > 0; else noResults">
                         <div class="col-lg-4" *ngFor="let restaurant of restaurantes |paginate: { itemsPerPage: 6, currentPage: pageActual }">
-                            <img [src]="url + '/' + restaurant.imagePath" class="bd-placeholder-img rounded-circle" width="200px" height="200px"><br>
+                            <img [src]="url + '/' + restaurant.imagePath" class="bd-placeholder-img rounded-circle" width="200px" height="200px" alt="{{restaurant.nombreEmpresa}}"><br>
                             <h2>{{restaurant.nombreEmpresa}}</h2><br>
                             <p>{{restaurant.descripcion}}</p>
                             <div>
@@ -30,7 +30,7 @@
                                     </a>
                                 </div>
                             </div>
-                           
+
                         </div>
                         <div>
                         </div>
