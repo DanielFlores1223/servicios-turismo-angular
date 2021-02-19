@@ -59,24 +59,40 @@ export class EditAdminComponent implements OnInit {
   }
 
   validarFormulario(){
+    const validCorreo = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+    
     if (this.administrador.direccion === '' ||
+        this.administrador.email === '' ||
         this.administrador.nombre === '' ||
+        this.administrador.password === '' ||
         this.administrador.telefono === '') {
         
           Swal.fire({
             position: 'center',
             icon: 'error',
-            title: 'Revise que los campos obligatorios esten llenos',
+            title: 'Los campos deben estar llenos',
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar:true  
           });
-
           return false;
     }else{
-      return true;
+      //console.log(this.usuario.email);
+      if(!validCorreo.test(this.administrador.email)){
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'No es un correo válido',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar:true  
+        });
+        return false;
+      }else{
+        return true; 
     }
   }
+}
   soloLetras(evento) {
     var key = evento.KeyCode || evento.which;
     var tecla = String.fromCharCode(key).toLocaleLowerCase();

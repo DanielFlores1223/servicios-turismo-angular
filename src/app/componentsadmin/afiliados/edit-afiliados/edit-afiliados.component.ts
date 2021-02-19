@@ -47,7 +47,7 @@ export class EditAfiliadosComponent implements OnInit {
           position: 'center',
           icon: 'error',
           title: 'Error!',
-          text: 'Hubó un error, revise que este cumpliendo con todas las instrucciones.',
+          text: 'Hubo un error, revise que este cumpliendo con todas las instrucciones.',
           showConfirmButton: false,
           timer: 4000,
           timerProgressBar:true  
@@ -56,23 +56,41 @@ export class EditAfiliadosComponent implements OnInit {
     }
    
   }
-
   validarFormulario(){
-    if (this.afiliado.nombre === '') {      
+    const validCorreo = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+    
+    if (this.afiliado.email === '' ||
+        this.afiliado.nombre === '' ||
+        this.afiliado.password === '') {
+    
           Swal.fire({
             position: 'center',
             icon: 'error',
-            title: 'Revise que los campos obligatorios esten llenos',
+            title: 'Los campos deben estar llenos',
             showConfirmButton: false,
             timer: 2000,
             timerProgressBar:true  
           });
-
           return false;
     }else{
-      return true;
+      //console.log(this.usuario.email);
+      if(!validCorreo.test(this.afiliado.email)){
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'No es un correo válido',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar:true  
+        });
+        return false;
+      }else{
+        return true; 
     }
   }
+}
+  
+  
   soloLetras(evento) {
     var key = evento.KeyCode || evento.which;
     var tecla = String.fromCharCode(key).toLocaleLowerCase();
