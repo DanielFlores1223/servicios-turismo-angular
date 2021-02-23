@@ -21,6 +21,7 @@ export interface Empresa  {
     estatus: string;
     descripcion: string;
     idComerciante: string;
+    observaciones: string
 }
 
 export interface EmpresaCreate{

@@ -3,5 +3,5 @@ export const Dominio = {
      //URL de desarrollo
      URL: 'http://localhost:4000',
      //URL de dominio temporal
-     //URL: 'https://turismo-heroku.herokuapp.com'
+     //URL: 'https://turismo-heroku-3.herokuapp.com'
 };

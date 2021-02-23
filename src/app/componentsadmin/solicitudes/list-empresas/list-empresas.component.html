@@ -56,7 +56,7 @@
                                     <!-- ACTIONS BUTTONS -->
                                     <button class="btn btn-sm btn-outline-success btn-pill btn-block {{empresa.estatus === 'Validado' ? 'd-none':''}}" (click)="updateEstatus('Validado', empresa._id)"><i class="material-icons">check_circle</i>Validar
                                     </button>
-                                    <button class="mt-1 btn btn-sm btn-outline-danger btn-pill btn-block {{empresa.estatus === 'Cancelado' ? 'd-none':''}}" (click)="updateEstatus('Cancelado', empresa._id)"><i class="material-icons">cancel</i>Cancelar
+                                    <button class="mt-1 btn btn-sm btn-outline-danger btn-pill btn-block {{empresa.estatus === 'Cancelado' ? 'd-none':''}}" data-toggle="modal" data-target="#cancelarSolicitud" (click)="changeId(empresa._id)"><i class="material-icons">cancel</i>Cancelar
                                     </button>
                                     <button class="mt-1 btn btn-sm btn-outline-primary btn-pill btn-block" data-toggle="modal" data-target="#masInfo" (click)="getEmpresa(empresa._id)"><i class="material-icons">preview</i>Ver más info
                                     </button>
@@ -75,6 +75,39 @@
 
         </main>
 
+    </div>
+</div>
+
+<!-- Modal observaciones -->
+<div class="modal fade" id="cancelarSolicitud" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="page-header row pt-4 pb-0">
+                    <div class="col-md-12 col-sm-12 text-center text-sm-left mb-2">
+                        <span class="text-uppercase page-subtitle">Empresa</span>
+                        <h3 class="page-title">Cancelar solicitud</h3>
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <div class="modal-body">
+               <div class="row">
+                   <div class="col-12">
+                    <p class="mb-0">* Observaciones</p>
+                    <p class="mb-1">Escribe el mótivo por el que la solicitud se canceló</p>
+                   </div>
+                   <div class="col-12">
+                        <textarea class="form-control observaciones" #observaciones></textarea>
+                   </div>
+                   <div class="col-12 d-flex justify-content-end mt-2">
+                       <button class="btn btn-danger btn-responsive-modal" (click)="cancelSolicitud(observaciones)" data-dismiss="modal"><i class="material-icons" >cancel</i>Cancelar Solicitud</button>
+                   </div>
+               </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -106,6 +139,7 @@
                             <p class="mb-2"><b>Teléfono: </b>{{empresaInfo.telefono}}</p>
                             <p class="mb-2"><b>Estatus: </b>{{empresaInfo.estatus}}</p>
                             <p class="mb-2"><b>Descripción: </b>{{empresaInfo.descripcion}}</p>
+                            <p *ngIf="empresaInfo.estatus === 'Cancelado'" class="mb-2">Observaciones: {{empresaInfo.observaciones}}</p>
                             <div>
                                 <div *ngIf="empresaInfo.paginaWeb != ''">
                                     <a href="{{empresaInfo.paginaWeb}}" target="_blank">

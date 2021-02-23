@@ -17,11 +17,16 @@ export class ListEmpresasComponent implements OnInit {
   pageActual = 1;
   opcionSeleccionado = 'Todos';
   url = Dominio.URL;
+  idActual = '';
   
   constructor(private empresaService: EmpresaService, private ruta: Router) { }
 
   ngOnInit(): void {
     this.getEmpresas();
+  }
+
+  changeId(id){
+    this.idActual = id;
   }
 
   getEmpresas(){
@@ -72,6 +77,15 @@ export class ListEmpresasComponent implements OnInit {
     err => console.log(err));
   }
 
+  async cancelSolicitud(observaciones: HTMLTextAreaElement){   
+    await this.empresaService.updateObservaciones(observaciones.value, this.idActual).subscribe(res => true,
+    err => false);
+
+    await this.updateEstatus('Cancelado', this.idActual);
+
+    observaciones.value = '';
+    this.idActual = '';
+  }
 
 //Este metodo muestra la alerta de confirmación para eliminar la solicitud
 //Támbien aqui se ejecuta la función: deleteSolicitud()

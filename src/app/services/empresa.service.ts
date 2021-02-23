@@ -8,7 +8,7 @@ import {Dominio} from '../interfaces/Dominio';
 })
 export class EmpresaService {
 
-  URI = `${Dominio.URL}/api/empresas`;
+  private URI = `${Dominio.URL}/api/empresas`;
 
   constructor(private http: HttpClient) { }
 
@@ -59,7 +59,6 @@ export class EmpresaService {
   }
 
   updateEmpresa(datosEmpresa: EmpresaCreate, id: String){
-    //falta agregar la opcion de modificar la imagen
     return this.http.put(`${this.URI}-plus/${id}`, datosEmpresa);
   }
 
@@ -67,6 +66,10 @@ export class EmpresaService {
     const fd = new FormData();
     fd.append('image', photo);
     return this.http.put(`${this.URI}-image/${id}`, fd);
+  }
+
+  updateObservaciones(observaciones: String, id: String){
+    return this.http.put(`${this.URI}-observaciones/${id}`, { observaciones });
   }
 
   deleteEmpresaSolicitud(id:string){
