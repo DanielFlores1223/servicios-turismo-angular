@@ -6,9 +6,7 @@ input #search {
     background-color: transparent;
     color: white;
     border-color: transparent;
-
 }
-
 #logo {
     width: 300px;
     height: 300px;
@@ -21,8 +19,7 @@ input #search {
     box-shadow: 2px 2px 5px #999;
     box-shadow: 2px 2px 5px rgb(187, 187, 187);
   -moz-box-shadow: 2px 2px 5px rgb(197, 197, 197);
-    float: left; 
-    
+    float: left;  
 }
 #img2{
     height: 340px;
@@ -40,10 +37,9 @@ h3{
     text-align: center;
     font-size: 40px;
     padding: 10px;
-    margin-top: 10px;
-    
+    margin-top: 10px; 
 }
-h2{
+h1{
     text-align: center;
     font-size: 40px;
     padding: 15px;
@@ -78,7 +74,7 @@ h2{
         margin: auto;
         margin-bottom: 12px;
     }
-    h2{
+    h1{
         font-size: 30px;
     }
     h3{
@@ -111,7 +107,7 @@ h2{
         margin: auto;
         margin-bottom: 12px;
     }
-    h2{
+    h1{
         font-size: 30px;
     }
     h3{
@@ -124,8 +120,7 @@ h2{
    -------------------------------------------------------------------------*/
 @media (max-width: 480px) {
     .container{
-        width: 100%;
-        
+        width: 100%; 
     }
     #img1{
         width: 100%;
@@ -145,7 +140,7 @@ h2{
         margin: auto;
         margin-bottom: 12px;
     }
-    h2{
+    h1{
         font-size: 30px;
     }
     h3{

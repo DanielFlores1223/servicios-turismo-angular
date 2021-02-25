@@ -35,6 +35,12 @@ export class FormSitiosComponent implements OnInit {
 
 
   uploadSitio(nombresitio: HTMLInputElement, subtitulo: HTMLInputElement, descripcioncorta: HTMLTextAreaElement, contenido1: HTMLTextAreaElement, contenido2: HTMLTextAreaElement) {
+    if (nombresitio.value !== '' && 
+        subtitulo.value !== '' && 
+        descripcioncorta.value !== '' && 
+        contenido1.value !== '' &&
+        contenido2.value !== '') {
+
     this.sitioService.createSitio(nombresitio.value, subtitulo.value, descripcioncorta.value, contenido1.value, contenido2.value, this.file)//retorna respuesta y usamos
     //el metodo subscribe
       .subscribe(
@@ -50,9 +56,29 @@ export class FormSitiosComponent implements OnInit {
           console.log(res);
           this.router.navigate(['/sitios']);
         },
-        err => console.log(err)
-      );
-    return false;
-  }
+        () => {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Revise que los campos obligatorios esten llenos',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar:true  
+          });
+         }
+         );
+    }else{
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Revise que los campos obligatorios esten llenos',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar:true  
+      });
+    } 
 
+    return false;//return un false para cancel el event
+  }
 }
+
