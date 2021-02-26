@@ -39,12 +39,26 @@ export class FormSitiosComponent implements OnInit {
         subtitulo.value !== '' && 
         descripcioncorta.value !== '' && 
         contenido1.value !== '' &&
-        contenido2.value !== '') {
+        contenido2.value !== '' &&
+        this.file !== undefined) {
 
+      const tipoImagen = this.file.type.split('/');
+      if(tipoImagen[0] !== 'image'){
+         Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'El Formato de imagen que intentó subir no se permite.',
+          text: 'Intente con una imagen en formato .png/.jpg',
+          showConfirmButton: false,
+          timer: 4000,
+          timerProgressBar:true
+        })
+      }else{
     this.sitioService.createSitio(nombresitio.value, subtitulo.value, descripcioncorta.value, contenido1.value, contenido2.value, this.file)//retorna respuesta y usamos
     //el metodo subscribe
       .subscribe(
         async res => {
+          //await this.updateImage();
           await Swal.fire({
             position: 'center',
             icon: 'success',
@@ -67,7 +81,8 @@ export class FormSitiosComponent implements OnInit {
           });
          }
          );
-    }else{
+      } 
+    } else{
       Swal.fire({
         position: 'center',
         icon: 'error',
@@ -76,7 +91,7 @@ export class FormSitiosComponent implements OnInit {
         timer: 2000,
         timerProgressBar:true  
       });
-    } 
+    }
 
     return false;//return un false para cancel el event
   }

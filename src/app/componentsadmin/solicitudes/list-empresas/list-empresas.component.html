@@ -20,6 +20,7 @@
                             <option value="Pendiente">Pendiente</option>
                             <option value="Validado">Validados</option>
                             <option value="Cancelado">Cancelados</option>
+                            <option value="Cancelado por el afiliado">Cancelados por el afiliado</option>
                         </select>
                     </div>
                     <!-- Pagination md and lg-->
@@ -56,11 +57,11 @@
                                     <!-- ACTIONS BUTTONS -->
                                     <button class="btn btn-sm btn-outline-success btn-pill btn-block {{empresa.estatus === 'Validado' ? 'd-none':''}}" (click)="updateEstatus('Validado', empresa._id)"><i class="material-icons">check_circle</i>Validar
                                     </button>
-                                    <button class="mt-1 btn btn-sm btn-outline-danger btn-pill btn-block {{empresa.estatus === 'Cancelado' ? 'd-none':''}}" data-toggle="modal" data-target="#cancelarSolicitud" (click)="changeId(empresa._id)"><i class="material-icons">cancel</i>Cancelar
+                                    <button class="mt-1 btn btn-sm btn-outline-danger btn-pill btn-block {{empresa.estatus === 'Cancelado' || 'Cancelado por el afiliado' ? 'd-none':''}}" data-toggle="modal" data-target="#cancelarSolicitud" (click)="changeId(empresa._id)"><i class="material-icons">cancel</i>Cancelar
                                     </button>
                                     <button class="mt-1 btn btn-sm btn-outline-primary btn-pill btn-block" data-toggle="modal" data-target="#masInfo" (click)="getEmpresa(empresa._id)"><i class="material-icons">preview</i>Ver más info
                                     </button>
-                                    <button class="mt-1 btn btn-sm btn-outline-danger btn-pill btn-block {{empresa.estatus === 'Cancelado' ? '':'d-none'}}" (click)="showConfirmacion(empresa._id)"><i class="material-icons">delete</i>Eliminar Solicitud
+                                    <button class="mt-1 btn btn-sm btn-outline-danger btn-pill btn-block {{empresa.estatus === 'Cancelado' || 'Cancelado por el afiliado' ? '':'d-none'}}" (click)="showConfirmacion(empresa._id)"><i class="material-icons">delete</i>Eliminar Solicitud
                                     </button>
                                 </div>
                             </div>
@@ -94,18 +95,18 @@
                   </button>
             </div>
             <div class="modal-body">
-               <div class="row">
-                   <div class="col-12">
-                    <p class="mb-0">* Observaciones</p>
-                    <p class="mb-1">Escribe el mótivo por el que la solicitud se canceló</p>
-                   </div>
-                   <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="mb-0">* Observaciones</p>
+                        <p class="mb-1">Escribe el mótivo por el que la solicitud se canceló</p>
+                    </div>
+                    <div class="col-12">
                         <textarea class="form-control observaciones" #observaciones></textarea>
-                   </div>
-                   <div class="col-12 d-flex justify-content-end mt-2">
-                       <button class="btn btn-danger btn-responsive-modal" (click)="cancelSolicitud(observaciones)" data-dismiss="modal"><i class="material-icons" >cancel</i>Cancelar Solicitud</button>
-                   </div>
-               </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-end mt-2">
+                        <button class="btn btn-danger btn-responsive-modal" (click)="cancelSolicitud(observaciones)" data-dismiss="modal"><i class="material-icons" >cancel</i>Cancelar Solicitud</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -147,7 +148,7 @@
                                     </a>
                                 </div>
                                 <div *ngIf="empresaInfo.facebook != ''">
-                                    <a href="{{empresaInfo.facebook}}"  target="_blank">
+                                    <a href="{{empresaInfo.facebook}}" target="_blank">
                                         <i class="material-icons">facebook</i> Ir a página de Facebook
                                     </a>
                                 </div>

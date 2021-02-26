@@ -41,35 +41,49 @@ export class FormEventsComponent implements OnInit {
         fecha_inicio.value !== '' && 
         fecha_inicio.value !== '' &&
         fecha_fin.value !== ''&&
-        descripcion.value !== '') {
+        descripcion.value !== ''&&
+        this.file !== undefined) {
 
-        this.eventoService.createEvento(nombreEvento.value, direccion.value, fecha_inicio.value, fecha_fin.value, descripcion.value, this.file)//retorna respuesta y usamos
-    //el metodo subscribe
-      .subscribe(
-        async res => {
-
-          await Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Evento registrado con exito',
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar:true  
-          })
-          console.log(res);
-          this.router.navigate(['/eventos']);
-        },
-        () => {
-          Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Revise que los campos obligatorios esten llenos',
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar:true  
-          });
-         }
-         );
+        const tipoImagen = this.file.type.split('/');
+          if(tipoImagen[0] !== 'image'){
+            Swal.fire({
+              position:'center',
+              icon:'error',
+              title:'El Formato de imagen que intentó subir no se permite.',
+              text: 'Intente con una imagen en formato .png/.jpg',
+              showConfirmButton: false,
+              timer: 4000,
+              timerProgressBar:true
+            })
+          }else{
+            this.eventoService.createEvento(nombreEvento.value, direccion.value, fecha_inicio.value, fecha_fin.value, descripcion.value, this.file)//retorna respuesta y usamos
+            //el metodo subscribe
+              .subscribe(
+                async res => {
+        
+                  await Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Evento registrado con exito',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar:true  
+                  })
+                  console.log(res);
+                  this.router.navigate(['/eventos']);
+                },
+                () => {
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Revise que los campos obligatorios esten llenos',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar:true  
+                  });
+                 }
+                 ); 
+          }
     }else{
       Swal.fire({
         position: 'center',
