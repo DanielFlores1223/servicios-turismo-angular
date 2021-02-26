@@ -35,12 +35,19 @@ export class FormEventsComponent implements OnInit {
       reader.readAsDataURL(this.file);
     }
   }
-
   uploadEvento(nombreEvento: HTMLInputElement, direccion: HTMLInputElement, fecha_inicio: HTMLInputElement, fecha_fin: HTMLInputElement, descripcion: HTMLTextAreaElement) {
-    this.eventoService.createEvento(nombreEvento.value, direccion.value, fecha_inicio.value, fecha_fin.value, descripcion.value, this.file)//retorna respuesta y usamos
+    if (nombreEvento.value !== '' && 
+        direccion.value !== '' && 
+        fecha_inicio.value !== '' && 
+        fecha_inicio.value !== '' &&
+        fecha_fin.value !== ''&&
+        descripcion.value !== '') {
+
+        this.eventoService.createEvento(nombreEvento.value, direccion.value, fecha_inicio.value, fecha_fin.value, descripcion.value, this.file)//retorna respuesta y usamos
     //el metodo subscribe
       .subscribe(
         async res => {
+
           await Swal.fire({
             position: 'center',
             icon: 'success',
@@ -52,9 +59,29 @@ export class FormEventsComponent implements OnInit {
           console.log(res);
           this.router.navigate(['/eventos']);
         },
-        err => console.log(err)
-      );
-    return false;
-  }
+        () => {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Revise que los campos obligatorios esten llenos',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar:true  
+          });
+         }
+         );
+    }else{
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Revise que los campos obligatorios esten llenos',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar:true  
+      });
+    } 
 
+    return false;//return un false para cancel el event
+  }
+  
 }

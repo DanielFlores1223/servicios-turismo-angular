@@ -1,11 +1,11 @@
 <section class="bg-light container">
-    <h3 class="text-center">Comercios</h3>
+    <h1 class="text-center">Comercios</h1>
     <div class="row">
         <div class="col-sm-12 col-md-4" *ngFor="let comercio of comercios | paginate: { itemsPerPage: 6, currentPage: pageActual } ">
             <div class="card mb-4 shadow-sm">
                 <img [src]=" url + '/' + comercio.imagePath" class="bd-placeholder-img card-img-top" width="50%" height="225" preserveAspectRatio="xMidYMid slice" alt="{{comercio.nombreEmpresa}}">
                 <div class="card-body">
-                    <h4>{{comercio.nombreEmpresa}}</h4>
+                    <h3>{{comercio.nombreEmpresa}}</h3>
                     <p class="card-text">{{comercio.descripcion}}</p>
                     <div>
                         <div *ngIf="comercio.paginaWeb != ''">
