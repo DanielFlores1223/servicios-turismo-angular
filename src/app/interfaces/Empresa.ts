@@ -34,6 +34,7 @@ export interface EmpresaCreate{
     estatus: string;
     descripcion: string;
     idComerciante: string;
+    
 }
 
 export const  EmpresaObj = {
@@ -46,5 +47,5 @@ export const  EmpresaObj = {
     telefono: '',
     estatus: '',
     descripcion: '',
-    idComerciante: ''
+    idComerciante: '',
 }
