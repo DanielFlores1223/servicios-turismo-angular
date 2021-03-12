@@ -1,4 +1,233 @@
-<header class="bg-light">
+<nav class="menu" id="menu">
+
+    <div class="contenedor contenedor-botones-menu">
+        <button id="btn-menu-barras" class="btn-menu-barras"><i class="material-icons">menu</i></button>
+        <button id="btn-menu-cerrar" class="btn-menu-cerrar"><i class="material-icons">cancel</i></button>
+    </div>
+
+    <div class="contenedor contenedor-enlaces-nav">
+       
+        <div class="btn-departamentos" id="btn-departamentos">
+            <img src="./assets/Catedral_centro_rotonda.jpg" id="img" width="90px" routerLink="paginaprincipal">
+            <p><span>Turismo de Guadalajara<i class="material-icons">arrow_drop_down</i></span></p>
+        </div>
+
+        <div class="enlaces">
+            <a href=""routerLink="paginaprincipal">Inicio</a>
+            <a href="" routerLink="even">Eventos</a>
+            <a href="" routerLink="hotels">Hoteles</a>
+            <a href="" routerLink="restaurant">Gastronomia</a>
+            <a href="" routerLink="comercios">Comercio</a>
+            <a href="" routerLink="rutascamion">Como llegar</a>
+        </div>
+    </div>
+
+    <div class="contenedor contenedor-grid">
+        <div class="grid" id="grid">
+            <div class="categorias">
+                <button class="btn-regresar"><i class="material-icons">arrow_back</i> Regresar</button>
+                <h3 class="subtitulo">Categorias</h3>
+
+                <a href="#" data-categoria="montaña">Turismo de Montaña <i class="material-icons">chevron_right</i></a>
+                <a href="#" data-categoria="playa">Turismo de Playa<i class="material-icons">chevron_right</i></a>
+                <a href="#" data-categoria="arquitectónico">Turismo Arquitectónico <i class="material-icons">chevron_right</i></a>
+                <a href="#" data-categoria="religioso">Turismo Religioso <i class="material-icons">chevron_right</i></a>
+                <a href="#" data-categoria="cultural">Turismo Cultural <i class="material-icons">chevron_right</i></a>
+                <a href="#" data-categoria="artesanal">Turismo Artesanal <i class="material-icons">chevron_right</i></a>
+            </div>
+
+            <div class="contenedor-subcategorias">
+                <div class="subcategoria " data-categoria="montaña">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="material-icons">arrow_back></i>Regresar</button>
+                        <h3 class="subtitulo">Turismo de Montaña</h3>
+                        <a href="#">Nombre del registro</a>
+                        <a href="#">(ejemplo) Bosque de la primavera</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./assets/img-menu/montaña.jpg" alt="Montaña">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./assets/img-menu/montaña.jpg" alt="Montaña">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/alpinismo.jpg" alt="Alpinismo">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/caminata.jpg" alt="Caminata en la montaña">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/acampar.jpg" alt="Acampar">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="playa">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="material-icons">arrow_back></i>Regresar</button>
+                        <h3 class="subtitulo">Turismo de Playa</h3>
+                        <a href="#">Nombre del registro</a>
+                        <a href="#">(ejemplo) Puerto Vallarta</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="Playa">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="arquitectónico">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="material-icons">arrow_back></i>Regresar</button>
+                        <h3 class="subtitulo">Turismo Arquitectónico</h3>
+                        <a href="#">Nombre del registro</a>
+                        <a href="#">(ejemplo) Guachimontones</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="religioso">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="material-icons">arrow_back></i>Regresar</button>
+                        <h3 class="subtitulo">Turismo Religioso</h3>
+                        <a href="#">Nombre del registro</a>
+                        <a href="#">(ejemplo) Catedral de Guadalajara</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="cultural">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="material-icons">arrow_back></i>Regresar</button>
+                        <h3 class="subtitulo">Turismo Cultural</h3>
+                        <a href="#">Nombre del registro</a>
+                        <a href="#">(ejemplo) Museo del Globo</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt=">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="subcategoria" data-categoria="artesanal">
+                    <div class="enlaces-subcategoria">
+                        <button class="btn-regresar"><i class="material-icons">arrow_back></i>Regresar</button>
+                        <h3 class="subtitulo">Turismo Artesanal</h3>
+                        <a href="#">Nombre del registro</a>
+                        <a href="#">(ejemplo) Hilados de la ribera de Chapala</a>
+                    </div>
+
+                    <div class="banner-subcategoria">
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg alt=">
+                        </a>
+                    </div>
+
+                    <div class="galeria-subcategoria">
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+
+<!--header class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light  container">
         <img src="./assets/Catedral_centro_rotonda.jpg" width="90px" routerLink="paginaprincipal">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +268,8 @@
             </ul>
         </div>
     </nav>
-</header>
+</header-->
 
+<script src="https://kit.fontawesome.com/b06f9ab23b.js" crossorigin="anonymous"></script>
 
 <!--app-pagina-principal></app-pagina-principal-->
