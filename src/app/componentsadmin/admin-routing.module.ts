@@ -1,10 +1,19 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { from } from 'rxjs';
+
+//Guardias
 import { GuaradminGuard } from '../guards/guaradmin.guard';
 import{ GuarloginGuard } from '../guards/guarlogin.guard';
+import {AfiliadoAdminGuard} from '../guards/afiliado-admin.guard';
+import {AdministradoresAdminGuard} from '../guards/administradores-admin.guard'
+import {EventosAdminGuard} from '../guards/eventos-admin.guard';
+import {SitiosAdminGuard} from '../guards/sitios-admin.guard';
+import {EmpresasValidadasAdminGuard} from '../guards/empresas-validadas-admin.guard';
+import {SolicitudesEmpresasAdminGuard} from '../guards/solicitudes-empresas-admin.guard';
+import {CarruselAdminGuard} from '../guards/carrusel-admin.guard';
 
-
+//Componentes
 import { EditAfiliadosComponent } from './afiliados/edit-afiliados/edit-afiliados.component';
 import { FormAfiliadosComponent } from './afiliados/form-afiliados/form-afiliados.component';
 import { ListAfiliadosComponent } from './afiliados/list-afiliados/list-afiliados.component';
@@ -34,45 +43,32 @@ import { EditEmpresasAdminComponent } from './empresas/edit-empresas-admin/edit-
 
 const routes: Routes = [
 
- 
-
- 
   {path: 'panel',component: PanelComponent,canActivate :[GuarloginGuard, GuaradminGuard]},
 
-  {path: 'afiliados', component: ListAfiliadosComponent,canActivate :[GuarloginGuard,GuaradminGuard]}, 
-  {path: 'afiliados/new',component: FormAfiliadosComponent,canActivate :[GuarloginGuard,GuaradminGuard]},
-  {path: 'afiliados/:id',component: EditAfiliadosComponent,canActivate :[GuarloginGuard,GuaradminGuard]},
+  {path: 'afiliados', component: ListAfiliadosComponent,canActivate :[GuarloginGuard,GuaradminGuard,AfiliadoAdminGuard]}, 
+  {path: 'afiliados/new',component: FormAfiliadosComponent,canActivate :[GuarloginGuard,GuaradminGuard,AfiliadoAdminGuard]},
+  {path: 'afiliados/:id',component: EditAfiliadosComponent,canActivate :[GuarloginGuard,GuaradminGuard,AfiliadoAdminGuard]},
  
+  {path: 'administradoresLista', component:ListAdminComponent, canActivate:[GuarloginGuard,GuaradminGuard, AdministradoresAdminGuard]},
+  {path: 'administradores/new', component:FormAdminComponent, canActivate:[GuarloginGuard, GuaradminGuard, AdministradoresAdminGuard]},
+  {path: 'administradores/:id', component:EditAdminComponent, canActivate:[GuarloginGuard, GuaradminGuard, AdministradoresAdminGuard]},
 
-  
-  {path: 'administradoresLista', component:ListAdminComponent, canActivate:[GuarloginGuard,GuaradminGuard]},
-  {path: 'administradores/new', component:FormAdminComponent, canActivate:[GuarloginGuard, GuaradminGuard]},
-  {path: 'administradores/:id', component:EditAdminComponent, canActivate:[GuarloginGuard, GuaradminGuard]},
+  {path: 'eventos', component: ListEventsComponent,canActivate :[GuarloginGuard, GuaradminGuard, EventosAdminGuard]}, 
+  {path: 'eventos/new',component: FormEventsComponent,canActivate :[GuarloginGuard, GuaradminGuard, EventosAdminGuard]},
+  {path: 'eventos/:id',component: EditEventsComponent,canActivate :[GuarloginGuard, GuaradminGuard, EventosAdminGuard]},
 
-  {path: 'eventos', component: ListEventsComponent,canActivate :[GuarloginGuard, GuaradminGuard]}, 
-  {path: 'eventos/new',component: FormEventsComponent,canActivate :[GuarloginGuard, GuaradminGuard]},
-  {path: 'eventos/:id',component: EditEventsComponent,canActivate :[GuarloginGuard, GuaradminGuard]},
+  {path: 'sitios', component: ListSitiosComponent,canActivate :[GuarloginGuard, GuaradminGuard, SitiosAdminGuard]}, 
+  {path: 'sitios/new',component: FormSitiosComponent,canActivate :[GuarloginGuard, GuaradminGuard, SitiosAdminGuard]},
+  {path: 'sitios/:id',component: EditSitiosComponent,canActivate :[GuarloginGuard, GuaradminGuard, SitiosAdminGuard]},
 
-  {path: 'hoteles', component: ListHotelComponent,canActivate :[GuarloginGuard, GuaradminGuard]}, 
-  {path: 'hoteles/new',component: FormHotelComponent,canActivate :[GuarloginGuard, GuaradminGuard]},
-  {path: 'hoteles/:id',component: EditHotelComponent,canActivate :[GuarloginGuard, GuaradminGuard]},
-
-  {path: 'restaurantes', component: ListRestaurantComponent,canActivate :[GuarloginGuard, GuaradminGuard]}, 
-  {path: 'restaurantes/new',component: FormRestaurantComponent,canActivate :[GuarloginGuard, GuaradminGuard]},
-  {path: 'restaurantes/:id',component: EditRestaurantComponent,canActivate :[GuarloginGuard, GuaradminGuard]},
-
-  {path: 'sitios', component: ListSitiosComponent,canActivate :[GuarloginGuard, GuaradminGuard]}, 
-  {path: 'sitios/new',component: FormSitiosComponent,canActivate :[GuarloginGuard, GuaradminGuard]},
-  {path: 'sitios/:id',component: EditSitiosComponent,canActivate :[GuarloginGuard, GuaradminGuard]},
-
-  {path: 'empresas', component: ListEmpresasComponent,canActivate :[GuarloginGuard, GuaradminGuard]}, 
-  {path : 'empresas-validadas', component: EmpresasGeneralComponent, canActivate :[GuarloginGuard, GuaradminGuard]} ,
-  {path: 'empresas-validadas/new', component: FormEmpresasComponent, canActivate :[GuarloginGuard, GuaradminGuard]},
-  {path: 'empresas-validadas/:id', component: EditEmpresasAdminComponent, canActivate :[GuarloginGuard, GuaradminGuard]},
+  {path: 'empresas', component: ListEmpresasComponent,canActivate :[GuarloginGuard, GuaradminGuard, SolicitudesEmpresasAdminGuard]}, 
+  {path : 'empresas-validadas', component: EmpresasGeneralComponent, canActivate :[GuarloginGuard, GuaradminGuard, EmpresasValidadasAdminGuard]} ,
+  {path: 'empresas-validadas/new', component: FormEmpresasComponent, canActivate :[GuarloginGuard, GuaradminGuard, EmpresasValidadasAdminGuard]},
+  {path: 'empresas-validadas/:id', component: EditEmpresasAdminComponent, canActivate :[GuarloginGuard, GuaradminGuard, EmpresasValidadasAdminGuard]},
   
 
-  {path: 'carrusel', component: ListPhotosCarruselComponent, canActivate: [GuarloginGuard, GuaradminGuard]},
-  {path: 'carrusel/new-photo', component: FormPhotosCarruselComponent, canActivate: [GuarloginGuard, GuaradminGuard]},
+  {path: 'carrusel', component: ListPhotosCarruselComponent, canActivate: [GuarloginGuard, GuaradminGuard, CarruselAdminGuard]},
+  {path: 'carrusel/new-photo', component: FormPhotosCarruselComponent, canActivate: [GuarloginGuard, GuaradminGuard, CarruselAdminGuard]},
 
   {path:'',redirectTo:'panel', pathMatch:'full',canActivate: [GuarloginGuard, GuaradminGuard]},
 

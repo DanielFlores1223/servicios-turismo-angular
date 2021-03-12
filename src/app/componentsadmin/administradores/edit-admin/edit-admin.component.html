@@ -41,14 +41,107 @@
                                             <input (keypress)="soloNumeros($event)" [(ngModel)]="administrador.telefono" [ngModelOptions]="{standalone: true}" type="text" class="form-control " maxlength="10" placeholder="Teléfono" required>
                                         </div>
                                         <div class="form-group col-md-4">
-                                           *Contraseña 
-                                            <input [(ngModel)]="administrador.password" [ngModelOptions]="{standalone: true}" type="password" class="form-control " maxlength="10" placeholder="Ingresa contraseña" required>
+                                            * Contraseña
+                                            <input [(ngModel)]="administrador.password" [ngModelOptions]="{standalone: true}" type="password" class="form-control" maxlength="10" placeholder="Ingresa una nueva contraseña" required>
                                         </div>
                                     </div>
-                                    <button class="btn btn-sm btn-outline-accent btn-responsive-form" (click)="updateUsuario()">
+                                    <!-- Permisos de administrador -->
+                                    <div class="form-row">
+                                        <h5>Permisos de administrador</h5>
+                                        <p>Nota: Para que las modificaciones en los accesos se vean reflejados el usuario debe volver a iniciar sesión.</p>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-8">
+                                            <p>Modulos</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <p>Accesos</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col-sm-12 col-md-8">
+                                            <p><i class="material-icons">location_city</i> Sitios</p>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <select name="sitios" [(ngModel)]="administrador.permisos.sitios" class="form-control">
+                                                <option value="sin acceso">Sin acceso</option>
+                                                <option value="con acceso">Con acceso</option>                          
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col-sm-12 col-md-8">
+                                            <p><i class="material-icons">event</i> Eventos</p>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <select name="eventos" [(ngModel)]="administrador.permisos.eventos" class="form-control">
+                                                <option value="sin acceso">Sin acceso</option>
+                                                <option value="con acceso">Con acceso</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col-sm-12 col-md-8">
+                                            <p><i class="material-icons">apartment</i> Empresas validadas</p>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <select name="empresasValidadas" [(ngModel)]="administrador.permisos.empresasValidadas" class="form-control">
+                                                <option value="sin acceso">Sin acceso</option>
+                                                <option value="con acceso">Con acceso</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col-sm-12 col-md-8">
+                                            <p><i class="material-icons">note_add</i> Solicitudes de empresas</p>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <select name="solicitudesEmpresas" [(ngModel)]="administrador.permisos.solicitudesEmpresas" class="form-control">
+                                                <option value="sin acceso">Sin acceso</option>
+                                                <option value="con acceso">Con acceso</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col-sm-12 col-md-8">
+                                            <p> <i class="material-icons">people_alt</i> Administradores</p>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <select name="administradores" [(ngModel)]="administrador.permisos.administradores" class="form-control">
+                                                <option value="sin acceso">Sin acceso</option>
+                                                <option value="con acceso">Con acceso</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col-sm-12 col-md-8">
+                                            <p><i class="material-icons">how_to_reg</i> Usuarios afiliados</p>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <select name="afiliados" [(ngModel)]="administrador.permisos.afiliados" class="form-control">
+                                                <option value="sin acceso">Sin acceso</option>
+                                                <option value="con acceso">Con acceso</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row mb-2">
+                                        <div class="col-sm-12 col-md-8">
+                                            <p><i class="material-icons">settings</i> Carrusel</p>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <select name="carrusel" [(ngModel)]="administrador.permisos.carrusel" class="form-control">
+                                                <option value="sin acceso">Sin acceso</option>
+                                                <option value="con acceso">Con acceso</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- Termina Permisos de administrador -->
+                                    <div class="form-row d-flex justify-content-end">
+                                        <button class="btn btn-sm btn-outline-accent btn-responsive-form" (click)="updateUsuario()">
                                     <i class="material-icons">edit</i>
                                     Editar
                                     </button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

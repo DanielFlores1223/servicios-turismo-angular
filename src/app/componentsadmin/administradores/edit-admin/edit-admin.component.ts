@@ -19,6 +19,9 @@ export class EditAdminComponent implements OnInit {
    
 
   ngOnInit(): void {
+    this.administrador.nombre = '';
+    this.administrador.password = '';
+    this.administrador.email = '';
     this.getUsuario();   
   }
   
@@ -64,7 +67,6 @@ export class EditAdminComponent implements OnInit {
     if (this.administrador.direccion === '' ||
         this.administrador.email === '' ||
         this.administrador.nombre === '' ||
-        this.administrador.password === '' ||
         this.administrador.telefono === '') {
         
           Swal.fire({

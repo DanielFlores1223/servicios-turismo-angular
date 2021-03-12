@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import {UsuarioService} from '../../services/usuario.service';
 
 import Swal from 'sweetalert2';
+import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-login-afiliado',
@@ -41,6 +42,51 @@ login(email: HTMLInputElement, password: HTMLInputElement){
 
     localStorage.setItem('token',res.envio[0]);
     localStorage.setItem('tipo',res.envio[1]); 
+    
+    if (res.envio[1] === 'admin') {
+      //si es admin entonces se comienzan a guardar los permisos en un arreglo
+      let permisos = res.envio[2];
+      const {sitios,
+        eventos,
+        empresasValidadas,
+        solicitudesEmpresas,
+        administradores,
+        afiliados,
+        carrusel } = permisos;
+
+      let arrayPermisos = [];
+
+      //cada modulo que cuente con acceso se agregara al array de permisos
+      //al terminar se guarda en localStorage
+      //cada permiso cuenta con un id
+      if (sitios === 'con acceso') 
+        //spread operator: se hace una copia del arreglo y se guarda el segundo valor.
+        arrayPermisos = [...arrayPermisos, '12101014ab70254c564c5c73e1'];
+      
+      if (eventos === 'con acceso') 
+        arrayPermisos = [...arrayPermisos, '15102014ab70254c564c5c73e1'];
+
+      if (empresasValidadas === 'con acceso') 
+        arrayPermisos = [...arrayPermisos, '18103014ab70254c564c5c73e1'];
+      
+      if (solicitudesEmpresas === 'con acceso') 
+        arrayPermisos = [...arrayPermisos, '13104014ab70254c564c5c73e1'];
+
+      if (administradores === 'con acceso') 
+        arrayPermisos = [...arrayPermisos, '11105014ab70254c564c5c73e1'];
+
+      if (afiliados === 'con acceso') 
+        arrayPermisos = [...arrayPermisos, '18106014ab70254c564c5c73e1'];
+
+      if (carrusel === 'con acceso') 
+        arrayPermisos = [...arrayPermisos, '19107014ab70254c564c5c73e1'];
+
+      localStorage.setItem('p', JSON.stringify(arrayPermisos));
+        
+    }
+    
+
+
     this.usuarioService.loginExito();
     const tipoUsu = this.usuarioService.tipoUsu();
     

@@ -6,6 +6,15 @@ export interface Usuario {
      telefono:string;
      password:string;
      tipo:string;
+     permisos: {
+          sitios:  string,
+          eventos:  string,
+          empresasValidadas:  string,
+          solicitudesEmpresas:  string,
+          administradores:  string,
+          afiliados:  string,
+          carrusel:  string
+      }
  }
 
 export const UsuarioObj = {
@@ -15,5 +24,14 @@ export const UsuarioObj = {
      direccion: '',
      telefono: '',
      password: '',
-     tipo: ''  
+     tipo: '',
+     permisos: {
+          sitios:  'sin acceso',
+          eventos:  'sin acceso',
+          empresasValidadas:  'sin acceso',
+          solicitudesEmpresas:  'sin acceso',
+          administradores:  'sin acceso',
+          afiliados:  'sin acceso',
+          carrusel:  'sin acceso'
+      }
 }

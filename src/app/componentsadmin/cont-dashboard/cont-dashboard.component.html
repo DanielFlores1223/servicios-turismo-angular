@@ -21,44 +21,36 @@
                 <span class="d-none d-md-inline ml-1">CANACO</span>
             </div>
             <div class="list-group list-group-flush ">
-                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="">
+                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="/panel" routerLinkActive="link-style--activo">
                     <i class="material-icons">dashboard</i>
                     <span>Slider</span>
                 </a>
-                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./sitios" routerLinkActive="link-style--activo">
+                <a *ngIf="miInfo.permisos.sitios === 'con acceso'" class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./sitios" routerLinkActive="link-style--activo">
                     <i class="material-icons">location_city</i>
                     <span>Sitios</span>
                 </a>
 
-                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./eventos" routerLinkActive="link-style--activo">
+                <a *ngIf="miInfo.permisos.eventos === 'con acceso'" class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./eventos" routerLinkActive="link-style--activo">
                     <i class="material-icons">event</i>
                     <span>Eventos</span>
                 </a>
-                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="/empresas-validadas" routerLinkActive="link-style--activo">
+                <a *ngIf="miInfo.permisos.empresasValidadas === 'con acceso'" class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="/empresas-validadas" routerLinkActive="link-style--activo">
                     <i class="material-icons">apartment</i>
                     <span>Empresas validadas</span>
                 </a>
-                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./empresas" routerLinkActive="link-style--activo">
+                <a *ngIf="miInfo.permisos.solicitudesEmpresas === 'con acceso'" class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./empresas" routerLinkActive="link-style--activo">
                     <i class="material-icons">note_add</i>
                     <span>Solicitudes de Empresas</span>
                 </a>
-                <!-- <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./restaurantes" routerLinkActive="link-style--activo">
-                    <i class="material-icons">food_bank</i>
-                    <span>Restaurantes</span>
-                </a>
-                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./hoteles" routerLinkActive="link-style--activo">
-                    <i class="material-icons">apartment</i>
-                    <span>Hoteles</span>
-                </a> -->
-                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./administradoresLista" routerLinkActive="link-style--activo">
+                <a *ngIf="miInfo.permisos.administradores === 'con acceso'" class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./administradoresLista" routerLinkActive="link-style--activo">
                     <i class="material-icons">people_alt</i>
                     <span>Administradores</span>
                 </a>
-                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./afiliados" routerLinkActive="link-style--activo">
+                <a *ngIf="miInfo.permisos.afiliados === 'con acceso'" class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./afiliados" routerLinkActive="link-style--activo">
                     <i class="material-icons">how_to_reg</i>
                     <span>Usuarios Afiliados</span>
                 </a>
-                <a class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./carrusel" routerLinkActive="link-style--activo">
+                <a *ngIf="miInfo.permisos.carrusel === 'con acceso'" class="nav-link list-group-item list-group-item-action bg-light link-style" routerLink="./carrusel" routerLinkActive="link-style--activo">
                     <i class="material-icons">settings</i>
                     <span>Carrusel</span>
                 </a>

@@ -57,11 +57,11 @@
                                     <!-- ACTIONS BUTTONS -->
                                     <button class="btn btn-sm btn-outline-success btn-pill btn-block {{empresa.estatus === 'Validado' ? 'd-none':''}}" (click)="updateEstatus('Validado', empresa._id)"><i class="material-icons">check_circle</i>Validar
                                     </button>
-                                    <button class="mt-1 btn btn-sm btn-outline-danger btn-pill btn-block {{empresa.estatus === 'Cancelado' || 'Cancelado por el afiliado' ? 'd-none':''}}" data-toggle="modal" data-target="#cancelarSolicitud" (click)="changeId(empresa._id)"><i class="material-icons">cancel</i>Cancelar
+                                    <button class="mt-1 btn btn-sm btn-outline-danger btn-pill btn-block {{empresa.estatus === 'Cancelado' || empresa.estatus === 'Cancelado por el afiliado' ? 'd-none':''}}" data-toggle="modal" data-target="#cancelarSolicitud" (click)="changeId(empresa._id)"><i class="material-icons">cancel</i>Cancelar
                                     </button>
                                     <button class="mt-1 btn btn-sm btn-outline-primary btn-pill btn-block" data-toggle="modal" data-target="#masInfo" (click)="getEmpresa(empresa._id)"><i class="material-icons">preview</i>Ver más info
                                     </button>
-                                    <button class="mt-1 btn btn-sm btn-outline-danger btn-pill btn-block {{empresa.estatus === 'Cancelado' || 'Cancelado por el afiliado' ? '':'d-none'}}" (click)="showConfirmacion(empresa._id)"><i class="material-icons">delete</i>Eliminar Solicitud
+                                    <button class="mt-1 btn btn-sm btn-outline-danger btn-pill btn-block {{empresa.estatus === 'Cancelado' || empresa.estatus === 'Cancelado por el afiliado' ? '':'d-none'}}" (click)="showConfirmacion(empresa._id)"><i class="material-icons">delete</i>Eliminar Solicitud
                                     </button>
                                 </div>
                             </div>

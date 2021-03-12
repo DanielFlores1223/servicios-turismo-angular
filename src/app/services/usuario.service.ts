@@ -30,6 +30,10 @@ export class UsuarioService {
     return localStorage.getItem('tipo');
   }
 
+  getUsuarioPermisos(){
+      return JSON.parse(localStorage.getItem('p'));
+  }
+
   getUsuarioId(id: String){
     return this.http.get<Usuario>(`${this.URI}/${id}`);
   }
@@ -37,6 +41,7 @@ export class UsuarioService {
   getUsuariosTipo(tipo: String){
     return this.http.get<Usuario[]>(`${this.URI}-tipo/${tipo}`);
   }
+
 
   createUsuario(usuarioNew: Usuario){
     return this.http.post(this.URI, usuarioNew);
