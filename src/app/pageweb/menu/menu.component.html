@@ -1,45 +1,47 @@
 <nav class="menu" id="menu">
 
     <div class="contenedor contenedor-botones-menu">
-        <button id="btn-menu-barras" class="btn-menu-barras"><i class="material-icons">menu</i></button>
-        <button id="btn-menu-cerrar" class="btn-menu-cerrar"><i class="material-icons">cancel</i></button>
+        <button id="btn-menu-barras" class="btn-menu-barras" (click)="desplegarMenuResponsive($event)"><i class="material-icons">menu</i></button>
+        <button id="btn-menu-cerrar" class="btn-menu-cerrar" (click)="cerrarMenuResponsive($event)"><i class="material-icons">cancel</i></button>
     </div>
 
-    <div class="contenedor contenedor-enlaces-nav">
+    <div  class="contenedor contenedor-enlaces-nav">
        
-        <div class="btn-departamentos" id="btn-departamentos">
+        <div class="btn-departamentos" #btndepartamento (mouseover) ="desplegar(grid)" (click)="desplegarDepartamentosResponsive($event, grid)">
             <img src="./assets/Catedral_centro_rotonda.jpg" id="img" width="90px" routerLink="paginaprincipal">
-            <p><span>Turismo de Guadalajara<i class="material-icons">arrow_drop_down</i></span></p>
+            <p s><span>Turismo de Guadalajara<i class="material-icons">arrow_drop_down</i></span></p>
         </div>
 
-        <div class="enlaces">
-            <a href=""routerLink="paginaprincipal">Inicio</a>
-            <a href="" routerLink="even">Eventos</a>
-            <a href="" routerLink="hotels">Hoteles</a>
-            <a href="" routerLink="restaurant">Gastronomia</a>
-            <a href="" routerLink="comercios">Comercio</a>
-            <a href="" routerLink="rutascamion">Como llegar</a>
+        <div class="enlaces" (click)="cerrarMenuAlNavegar($event)">
+            <a class="cerrar-direccionar" routerLink="paginaprincipal">Inicio</a>
+            <a class="cerrar-direccionar" routerLink="even">Eventos</a>
+            <a class="cerrar-direccionar" routerLink="hotels">Hoteles</a>
+            <a class="cerrar-direccionar" routerLink="restaurant">Gastronomia</a>
+            <a class="cerrar-direccionar" routerLink="comercios">Comercio</a>
+            <a class="cerrar-direccionar" routerLink="rutascamion">Como llegar</a>
         </div>
     </div>
 
     <div class="contenedor contenedor-grid">
-        <div class="grid" id="grid">
-            <div class="categorias">
-                <button class="btn-regresar"><i class="material-icons">arrow_back</i> Regresar</button>
+        <div class="grid  " #grid (mouseleave)="cerrarMenu(grid)">
+           
+           
+            <div class="categorias" (mouseover)="desplegarSubcategorias($event)" (click)=" desplegarSubcategoriasResponsive($event, contenedorSub)">
+                <button class="btn-regresar" (click)="regresarResponsive($event, grid)"><i class="material-icons">arrow_back</i> Regresar</button>
                 <h3 class="subtitulo">Categorias</h3>
 
-                <a href="#" data-categoria="montaña">Turismo de Montaña <i class="material-icons">chevron_right</i></a>
-                <a href="#" data-categoria="playa">Turismo de Playa<i class="material-icons">chevron_right</i></a>
-                <a href="#" data-categoria="arquitectónico">Turismo Arquitectónico <i class="material-icons">chevron_right</i></a>
-                <a href="#" data-categoria="religioso">Turismo Religioso <i class="material-icons">chevron_right</i></a>
-                <a href="#" data-categoria="cultural">Turismo Cultural <i class="material-icons">chevron_right</i></a>
-                <a href="#" data-categoria="artesanal">Turismo Artesanal <i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="montaña" >Turismo de Montaña <i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="playa">Turismo de Playa<i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="arquitectónico">Turismo Arquitectónico <i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="religioso">Turismo Religioso <i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="cultural">Turismo Cultural <i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="artesanal">Turismo Artesanal <i class="material-icons">chevron_right</i></a>
             </div>
 
-            <div class="contenedor-subcategorias">
-                <div class="subcategoria " data-categoria="montaña">
+            <div class="contenedor-subcategorias" #contenedorSub>
+                <div class="subcategoria activo " data-categoria="montaña">
                     <div class="enlaces-subcategoria">
-                        <button class="btn-regresar"><i class="material-icons">arrow_back></i>Regresar</button>
+                        <button class="btn-regresar" (click)="regresarResponsiveCategorias($event, contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
                         <h3 class="subtitulo">Turismo de Montaña</h3>
                         <a href="#">Nombre del registro</a>
                         <a href="#">(ejemplo) Bosque de la primavera</a>
@@ -69,7 +71,7 @@
 
                 <div class="subcategoria" data-categoria="playa">
                     <div class="enlaces-subcategoria">
-                        <button class="btn-regresar"><i class="material-icons">arrow_back></i>Regresar</button>
+                        <button class="btn-regresar" (click)="regresarResponsiveCategorias($event,contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
                         <h3 class="subtitulo">Turismo de Playa</h3>
                         <a href="#">Nombre del registro</a>
                         <a href="#">(ejemplo) Puerto Vallarta</a>
@@ -99,7 +101,7 @@
 
                 <div class="subcategoria" data-categoria="arquitectónico">
                     <div class="enlaces-subcategoria">
-                        <button class="btn-regresar"><i class="material-icons">arrow_back></i>Regresar</button>
+                        <button class="btn-regresar" (click)="regresarResponsiveCategorias($event,contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
                         <h3 class="subtitulo">Turismo Arquitectónico</h3>
                         <a href="#">Nombre del registro</a>
                         <a href="#">(ejemplo) Guachimontones</a>
@@ -129,7 +131,7 @@
 
                 <div class="subcategoria" data-categoria="religioso">
                     <div class="enlaces-subcategoria">
-                        <button class="btn-regresar"><i class="material-icons">arrow_back></i>Regresar</button>
+                        <button class="btn-regresar" (click)="regresarResponsiveCategorias($event,contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
                         <h3 class="subtitulo">Turismo Religioso</h3>
                         <a href="#">Nombre del registro</a>
                         <a href="#">(ejemplo) Catedral de Guadalajara</a>
@@ -159,7 +161,7 @@
 
                 <div class="subcategoria" data-categoria="cultural">
                     <div class="enlaces-subcategoria">
-                        <button class="btn-regresar"><i class="material-icons">arrow_back></i>Regresar</button>
+                        <button class="btn-regresar" (click)="regresarResponsiveCategorias($event,contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
                         <h3 class="subtitulo">Turismo Cultural</h3>
                         <a href="#">Nombre del registro</a>
                         <a href="#">(ejemplo) Museo del Globo</a>
@@ -182,14 +184,14 @@
                             <img src="./assets/img-menu/playa-banner.jpg" alt="">
                         </a>
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt=">
+                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
                         </a>
                     </div>
                 </div>
 
                 <div class="subcategoria" data-categoria="artesanal">
                     <div class="enlaces-subcategoria">
-                        <button class="btn-regresar"><i class="material-icons">arrow_back></i>Regresar</button>
+                        <button class="btn-regresar" (click)="regresarResponsiveCategorias($event,contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
                         <h3 class="subtitulo">Turismo Artesanal</h3>
                         <a href="#">Nombre del registro</a>
                         <a href="#">(ejemplo) Hilados de la ribera de Chapala</a>
