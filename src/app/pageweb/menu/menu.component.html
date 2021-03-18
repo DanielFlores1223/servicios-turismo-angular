@@ -1,8 +1,6 @@
 <nav class="menu" id="menu">
 
     <div class="contenedor contenedor-botones-menu">
-        <button id="btn-menu-barras" class="btn-menu-barras" ><i class="material-icons">menu</i></button>
-        <button id="btn-menu-cerrar" class="btn-menu-cerrar"><i class="material-icons">cancel</i></button>
         <button id="btn-menu-barras" class="btn-menu-barras" (click)="desplegarMenuResponsive($event)"><i class="material-icons">menu</i></button>
         <button id="btn-menu-cerrar" class="btn-menu-cerrar" (click)="cerrarMenuResponsive($event)"><i class="material-icons">cancel</i></button>
     </div>
@@ -11,7 +9,7 @@
        
         <div class="btn-departamentos" #btndepartamento (mouseover) ="desplegar(grid)" (click)="desplegarDepartamentosResponsive($event, grid)">
             <img src="./assets/Catedral_centro_rotonda.jpg" id="img" width="90px" routerLink="paginaprincipal">
-            <p s><span>Turismo de Guadalajara<i class="material-icons">arrow_drop_down</i></span></p>
+            <p><span>Turismo de Guadalajara<i class="material-icons">arrow_drop_down</i></span></p>
         </div>
 
         <div class="enlaces" (click)="cerrarMenuAlNavegar($event)">
@@ -33,7 +31,7 @@
                 <h3 class="subtitulo">Categorias</h3>
 
                 <a href="#" class="categoria-select" data-categoria="montaña" >Turismo de Montaña <i class="material-icons">chevron_right</i></a>
-                <a href="#" class="categoria-select" data-categoria="playa">Turismo de Playa<i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="playa">Turismo Acuático<i class="material-icons">chevron_right</i></a>
                 <a href="#" class="categoria-select" data-categoria="arquitectónico">Turismo Arquitectónico <i class="material-icons">chevron_right</i></a>
                 <a href="#" class="categoria-select" data-categoria="religioso">Turismo Religioso <i class="material-icons">chevron_right</i></a>
                 <a href="#" class="categoria-select" data-categoria="cultural">Turismo Cultural <i class="material-icons">chevron_right</i></a>
@@ -44,9 +42,8 @@
                 <div class="subcategoria activo " data-categoria="montaña">
                     <div class="enlaces-subcategoria">
                         <button class="btn-regresar" (click)="regresarResponsiveCategorias($event, contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
-                        <h3 class="subtitulo">Turismo de Montaña</h3>
-                        <a href="#">Nombre del registro</a>
-                        <a href="#">(ejemplo) Bosque de la primavera</a>
+                        <a href="#" id="info"><h3 class="subtitulo">Turismo de Montaña</h3></a>
+                        <a id="info">Existe algo único en cada montaña que adorna el cielo mexicano. Estos gigantes de piedra son los eternos vigilantes del país y los paraísos más alejados de todo a donde pocos han llegado.</a>
                     </div>
 
                     <div class="banner-subcategoria">
@@ -57,10 +54,10 @@
 
                     <div class="galeria-subcategoria">
                         <a href="#">
-                            <img src="./assets/img-menu/montaña.jpg" alt="Montaña">
+                            <img src="./assets/img-menu/alpinismo.jpg" alt="Montaña">
                         </a>
                         <a href="#">
-                            <img src="./assets/img-menu/alpinismo.jpg" alt="Alpinismo">
+                            <img src="./assets/img-menu/montañas-motos.jpg" alt="Alpinismo">
                         </a>
                         <a href="#">
                             <img src="./assets/img-menu/caminata.jpg" alt="Caminata en la montaña">
@@ -74,14 +71,13 @@
                 <div class="subcategoria" data-categoria="playa">
                     <div class="enlaces-subcategoria">
                         <button class="btn-regresar" (click)="regresarResponsiveCategorias($event,contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
-                        <h3 class="subtitulo">Turismo de Playa</h3>
-                        <a href="#">Nombre del registro</a>
-                        <a href="#">(ejemplo) Puerto Vallarta</a>
+                        <a href="#" id="info"><h3 class="subtitulo">Turismo Acuático</h3></a>
+                        <a id="info">El turismo acuático engloba todas aquellas actividades y deportes que se pueden disfrutar en mares, ríos, pantanos y lagos que incluye el propio disfrute de su ecosistema. </a>
                     </div>
 
                     <div class="banner-subcategoria">
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="Playa">
+                            <img src="./assets/img-menu/agua1.jpg" alt="Nadar con Delfines">
                         </a>
                     </div>
 
@@ -93,7 +89,7 @@
                             <img src="./assets/img-menu/Camino-a-la-playa.jpg" alt="Camino a la playa">
                         </a>
                         <a href="#">
-                            <img src="./assets/img-menu/Niño-en-playa" alt="Niño en playa">
+                            <img src="./assets/img-menu/niño.jpg" alt="Playa">
                         </a>
                         <a href="#">
                             <img src="./assets/img-menu/Rescate-acuático.jpg" alt="Rescate acuático">
@@ -104,9 +100,9 @@
                 <div class="subcategoria" data-categoria="arquitectónico">
                     <div class="enlaces-subcategoria">
                         <button class="btn-regresar" (click)="regresarResponsiveCategorias($event,contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
-                        <h3 class="subtitulo">Turismo Arquitectónico</h3>
-                        <a href="#">Nombre del registro</a>
-                        <a href="#">(ejemplo) Guachimontones</a>
+                        <a href="" id="info"><h3 class="subtitulo">Turismo Arquitectónico</h3></a>
+                        <a id="info">En Guadalajara, hay muchos lugares y monumentos que son testigos de la historia de la ciudad y de sus personas.</a>
+                        <a id="info">Los orígenes, la fundación y el desarrollo de una ciudad son una fuente de anécdotas y relatos muy interesantes.</a>
                     </div>
 
                     <div class="banner-subcategoria">
@@ -134,29 +130,29 @@
                 <div class="subcategoria" data-categoria="religioso">
                     <div class="enlaces-subcategoria">
                         <button class="btn-regresar" (click)="regresarResponsiveCategorias($event,contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
-                        <h3 class="subtitulo">Turismo Religioso</h3>
-                        <a href="#">Nombre del registro</a>
-                        <a href="#">(ejemplo) Catedral de Guadalajara</a>
+                        <a href="" id="info"><h3 class="subtitulo">Turismo Religioso</h3></a>
+                        <a id="info">Los espacios sacros y sus contenidos culturales aún cumplen la función de generar entornos propicios para la veneración, la contemplación y la adoración.</a>
+                        <a id="info">Visitar Guadalajara, es conocer sus tesoros y admirar con detenimiento siglos de arquitectura y riqueza acuñada.</a>
                     </div>
 
                     <div class="banner-subcategoria">
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/catedral.jpg" alt="Catedral de Guadalajara">
                         </a>
                     </div>
 
                     <div class="galeria-subcategoria">
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/templo-expiatorio.jpg" alt="Templo Expiatorio">
                         </a>
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/luzMundo.jpg" alt="Templo de la Luz del Mundo">
                         </a>
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/basilicaZapopan.jpg" alt="Basilica de Zapopan">
                         </a>
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/2templos.jpg" alt="Los dos Templos">
                         </a>
                     </div>
                 </div>
@@ -164,29 +160,28 @@
                 <div class="subcategoria" data-categoria="cultural">
                     <div class="enlaces-subcategoria">
                         <button class="btn-regresar" (click)="regresarResponsiveCategorias($event,contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
-                        <h3 class="subtitulo">Turismo Cultural</h3>
-                        <a href="#">Nombre del registro</a>
-                        <a href="#">(ejemplo) Museo del Globo</a>
+                        <a href="" id="info"><h3 class="subtitulo">Turismo Cultural</h3></a>
+                        <a id="info">El hecho de que a partir de época de la Colonia en que Guadalajara se transformó en el centro político, social, cultural y económico más importante no sólo de lo que hoy es Jalisco sino también del Occidente de México</a>
                     </div>
 
                     <div class="banner-subcategoria">
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/palacio.png" alt="Palacio Legislativo">
                         </a>
                     </div>
 
                     <div class="galeria-subcategoria">
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/Edificio-XV-Zona-Militar.jpg" alt="Edificio de la XV Zona Militar">
                         </a>
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/cabañas.jpg" alt="Instituto Cultural Cabañas">
                         </a>
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/panteon-de-belen1.jpg" alt="Panteón de Belén">
                         </a>
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/museo.jpg" alt="Museo de las artes">
                         </a>
                     </div>
                 </div>
@@ -194,29 +189,28 @@
                 <div class="subcategoria" data-categoria="artesanal">
                     <div class="enlaces-subcategoria">
                         <button class="btn-regresar" (click)="regresarResponsiveCategorias($event,contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
-                        <h3 class="subtitulo">Turismo Artesanal</h3>
-                        <a href="#">Nombre del registro</a>
-                        <a href="#">(ejemplo) Hilados de la ribera de Chapala</a>
+                        <a href="" id="info"><h3 class="subtitulo">Turismo Artesanal</h3></a>
+                        <a id="info">Al conocer sitios turísticos podemos observar su diversidad y esencia como parte de una región multicultural que nos cuenta a través de sus artesanías, y en base al esfuerzo de las entidades locales por mantener las tradiciones e identidad regional</a>
                     </div>
 
                     <div class="banner-subcategoria">
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg alt=">
+                            <img src="./assets/img-menu/arte1.jpg" alt="Artesania de Guadalajara">
                         </a>
                     </div>
 
                     <div class="galeria-subcategoria">
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/arte2.jpg" alt="Artesania de Guadalajara">
                         </a>
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/arte3.jpg" alt="Artesania de Guadalajara">
                         </a>
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/arte4.jpg" alt="Artesania de Guadalajara">
                         </a>
                         <a href="#">
-                            <img src="./assets/img-menu/playa-banner.jpg" alt="">
+                            <img src="./assets/img-menu/arte5.jpg" alt="Artesania de Guadalajara">
                         </a>
                     </div>
                 </div>
