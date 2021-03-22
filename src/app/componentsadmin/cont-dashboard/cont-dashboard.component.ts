@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CrudService } from '../../services/crud.service';
 import { Usuario, UsuarioObj } from '../../interfaces/Usuario';
 import {UsuarioService} from '../../services/usuario.service';
 import * as $ from 'jquery';
@@ -54,7 +53,7 @@ export class ContDashboardComponent implements OnInit {
   
   async cerrarsession(){
     localStorage.clear();
-    this.entrar = this.usuarioService.loginExito();
+    this.entrar = await this.usuarioService.loginExito();
     this.router.navigate(['/paginaprincipal'])
      
   }

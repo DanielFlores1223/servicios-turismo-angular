@@ -9,13 +9,7 @@ import { ContDashboardComponent } from './cont-dashboard/cont-dashboard.componen
 import { EditEventsComponent } from './eventos/edit-events/edit-events.component';
 import { FormEventsComponent } from './eventos/form-events/form-events.component';
 import { ListEventsComponent } from './eventos/list-events/list-events.component';
-import { EditHotelComponent } from './hotel/edit-hotel/edit-hotel.component';
-import { FormHotelComponent } from './hotel/form-hotel/form-hotel.component';
-import { ListHotelComponent } from './hotel/list-hotel/list-hotel.component';
 import { PanelComponent } from './panel/panel.component';
-import { EditRestaurantComponent } from './restaurant/edit-restaurant/edit-restaurant.component';
-import { FormRestaurantComponent } from './restaurant/form-restaurant/form-restaurant.component';
-import { ListRestaurantComponent } from './restaurant/list-restaurant/list-restaurant.component';
 import { EditSitiosComponent } from './sitios/edit-sitios/edit-sitios.component';
 import { FormSitiosComponent } from './sitios/form-sitios/form-sitios.component';
 import { ListSitiosComponent } from './sitios/list-sitios/list-sitios.component';
@@ -38,14 +32,8 @@ import { EditEmpresasAdminComponent } from './empresas/edit-empresas-admin/edit-
     ContDashboardComponent, 
     EditEventsComponent, 
     FormEventsComponent, 
-    ListEventsComponent, 
-    EditHotelComponent, 
-    FormHotelComponent, 
-    ListHotelComponent, 
+    ListEventsComponent,  
     PanelComponent, 
-    EditRestaurantComponent, 
-    FormRestaurantComponent, 
-    ListRestaurantComponent, 
     EditSitiosComponent, 
     FormSitiosComponent, 
     ListSitiosComponent, ListEmpresasComponent, ListPhotosCarruselComponent, FormPhotosCarruselComponent, FormEmpresasComponent, EmpresasGeneralComponent, EditEmpresasAdminComponent,

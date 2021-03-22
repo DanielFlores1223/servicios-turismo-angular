@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PhotoListComponent } from './componentsadmin/photo-list/photo-list.component'
-import { PhotoFormComponent } from './componentsadmin/photo-form/photo-form.component'
-import { PhotoPreviewComponent } from './componentsadmin/photo-preview/photo-preview.component'
 import { GuarpageWebGuard } from './guards/guarpage-web.guard'
 import { CatedralComponent } from './pageweb/catedral/catedral.component';
 import { CentrohistoricoComponent } from './pageweb/centrohistorico/centrohistorico.component';
@@ -44,13 +41,8 @@ const routes: Routes = [//definimos la rutas para el enrutador
   {path: 'even', component:EventosComponent, canActivate: [GuarpageWebGuard]},
 
   {path:'',redirectTo:'paginaprincipal', pathMatch:'full'},
-  {path:'**',redirectTo:'pagNoFound', pathMatch:'full'}
+  {path:'**',redirectTo:'paginaprincipal', pathMatch:'full'}
 
-/*cuando yo vicite esta ruta renderizame este componente
-  {path: 'photos', component: PhotoListComponent}, 
-  {path: 'photos/new',component: PhotoFormComponent},
-  {path: 'photos/:id',component: PhotoPreviewComponent}
-  /*{path: '', redirectTo: '/photos', pathMatch: 'full'}*/
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -6,18 +6,10 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  @ViewChild("btndepartamentos") btndepartamentos: ElementRef;
-  @ViewChild("grid") grid: ElementRef;
 
-
-
-  constructor(private renderer: Renderer2) { }
+  constructor() { }
   esDispositivoMovil = () => window.innerWidth <= 800;
   ngOnInit(): void {
-
-    this.renderer.listen(this.btndepartamentos, "click", () => {
-      this.renderer.addClass(this.grid.nativeElement, " activo");
-    })
 
   }
 
