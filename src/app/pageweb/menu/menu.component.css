@@ -276,10 +276,9 @@ p{
 		transition: .3s ease all;
 		transform: translate(-100%);
 	}
-	.menu img{
-		height: 80px;
-		width: 80px;
-		margin-left: 0;
+	.menu .btn-departamentos img{
+		height: 100px;
+		width: 100px;
 	}
 
 	.menu .contenedor-enlaces-nav.activo {
@@ -288,11 +287,14 @@ p{
 
 	.menu .btn-departamentos {
 		width: 100%;
-		align-items: initial;
-		justify-content: space-between;
+		display: block;
+		justify-content: flex-start;
 		cursor: pointer;
 	}
-
+	.menu .btn-departamentos span{
+		font-weight: normal;
+		margin-left: 0;
+	}
 	.menu .btn-departamentos i {
 		position: static;
 		margin-left: 20px;
