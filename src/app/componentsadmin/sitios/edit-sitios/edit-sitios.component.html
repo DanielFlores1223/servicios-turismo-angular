@@ -17,11 +17,21 @@
                     <div class="col-lg-9 mb-4">
                         <div class="card card-small mb-4">
                             <div class="card-body">
-                                <form (submit)="updateSitio(nombresitio, subtitulo, descripcioncorta, contenido1, contenido2)">
+                                <form (submit)="updateSitio(nombresitio, subtitulo, descripcioncorta, contenido1, contenido2, categoria)">
                                     <div class="form-row">
                                         <div class="form-group col-md-12 mb-3">
                                             <label for="" class="h5 d-inline">* </label>Campos Obligatorios.
-                                        </div>
+                                        </div><br>
+                                        * Categoría del sitio
+                                        <select name="categoria" #categoria [value]="sitio.categoria" class="form-control width-90" required>
+                                            <option value="" selected disabled>Seleccione la categoría</option>
+                                            <option value="montana">Turismo de Montaña</option>
+                                            <option value="acuatico">Turismo Acuático</option>
+                                            <option value="arquitectonico">Turismo Arquitectónico</option>
+                                            <option value="religioso">Turismo Religioso</option>
+                                            <option value="cultural">Turismo Cultural</option>
+                                            <option value="artesanal">Turismo Artesanal</option>
+                                          </select>
                                         <div class="form-group col-md-6">
                                             * Nombre del sitio
                                             <input class="form-control" type="text" placeholder="Nombre del sitio" [value]="sitio.nombresitio" #nombresitio>

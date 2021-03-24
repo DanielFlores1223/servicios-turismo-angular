@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Sitio } from 'src/app/interfaces/Sitio';
 import { SitioService } from 'src/app/services/sitio.service';
 import {Dominio} from '../../interfaces/Dominio';
@@ -12,17 +13,25 @@ export class MasSitiosComponent implements OnInit {
   pageActual: number = 1;
   sitios: Sitio[] = [];//creamos list vacia
   url = Dominio.URL;
+  categoria = this.activatedRoute.snapshot.params.categoria;
 
-  constructor(private sitioService: SitioService) { }
+  constructor(private sitioService: SitioService, private ruta: Router, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.sitioService.getSitios()//utilizamos el metodo getsitios y retorna dos cosas la res y o un error
-    .subscribe(
-      res => {
-        this.sitios = res;//utilizamos la propiedad sitios lin 12 y almacena lo que tenga la res
-      },
-      err => console.log(err)
-    )
+
+    //Detecta cambios en el parametro de la ruta massitios
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+      this.categoria = params.get('categoria');
+      
+      this.sitioService.getSitioCategoria(this.categoria)
+      .subscribe(
+        res => {
+          this.sitios = res;
+        },
+        err => console.log(err)
+      );
+
+    })
   }
   scroll(){
     window.scroll(0,0);

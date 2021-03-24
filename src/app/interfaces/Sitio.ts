@@ -6,5 +6,5 @@ export interface Sitio{
     contenido1: string;
     contenido2: string;
     imagePath: string;
-
+    categoria: string;
 }

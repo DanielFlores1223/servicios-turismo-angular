@@ -34,12 +34,13 @@ export class FormSitiosComponent implements OnInit {
   }
 
 
-  uploadSitio(nombresitio: HTMLInputElement, subtitulo: HTMLInputElement, descripcioncorta: HTMLTextAreaElement, contenido1: HTMLTextAreaElement, contenido2: HTMLTextAreaElement) {
+  uploadSitio(nombresitio: HTMLInputElement, subtitulo: HTMLInputElement, descripcioncorta: HTMLTextAreaElement, contenido1: HTMLTextAreaElement, contenido2: HTMLTextAreaElement, categoria: HTMLSelectElement) {
     if (nombresitio.value !== '' && 
         subtitulo.value !== '' && 
         descripcioncorta.value !== '' && 
         contenido1.value !== '' &&
         contenido2.value !== '' &&
+        categoria.value !== '' &&
         this.file !== undefined) {
 
       const tipoImagen = this.file.type.split('/');
@@ -54,7 +55,7 @@ export class FormSitiosComponent implements OnInit {
           timerProgressBar:true
         })
       }else{
-    this.sitioService.createSitio(nombresitio.value, subtitulo.value, descripcioncorta.value, contenido1.value, contenido2.value, this.file)//retorna respuesta y usamos
+    this.sitioService.createSitio(nombresitio.value, subtitulo.value, descripcioncorta.value, contenido1.value, contenido2.value, categoria.value, this.file)//retorna respuesta y usamos
     //el metodo subscribe
       .subscribe(
         async res => {

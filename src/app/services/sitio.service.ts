@@ -13,13 +13,14 @@ export class SitioService {
 
   constructor(private http: HttpClient) { }
 
-  createSitio(nombresitio: string, subtitulo: string, descripcioncorta: string, contenido1: string, contenido2: string, photo: File) {
+  createSitio(nombresitio: string, subtitulo: string, descripcioncorta: string, contenido1: string, contenido2: string, categoria: string,photo: File) {
     const fd = new FormData();
     fd.append('nombresitio', nombresitio);//se crea un campo a este formulario title y se pasa el valor del input
     fd.append('subtitulo', subtitulo);
     fd.append('descripcioncorta', descripcioncorta);
     fd.append('contenido1', contenido1);
     fd.append('contenido2', contenido2);
+    fd.append('categoria', categoria);
     fd.append('image', photo);
     return this.http.post(this.URI, fd);//retornamos una peticion post a la ruta
   }
@@ -32,12 +33,16 @@ export class SitioService {
     return this.http.get<Sitio>(`${this.URI}/${id}`);
   }
 
+  getSitioCategoria(categoria: string){
+    return this.http.get<Sitio[]>(`${this.URI}-categoria/${categoria}`)
+  }
+
   deleteSitio(id: string) {
     return this.http.delete(`${this.URI}/${id}`);
   }
 
-  updateSitio(id: string, nombresitio: string, subtitulo: string, descripcioncorta: string, contenido1: string, contenido2: string) {
-    return this.http.put(`${this.URI}/${id}`, {nombresitio, subtitulo, descripcioncorta, contenido1, contenido2});
+  updateSitio(id: string, nombresitio: string, subtitulo: string, descripcioncorta: string, contenido1: string, contenido2: string, categoria: string) {
+    return this.http.put(`${this.URI}/${id}`, {nombresitio, subtitulo, descripcioncorta, contenido1, contenido2, categoria});
   }
 
   updateSitioImage(photo: File, id: String){
@@ -45,4 +50,5 @@ export class SitioService {
     fd.append('image', photo);
     return this.http.put(`${this.URI}-image/${id}`, fd);
   }
+
 }

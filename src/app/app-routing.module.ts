@@ -35,7 +35,7 @@ const routes: Routes = [//definimos la rutas para el enrutador
   {path:'paginaprincipal',component:PaginaPrincipalComponent, canActivate: [GuarpageWebGuard]},
   {path:'pie',component:PiePaginaComponent, canActivate: [GuarpageWebGuard]},
   {path:'restaurant',component:RestaurantesComponent, canActivate: [GuarpageWebGuard]},
-  {path:'massitios',component:MasSitiosComponent, canActivate: [GuarpageWebGuard]},
+  {path:'massitios/:categoria',component:MasSitiosComponent, canActivate: [GuarpageWebGuard]},
   {path:'registro', component:RegistroComponent, canActivate: [GuarpageWebGuard]},
   {path:'loginAfiliado', component:LoginAfiliadoComponent, canActivate: [GuarpageWebGuard]},
   {path: 'even', component:EventosComponent, canActivate: [GuarpageWebGuard]},

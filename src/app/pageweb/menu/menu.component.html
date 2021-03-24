@@ -30,20 +30,20 @@
                 <button class="btn-regresar" (click)="regresarResponsive($event, grid)"><i class="material-icons">arrow_back</i> Regresar</button>
                 <h3 class="subtitulo">Categorias</h3>
 
-                <a href="#" class="categoria-select" data-categoria="montaña" >Turismo de Montaña <i class="material-icons">chevron_right</i></a>
-                <a href="#" class="categoria-select" data-categoria="playa">Turismo Acuático<i class="material-icons">chevron_right</i></a>
-                <a href="#" class="categoria-select" data-categoria="arquitectónico">Turismo Arquitectónico <i class="material-icons">chevron_right</i></a>
-                <a href="#" class="categoria-select" data-categoria="religioso">Turismo Religioso <i class="material-icons">chevron_right</i></a>
-                <a href="#" class="categoria-select" data-categoria="cultural">Turismo Cultural <i class="material-icons">chevron_right</i></a>
-                <a href="#" class="categoria-select" data-categoria="artesanal">Turismo Artesanal <i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="montaña" routerLink="massitios/montana">Turismo En La Naturaleza<i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="playa" routerLink="massitios/acuatico">Turismo Acuático<i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="arquitectónico" routerLink="massitios/arquitectonico">Turismo Arquitectónico <i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="religioso" routerLink="massitios/religioso">Turismo Religioso <i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="cultural" routerLink="massitios/cultural">Turismo Cultural <i class="material-icons">chevron_right</i></a>
+                <a href="#" class="categoria-select" data-categoria="artesanal" routerLink="massitios/artesanal">Turismo Artesanal <i class="material-icons">chevron_right</i></a>
             </div>
 
             <div class="contenedor-subcategorias" #contenedorSub>
                 <div class="subcategoria activo " data-categoria="montaña">
                     <div class="enlaces-subcategoria">
                         <button class="btn-regresar" (click)="regresarResponsiveCategorias($event, contenedorSub)"><i class="material-icons">arrow_back</i>Regresar</button>
-                        <a href="#" id="info"><h3 class="subtitulo">Turismo de Montaña</h3></a>
-                        <a id="info">Existe algo único en cada montaña que adorna el cielo mexicano. Estos gigantes de piedra son los eternos vigilantes del país y los paraísos más alejados de todo a donde pocos han llegado.</a>
+                        <a href="#" id="info"><h3 class="subtitulo">Turismo en la naturaleza</h3></a>
+                        <a id="info">El turismo ecológico, ecoturismo o turismo de naturaleza es un enfoque de las actividades turísticas en el que se ofrece la observación del medio natural.</a>
                     </div>
 
                     <div class="banner-subcategoria">

@@ -50,17 +50,18 @@ export class EditSitiosComponent implements OnInit {
 
   
 
-  updateSitio(nombresitio: HTMLInputElement, subtitulo: HTMLInputElement, descripcioncorta: HTMLInputElement, contenido1: HTMLInputElement, contenido2: HTMLInputElement): boolean {
+  updateSitio(nombresitio: HTMLInputElement, subtitulo: HTMLInputElement, descripcioncorta: HTMLInputElement, contenido1: HTMLInputElement, contenido2: HTMLInputElement, categoria: HTMLSelectElement ): boolean {
 
      //validamos que los campos no esten vacios
     if (nombresitio.value !== '' && 
         subtitulo.value !== '' && 
         descripcioncorta.value !== '' && 
         contenido1.value !== '' &&
-        contenido2.value !== '') {
+        contenido2.value !== '' &&
+        categoria.value !== '') {
 
          //actualizamos la información del sitio turistico 
-         this.sitioService.updateSitio(this.sitio._id,nombresitio.value, subtitulo.value, descripcioncorta.value, contenido1.value, contenido2.value)
+         this.sitioService.updateSitio(this.sitio._id,nombresitio.value, subtitulo.value, descripcioncorta.value, contenido1.value, contenido2.value, categoria.value)
          .subscribe( async res => {
            await this.updateImage();
 
