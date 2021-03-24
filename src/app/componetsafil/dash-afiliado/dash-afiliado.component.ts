@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Comerciante } from 'src/app/interfaces/comerciante';
-import { CrudService } from 'src/app/services/crud.service';
 import {UsuarioService} from '../../services/usuario.service';
 import { Usuario } from '../../interfaces/Usuario';
 
@@ -19,7 +17,7 @@ export class DashAfiliadoComponent implements OnInit {
   id: String = localStorage.getItem('token');
   nombre = '-';
 
-  constructor(private router:Router,private serviciologin: CrudService, private usuarioService: UsuarioService) {  
+  constructor(private router:Router, private usuarioService: UsuarioService) {  
   }
 
   ngOnInit(): void {

@@ -1,7 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import {UsuarioService} from '../../services/usuario.service';
-
 import Swal from 'sweetalert2';
 import { stringify } from '@angular/compiler/src/util';
 

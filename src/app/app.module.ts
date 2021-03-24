@@ -15,9 +15,6 @@ import { GuarpageWebGuard } from './guards/guarpage-web.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './componentsadmin/navigation/navigation.component';
-import { PhotoFormComponent } from './componentsadmin/photo-form/photo-form.component';
-import { PhotoPreviewComponent } from './componentsadmin/photo-preview/photo-preview.component';
-import { PhotoListComponent } from './componentsadmin/photo-list/photo-list.component';
 import { CatedralComponent } from './pageweb/catedral/catedral.component';
 import { CentrohistoricoComponent } from './pageweb/centrohistorico/centrohistorico.component';
 import { HotelesComponent } from './pageweb/hoteles/hoteles.component';
@@ -51,9 +48,6 @@ import { ComerciosComponent } from './pageweb/comercios/comercios.component';
   declarations: [
     AppComponent,
     NavigationComponent,
-    PhotoFormComponent,
-    PhotoPreviewComponent,
-    PhotoListComponent,
     CatedralComponent,
     CentrohistoricoComponent,
     HotelesComponent,
@@ -87,10 +81,6 @@ import { ComerciosComponent } from './pageweb/comercios/comercios.component';
     HttpClientModule,
     NgxSpinnerModule,
     NgxPaginationModule,
-    
-    
-    
-
   ],
   providers: [GuarloginGuard, GuaradminGuard, GuarafiliGuard, GuarpageWebGuard],
   bootstrap: [AppComponent],
